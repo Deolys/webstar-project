@@ -1,5 +1,6 @@
 # webstar-project
-# MVP1 Tasks:
+## WebStar - сайт поиска специалистов для реализации Ваших идей
+### MVP1 Tasks:
 
 1. Alekseev Eduard:
    - Registration
