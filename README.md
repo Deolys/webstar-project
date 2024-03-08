@@ -1,5 +1,11 @@
 # webstar-project
-## WebStar - сайт поиска специалистов для реализации Ваших идей
+## WebStar - сайт поиска веб-специалистов для реализации Ваших идей
+Pages:
+- Sign in/Sign up page (Ezhov Eugene)
+- View/Add/Edit card page (Alekseev Emil)
+- Cards list page (Alekseev Eduard)
+- Admin panel (Alekseev Eduard)
+   
 ### MVP1 Tasks:
 
 1. Alekseev Eduard:
