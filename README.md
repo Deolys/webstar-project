@@ -1,24 +1,30 @@
-# webstar-project
+# Webstar-project
 ## WebStar - сайт поиска веб-специалистов для реализации Ваших идей
-Pages:
-- Sign in/Sign up page (Ezhov Eugene)
-- View/Add/Edit card page (Alekseev Emil)
-- Cards list page (Alekseev Eduard)
-- Admin panel (Alekseev Eduard)
-   
-### MVP1 Tasks:
+![computing cat](https://github.com/Deolys/webstar-project/assets/150851609/0f054af7-84b8-439f-9a0f-44d393cb6f9a)
 
-1. Alekseev Eduard:
-   - Registration
-   - Adding a card
-   - Cards list
+***Страницы***:
+- Вход/Регистрация (Ежов Евгений)
+- Карта (с резюме) пользователя (Алексеев Эмиль)
+- Главная страница с просмотром карт (Алексеев Эдуард)
+- Панель администратора (Алексеев Эдуард)
 
-2. Alekseev Emil:
-   - Editing a card
-   - Moderating cards
-   - Cards search
+### MVP1 Задачи:
 
-3. Ezhov Eugene:
-   - Login
-   - Password recovery
-   - Cards filter
+1. **Алексеев Эдуард**:
+   - Регистрация
+   - Добавление карты
+   - Список карт
+
+2. **Алексеев Эмиль**:
+   - Редактирование карты
+   - Модерация карт
+   - Поисковик карт
+
+3. **Ежов Евгений**:
+   - Авторизация
+   - Восстановление пароля
+   - Фильтр карт
+
+
+
+
