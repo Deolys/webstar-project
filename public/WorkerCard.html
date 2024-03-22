@@ -1,0 +1,145 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+html{height:100%}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+table{border-collapse:collapse;border-spacing:0}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="" alt="site logo">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="buttons-panel">
+            <button class="back-button">Назад</button>
+            <button class="favourites-button"></button>
+        </div>
+        <div class=photo-panel>
+            <button class="arrow-left-button"></button>
+            <div class="slider">
+                <div class="pagination-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <div class="upload-btn-wrapper">
+                    <button class="add-content-button">+</button>
+                    <input type="file" name="panelPhoto" accept="image/*">
+                </div>
+                <ul>
+                    <li><img src="" alt="portfolio image 1" /></li>
+                    <li><img src="" alt="portfolio image 2" /></li>
+                    <li><img src="" alt="portfolio image 3" /></li>
+                    <li><img src="" alt="portfolio image 4" /></li>
+                    <li><img src="" alt="portfolio image 5" /></li>
+                    <li><img src="" alt="portfolio image 6" /></li>
+                    <li><img src="" alt="portfolio image 7" /></li>
+                    <li><img src="" alt="portfolio image 8" /></li>
+                    <li><img src="" alt="portfolio image 9" /></li>
+                    <li><img src="" alt="portfolio image 10" /></li>
+                </ul>
+            </div>
+            <button class="arrow-right-button"></button>
+        </div>
+        <div class="tags-panel">
+            <button class="add-content-button">+</button>
+            <div class="tag">Тэг 1</div>
+            <div class="tag">Тэг 2</div>
+            <div class="tag">Тэг 3</div>
+        </div>
+
+        <div class="profile-container">
+            <div class="profile-photo">
+                <img src="" alt="profile image" />
+                <div class="upload-btn-wrapper">
+                    <button class="add-content-button">+</button>
+                    <input type="file" name="userPhoto" accept="image/*">
+                </div>
+            </div>
+
+            <div class="image-feed">
+                <div class="image-container">
+                    <img src="" alt="background image" />
+                    <div class="upload-btn-wrapper">
+                        <button class="add-content-button">+</button>
+                        <input type="file" name="backgroundPhoto" accept="image/*">
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-description">
+                <div class="username">Имя пользователя</div>
+                <div class="location">Город, Страна</div>
+                <div class="bio">
+                    <textarea placeholder="Напишите что-нибудь о себе"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <!-- Контейнеры для загрузки картинок и ввода текста -->
+            <div class="content-item">
+                <div class="item-photo">
+                    <img src="" alt="content image №1" />
+                    <div class="upload-btn-wrapper">
+                        <button class="add-content-button">+</button>
+                        <input type="file" name="contentPhoto1" accept="image/*">
+                    </div>
+                </div>
+                <div class="text-input">
+                    <textarea placeholder="Описание"></textarea>
+                </div>
+            </div>
+
+            <div class="content-item">
+                <div class="item-photo">
+                    <img src="" alt="content image №2" />
+                    <div class="upload-btn-wrapper">
+                        <button class="add-content-button">+</button>
+                        <input type="file" name="contentPhoto2" accept="image/*">
+                    </div>
+                </div>
+                <div class="text-input">
+                    <textarea placeholder="Описание"></textarea>
+                </div>
+            </div>
+            
+            <div class="content-item">
+                <div class="item-photo">
+                    <img src="" alt="content image №3" />
+                    <div class="upload-btn-wrapper">
+                        <button class="add-content-button">+</button>
+                        <input type="file" name="contentPhoto3" accept="image/*">
+                    </div>
+                </div>
+                <div class="text-input">
+                    <textarea placeholder="Описание"></textarea>
+                </div>
+            </div>
+
+            <button class="add-content-button">+</button>
+        </div>
+    </div>
+    <!-- <script src="scripts.js"></script> -->
+</body>
+</html>
