@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="main_styles.css">
+    <style>
+    .whitecolor{
+        color: white;
+        margin-top: 46px;
+    }
+    .greencolor {
+        color: #35C7AD;
+        margin-top: 46px;
+    }
+    .greycolor {
+        color: #C3C3C3;
+        margin-top: 150px;
+    }
+    .text-field__label {
+      display: block;
+      margin-top: 100px;
+    }
+    .text-field__input {
+        display: block;
+        width: 100%;
+        height: calc(2.25rem + 2px);
+        font-family: 'Montserrat', sans-serif;
+        /* margin-top: 0px; */
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5;
+        text-indent: 10px;
+        color: #212529;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #bdbdbd;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    .enter_button{
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+    a:link {
+        color: #35C7AD;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:visited {
+        color: #35C7AD;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+
+    a:hover {
+        color: orange;
+        background-color: transparent;
+    }
+
+    a:active {
+        color: yellow;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    .password{
+        position: relative;
+    }
+    </style>
+</head>
+<body>
+    <header>
+         
+    </header>
+    
+</body>
+    <!-- <div>
+        <img 
+        src="Ellipse 4.svg" 
+        id="spot1"/>
+    </div>
+    <div>
+        <img 
+        src="Ellipse 5.svg" 
+        id="spot2"/>
+    </div> -->
+    <div id="box">
+        <form>
+            <div id="page_name">
+                <span class="greencolor">Дом </span> 
+                <span class="whitecolor">/ Авторизация</span>
+            </div>
+            <div id="Enter">
+                <span class="whitecolor">Вход</span>
+            </div>
+            <div id="Tip1">
+                <span class="greycolor">Введите свой логин и пароль</span>
+            </div>
+            <p>
+                <div id="login_label">
+                    <label class="whitecolor">Логин</label>
+                </div>
+                <input 
+                class="text-field__input"
+                type="text" 
+                name="email"
+                id="box2"
+                placeholder="Введите логин" required
+                value="Login@test.ru"/>
+            </p>
+            <p>
+                <div id="pasw_label">
+                    <label class="whitecolor">Пароль</label>
+                </div>
+                <div class="password">
+                    <input class="text-field__input password_input"
+                    type="text" 
+                    name="password"
+                    id="box3"
+                    placeholder="Введите пароль" required
+                    value="например: 1gE_!jh3e@"/>
+                    <image type="image" 
+                    src="bi_eye-slash.png" 
+                    id="Eye_button">
+                </div>
+            </p>
+            <p><button type="submit" class="enter_button"
+                id="box4">Войти</button>
+            </p>
+            <div id="Tip2">
+                <span class="whitecolor">Нет аккаунта? </span>
+                <span class="greencolor">
+                    <a href="https:\\ya.ru"> Давайте создадим!</a>
+                </span>
+            </div> 
+        </form>
+    </div>
+
+</html>
