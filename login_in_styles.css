@@ -8,14 +8,11 @@
     outline: none;
 }
 
-body, html {
+body{
     justify-content: center;
     align-items: center;
     width: 1440px;
     height: 680p;
-}
-
-body {
     background-color: black;
     font-family: Montserrat;
 }
@@ -25,8 +22,6 @@ header {
     padding: 10px 0.5% 0px 0.5%;
     background: transparent;
 }
-
-
 
 #box {
     width:400px;
@@ -137,19 +132,29 @@ header {
 }
 
 #spot1{
-    left: 850px;
-    bottom: 195px;
+    /* left: 850px;
+    bottom: 195px; */
+    position: absolute;
     z-index: -1; 
     width:674px;
     height:874px;
+    margin-left: 800px;
+    margin-top: -400px;
     background-color: transparent;
 }
 
 #spot2{
-    left: -70px;
-    bottom: -150px;
+    /* left: -70px;
+    bottom: -150px; */
+    position: absolute;
     z-index: -1; 
     width:700px;
     height:600px;
+    margin-top: 200px;
+    margin-left: -100px;
     background-color: transparent;
+}
+
+.wrapper{
+
 }
