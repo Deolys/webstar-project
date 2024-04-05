@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../styles/normalize.css">
   <link rel="stylesheet" href="../styles/style.css">
   <link rel="stylesheet" href="../styles/main.css">
+  <script src="../src/script.js" defer></script>
 </head>
 <body>
   <div class="wrapper">
@@ -16,126 +17,147 @@
           <img class="logo__icon" src="../public/icons/logo.svg"></img>
         </a>
         <nav class="header__links">
-          <a class="header__link favourites-link">
-              <img class="favourite-green__icon" src="../public/icons/star-green.svg"></img>
+          <a class="header__link favourites-link ">
+              <img class="favourite-green__icon" src="../public/icons/star-green.svg" title="Избранное" aria-label="Избранное"></img>
               <span class="favourites-link__title">Избранное</span>
           </a>
 
-          <a class="header__link logout-link">
+          <a class="header__link my-card-link">
+            <button class="my-card-btn">Моя карточка</button>
+          </a>
+
+          <a class="header__link logout-link ">
             <button class="logout-btn">Выйти</button>
           </a>
 
-          <a class="header__link login-link">
+          <a class="header__link login-link hidden">
             <button class="login-btn">Войти</button>
           </a>
 
-          <a class="header__link sign-up-link">
+          <a class="header__link sign-up-link hidden">
             <button class="sign-up-btn">Зарегистрироваться</button>
           </a>
+
+          
+            
         </nav>
+        <div id="burger" onclick="burgerOnClick()">
+          <div id="bar1" class="bar"></div>
+          <div id="bar2" class="bar"></div>
+          <div id="bar3" class="bar"></div>
+        </div>
+      <div class="burger-bg__content">
+        <div class="burger-bg" id="burger-bg"></div>
+      </div>
+      
       </div>
     </header>
 
-    <main class="page">
-      <div class="page__container">
-        <aside class="page__sidebar sidebar">
-          <div class="sidebar__categories categories">
-            <span class="categories__title">Категории</span>
-            <div class="categories__items">
-              <div class="categories__item">Сайты</div>
-              <div class="categories__item">Десктоп</div>
-              <div class="categories__item">Дизайн</div>
-              <div class="categories__item">Под ключ</div>
-              <div class="categories__item">Мобильные устройства</div>
-              <div class="categories__item">Вёрстка</div>
-            </div>
+    <div class="content__container">
+      <aside class="page__sidebar sidebar">
+        <button class="sidebar__btn">
+          <img src="../public/icons/arrow.svg" title="Боковая панель" alt="Боковая панель">
+        </button>
+        <div class="sidebar__categories categories">
+          <span class="categories__title">Категории</span>
+          <div class="categories__items">
+            <div class="categories__item">Сайты</div>
+            <div class="categories__item">Десктоп</div>
+            <div class="categories__item">Дизайн</div>
+            <div class="categories__item">Под ключ</div>
+            <div class="categories__item">Мобильные устройства</div>
+            <div class="categories__item">Вёрстка</div>
           </div>
-
-          <div class="sidebar__displays displays">
-            <span class="displays__title">Отображение</span>
-            <div class="displays__buttons">
-              <button class="double-column-btn" title="Разместить карточки в две колонки">
-                <img class="first-display__icon" src="../public/icons/first-display.svg"></img>
-              </button>
-              <button class="single-column-btn" title="Разместить карточки в одну колонку">
-                <img class="second-display__icon" src="../public/icons/second-display.svg"></img>
-              </button>
-            </div>
+        </div>
+  
+        <div class="sidebar__displays displays">
+          <span class="displays__title">Отображение</span>
+          <div class="displays__buttons">
+            <button class="double-column-btn" title="Разместить карточки в две колонки">
+              <img class="first-display__icon" src="../public/icons/first-display.svg"></img>
+            </button>
+            <button class="single-column-btn" title="Разместить карточки в одну колонку">
+              <img class="second-display__icon" src="../public/icons/second-display.svg"></img>
+            </button>
           </div>
-
-        </aside>
-        <section class="main">
-          <div class="main__container">
-            <h1 class="main__title">WebStar - create your digital dream with us</h1>
-            <div class="main__search search">
-              <button class="search__btn" type="submit">
-                <span>поиск</span>
-                <img class="search__icon" src="../public/icons/search.svg"></img>
-              </button>
-              <input class="search__input" type="text" placeholder="Найти исполнителя..." aria-label="Найти исполнителя" onerror="console.log('error 1')">
-            </div>
-            <div class="main__cards">
-              <a href="" class="card-link">
-                <article class="card">
-                  <div class="card__favourite">
-                    <img class="favourite__icon" src="../public/icons/star-outline.svg" title="Избранное"></img>
-                  </div>
-                  <div class="card__image">
-                    <img src="../public/images/cat.jpg" alt="Превью карточки" aria-label="Превью карточки">
-                  </div>
-                  <div class="card__desc">
-                    <p class="card__text">Самое лучшее название, которое только можно придумать!</p>
-                    <div class="card__tags">
-                      <div class="card__tag">Сайты</div>
-                      <div class="card__tag">Под ключ</div>
-                      <div class="card__tag">Десктоп</div>
+        </div>
+  
+      </aside>
+      <main class="page">
+        <div class="page__container">
+          <section class="main">
+            <!-- <div class="main__container"> -->
+              <h1 class="main__title">WebStar - create your digital dream with us</h1>
+              <div class="main__search search">
+                <button class="search__btn" type="submit">
+                  <span>поиск</span>
+                  <img class="search__icon" src="../public/icons/search.svg"></img>
+                </button>
+                <input class="search__input" type="text" placeholder="Найти исполнителя..." aria-label="Найти исполнителя" onerror="console.log('error 1')">
+              </div>
+              <div class="main__cards">
+                <a href="" class="card-link">
+                  <article class="card">
+                    <div class="card__favourite">
+                      <img class="favourite__icon" src="../public/icons/star-outline.svg" title="Избранное"></img>
                     </div>
-                  </div>
-                </article>
-              </a>
-
-              <a href="" class="card-link">
-                <article class="card">
-                  <div class="card__favourite">
-                    <img class="favourite__icon" src="../public/icons/star-outline.svg" title="Избранное"></img>
-                  </div>
-                  <div class="card__image">
-                    <img src="../public/images/cat.jpg" alt="Превью карточки" aria-label="Превью карточки">
-                  </div>
-                  <div class="card__desc">
-                    <p class="card__text">Самое лучшее название, которое только можно придумать!</p>
-                    <div class="card__tags">
-                      <div class="card__tag">Сайты</div>
-                      <div class="card__tag">Под ключ</div>
-                      <div class="card__tag">Десктоп</div>
+                    <div class="card__image">
+                      <img src="../public/images/site2.png" alt="Превью карточки" aria-label="Превью карточки">
                     </div>
-                  </div>
-                </article>
-              </a>
-
-              <a href="" class="card-link">
-                <article class="card">
-                  <div class="card__favourite">
-                    <img class="favourite__icon" src="../public/icons/star-outline.svg" title="Избранное"></img>
-                  </div>
-                  <div class="card__image">
-                    <img src="../public/images/cat.jpg" alt="Превью карточки" aria-label="Превью карточки">
-                  </div>
-                  <div class="card__desc">
-                    <p class="card__text">Самое лучшее название, которое только можно придумать!</p>
-                    <div class="card__tags">
-                      <!-- <div class="card__tag"></div>
-                      <div class="card__tag"></div>
-                      <div class="card__tag"></div> -->
+                    <div class="card__desc">
+                      <p class="card__text">Самое лучшее название, которое только можно придумать!</p>
+                      <div class="card__tags">
+                        <div class="card__tag">Сайты</div>
+                        <div class="card__tag">Под ключ</div>
+                        <div class="card__tag">Десктоп</div>
+                      </div>
                     </div>
-                  </div>
-                </article>
-              </a>
-            </div>
-          </div>
-        </section>
-      </div>
-    </main>
+                  </article>
+                </a>
+  
+                <a href="" class="card-link">
+                  <article class="card">
+                    <div class="card__favourite">
+                      <img class="favourite__icon" src="../public/icons/star-outline.svg" title="Избранное"></img>
+                    </div>
+                    <div class="card__image">
+                      <img src="../public/images/site3.jpg" alt="Превью карточки" aria-label="Превью карточки">
+                    </div>
+                    <div class="card__desc">
+                      <p class="card__text">Самое лучшее название, которое только можно придумать!</p>
+                      <div class="card__tags">
+                        <div class="card__tag">Сайты</div>
+                        <div class="card__tag">Под ключ</div>
+                        <div class="card__tag">Десктоп</div>
+                      </div>
+                    </div>
+                  </article>
+                </a>
+  
+                <a href="" class="card-link">
+                  <article class="card">
+                    <div class="card__favourite">
+                      <img class="favourite__icon" src="../public/icons/star-outline.svg" title="Избранное"></img>
+                    </div>
+                    <div class="card__image">
+                      <img src="../public/images/site1.jpeg" alt="Превью карточки" aria-label="Превью карточки">
+                    </div>
+                    <div class="card__desc">
+                      <p class="card__text">Самое лучшее название, которое только можно придумать!</p>
+                      <div class="card__tags">
+                        <!-- <div class="card__tag"></div>
+                        <div class="card__tag"></div>
+                        <div class="card__tag"></div> -->
+                      </div>
+                    </div>
+                  </article>
+                </a>
+              </div>
+            <!-- </div> -->
+          </section>
+        </div>
+      </main>
+    </div>
 
     <!-- <footer class="footer"></footer> -->
 

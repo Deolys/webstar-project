@@ -17,6 +17,19 @@
 .panel__messages {
   margin-top: 60px;
 }
+@media (max-width: 1080px) {
+  .panel__title {
+    font-size: 32px;
+  }
+  .panel__top {
+    padding-inline: 0;
+  }
+}
+@media (max-width: 540px) {
+  .panel__title {
+    font-size: 24px;
+  }
+}
 
 .search {
   position: relative;
@@ -60,6 +73,11 @@
 .search__input:focus::placeholder {
   color: transparent;
 }
+@media (max-width: 540px) {
+  .search {
+    font-size: 14px;
+  }
+}
 
 .message {
   display: flex;
@@ -86,6 +104,20 @@
   font-weight: 400;
   color: var(--dark-text-color);
   cursor: pointer;
+}
+@media (max-width: 444px) {
+  .message__button {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1080px) {
+  .message {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .message__button:first-child {
+    margin-left: 0;
+  }
 }
 
 .view-btn {

@@ -6,7 +6,7 @@
   <title>WebStar | Admin</title>
   <link rel="stylesheet" href="../styles/normalize.css">
   <link rel="stylesheet" href="../styles/style.css">
-  <link rel="stylesheet" href="../styles/admin.css">
+  <link rel="stylesheet" href="../styles/admin.css"> <script src="../src/script.js" defer></script>
 </head>
 <body>
   <div class="wrapper">
@@ -16,23 +16,39 @@
           <img class="logo__icon" src="../public/icons/logo.svg"></img>
         </a>
         <nav class="header__links">
-          <a class="header__link favourites-link">
-              <img class="favourite-green__icon" src="../public/icons/star-green.svg"></img>
+          <a class="header__link favourites-link ">
+              <img class="favourite-green__icon" src="../public/icons/star-green.svg" title="Избранное" aria-label="Избранное"></img>
               <span class="favourites-link__title">Избранное</span>
           </a>
 
-          <a class="header__link logout-link">
+          <a class="header__link my-card-link">
+            <button class="my-card-btn">Моя карточка</button>
+          </a>
+
+          <a class="header__link logout-link ">
             <button class="logout-btn">Выйти</button>
           </a>
 
-          <a class="header__link login-link">
+          <a class="header__link login-link hidden">
             <button class="login-btn">Войти</button>
           </a>
 
-          <a class="header__link sign-up-link">
+          <a class="header__link sign-up-link hidden">
             <button class="sign-up-btn">Зарегистрироваться</button>
           </a>
+
+          
+            
         </nav>
+        <div id="burger" onclick="burgerOnClick()">
+          <div id="bar1" class="bar"></div>
+          <div id="bar2" class="bar"></div>
+          <div id="bar3" class="bar"></div>
+        </div>
+      <div class="burger-bg__content">
+        <div class="burger-bg" id="burger-bg"></div>
+      </div>
+      
       </div>
     </header>
 

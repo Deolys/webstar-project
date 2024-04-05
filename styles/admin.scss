@@ -22,6 +22,21 @@
   &__messages {
     margin-top: 60px;
   }
+
+  @media(max-width: 1080px) {
+    &__title {
+      font-size: 32px;
+    }
+    &__top {
+      padding-inline: 0;
+    }
+  }
+
+  @media(max-width: 540px) {
+    &__title {
+      font-size: 24px;
+    }
+  }
 }
 
 .search {
@@ -64,6 +79,10 @@
       color: transparent;
     }
   }
+
+  @media(max-width: 540px) {
+    font-size: 14px;
+  }
 }
 
 .message {
@@ -93,6 +112,18 @@
     font-weight: 400;
     color: var(--dark-text-color);
     cursor: pointer;
+    @media(max-width: 444px) {
+      font-size: 12px;
+    }
+  }
+
+  @media(max-width: 1080px) {
+    flex-direction: column;
+    gap: 20px;
+
+    &__button:first-child {
+      margin-left: 0;
+    }
   }
 }
 
