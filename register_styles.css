@@ -12,7 +12,7 @@ body{
     justify-content: center;
     align-items: center;
     width: 1440px;
-    height: 680p;
+    height: 1024px;
     background-color: black;
     font-family: Montserrat;
 }
@@ -23,22 +23,37 @@ header {
     background: transparent;
 }
 
-#box {
+#box_50 {
+    /* position: fixed; */
     width:600px;    
-    height:670px;
+    height:380px;
     background-color:#2F3134; 
     border: 0px #2F3134;
-    border-radius: 30px;
+    border-radius: 30px;    
     right: 550px;
     bottom: 150px;
     margin: auto;
     margin-top: 100px;
     padding: 46px 30px;
+    visibility: hidden;
+}
+
+#box_100 {
+    /* position: fixed; */
+    width:600px;    
+    height:510px;
+    background-color:#2F3134; 
+    border: 0px #2F3134;
+    border-radius: 30px;
+    margin: auto;
+    margin-top: -380px;
+    padding: 46px 30px;
+    visibility: visible ;
 }
 
 #name_box {
-    /* width:350px; */
-    width: 45%;
+    position: relative;
+    width: 45%; 
     height:40px;
     background-color:#D9D9D9; 
     border: 1px #2F3134;
@@ -46,7 +61,6 @@ header {
 }
 
 #surname_box {
-    /* width:350px; */
     width: 45%;
     height:40px;
     background-color:#D9D9D9; 
@@ -56,8 +70,7 @@ header {
 }
 
 #login_box {
-    /* width:350px; */
-    width: 45%;
+    position: relative;
     height:40px;
     background-color:#D9D9D9; 
     border: 1px #2F3134;
@@ -65,8 +78,7 @@ header {
 }
 
 #email_box {
-    /* width:350px; */
-    width: 45%;
+    position: relative;
     height:40px;
     background-color:#D9D9D9; 
     border: 1px #2F3134;
@@ -75,7 +87,7 @@ header {
 }
 
 #phone_box {
-    /* width:350px; */
+    position: relative;
     width: 45%;
     height:40px;
     background-color:#D9D9D9; 
@@ -84,7 +96,7 @@ header {
 }
 
 #birthdate_box {
-    /* width:350px; */
+    position: relative;
     width: 45%;
     height:40px;
     background-color:#D9D9D9; 
@@ -94,7 +106,7 @@ header {
 }
 
 #address_box {
-    /* width:350px; */
+    position: relative;
     width: 45%;
     height:40px;
     background-color:#D9D9D9; 
@@ -103,25 +115,21 @@ header {
 }
 
 #enter_passw_box {
-    /* width:350px; */
-    width: 45%;
+    position: relative;
+    /* width: 45%; */
     height:40px;
-    background-color:#D9D9D9; 
-    border: 1px #2F3134;
-    border-radius: 10px;
-    right: 575px;
-    bottom: 370px;   
+    background-color: #D9D9D9; 
+    border: 1px #2F3134;    
+    border-radius: 10px; 
 }
 
 #accept_passw_box {
-    /* width:350px; */
-    width: 45%;
+    position: relative;
     height:40px;
     background-color:#D9D9D9; 
     border: 1px #2F3134;
     border-radius: 10px;
-    right: 575px;
-    bottom: 290px;   
+    margin-left: 296px;  
 }
 
 #name_label {
@@ -129,8 +137,6 @@ header {
     font-weight: bold;
     margin-top: 15px;
     margin-bottom: 7px;
-    /* width: 93px;
-    height: 50px; */
 }
 
 #surname_label {
@@ -139,8 +145,6 @@ header {
     margin-top: -67px;
     margin-left: 296px;
     margin-bottom: 7px;
-    /* width: 93px;
-    height: 50px; */
 }
 
 #login_label {
@@ -180,20 +184,41 @@ header {
     font-weight: bold;
 }
 
-#radio_button1 {
-    position: static;
-    width: 30px;
-	height: 30px;
+#enter_passw_label { 
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+#accept_passw_label {
+    margin-top: -67px;
     margin-bottom: 7px;
     margin-left: 296px;
     font-weight: bold;
 }
 
-#radio_button2 {
-    margin-top: -100px;
+#radio_button1_label {
+    position: absolute;
+    font-weight: bold;
+    margin-top: -30px;
+    margin-left: 356px;
+}
+
+#radio_button1 {
+    position: relative;
+    margin-top: -30px;
     width: 30px;
 	height: 30px;
-    margin-left: 396px;
+    margin-left: 326px;
+    font-weight: bold;
+}
+
+#radio_button2 {
+    position: relative;
+    margin-top: -50px;
+    width: 30px;    
+	height: 30px;
+    margin-left: 456px;
     font-weight: bold;
 }
 
@@ -204,21 +229,15 @@ header {
     border: 1px #2F3134;
     border-radius: 10px;
     font-weight: bold;
-    right: 575px;
-    bottom: 220px; 
 }
 
 #page_name {
-    left: 567px;
-    top: 150px;
     z-index: 1;
     margin-top: -15px;
     font-weight: bold;
 }
 
 #Enter{
-    left: 567px;
-    bottom: 490px;
     z-index: 1; 
     font-weight: bold;
     margin-top: 11px;
@@ -243,13 +262,13 @@ header {
 }
 
 #date_button{
-    right: 10px;
-    top: 5px;
+    position: absolute;
     background-color: transparent;
+    margin-left: -35px;
+    margin-top: 2px;
     width: 30px;
     height: 30px;
     z-index: 1;
-    position: absolute;
 }
 
 #spot1{
@@ -264,7 +283,7 @@ header {
 }
 
 #spot2{
-    /* left: -70px;
+    /* left: -70px;     
     bottom: -150px; */
     position: absolute;
     z-index: -1; 

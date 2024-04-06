@@ -9,36 +9,25 @@
     <style>
     .whitecolor{
         color: white;
-        margin-top: 46px;
     }
     .greencolor {
         color: #35C7AD;
-        margin-top: 46px;
     }
     .greycolor {
         color: #C3C3C3;
-        margin-top: 150px;
     }
     .text-field__label {
-      display: block;
-      margin-top: 100px;
     }
     .text-field__input {
-        display: block;
         width: 45%;
-        height: calc(2.25rem + 2px);
         font-family: 'Montserrat', sans-serif;
         /* margin-top: 0px; */
         font-size: 1rem;
         font-weight: 500;
-        line-height: 1.5;
         text-indent: 10px;
         color: #212529;
         background-color: #fff;
-        background-clip: padding-box;
         border: 1px solid #bdbdbd;
-        border-radius: 0.25rem;
-        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
     .enter_button{
         border: none;
@@ -72,17 +61,8 @@
         background-color: transparent;
         text-decoration: underline;
     }
-    .password{
-        position: relative;
-    }
     </style>
 </head>
-<body>
-    <header>
-         
-    </header>
-    
-</body>
 <div class="wrapper">
     <div>
         <img 
@@ -94,7 +74,7 @@
         src="Ellipse 5.svg" 
         id="spot2"/>
     </div>
-    <div id="box">
+    <div id="box_50">
         <form>
             <div id="page_name">
                 <span class="greencolor">Дом </span> 
@@ -107,34 +87,9 @@
                 <span class="greycolor">Зарегистрируйтесь, чтобы присоединиться к WebStar</span>
             </div>
             <p>
-                <div id="name_label">
-                    <label class="whitecolor">Имя</label>
-                </div>
-                <input 
-                class="text-field__input"
-                type="text" 
-                name="name"
-                id="name_box"
-                placeholder="Введите имя" required
-                value="Иван"/>
-            </p>
-            <p>
-                <div id="surname_label">
-                    <label class="whitecolor">Фамилия</label>
-                </div>
-                <div>
-                    <input class="text-field__input"
-                    type="text" 
-                    name="surname"
-                    id="surname_box"
-                    placeholder="Введите фамилию" required
-                    value="Иванов"/>
-                </div>
-            </p>
-            <p>
                 <div id="login_label">
                     <label class="whitecolor">Логин</label>
-                </div>
+                </div>  
                 <!-- ошибка закралась куда-то в классы div class="password" -->
                 <div> 
                     <input class="text-field__input"
@@ -159,6 +114,76 @@
                 </div>
             </p>
             <p>
+                <div id="enter_passw_label">
+                    <label class="whitecolor">Пароль</label>
+                </div>
+                <div>
+                    <input class="text-field__input"
+                    type="text" 
+                    name="password"
+                    id="enter_passw_box"
+                    placeholder="Введите пароль" required
+                    value="1gE_!jh3e@"/>
+                </div>
+            </p>
+            <p>
+                <div id="accept_passw_label">
+                    <label class="whitecolor">Повторите пароль</label>
+                </div>
+                <div>
+                    <input class="text-field__input"
+                    type="text" 
+                    name="password"
+                    id="accept_passw_box"
+                    placeholder="Повторите пароль" required
+                    value="1gE_!jh3e@"/>
+                </div>
+            </p>       
+            <p><button type="submit" class="enter_button"
+                id="box4">Далее 50%</button>
+            </p>
+        </form>
+    </div>
+    <div id="box_100">
+        <form>
+            <div id="page_name">
+                <span class="greencolor">Дом </span> 
+                <span class="whitecolor">/ Регистрация</span>
+            </div>
+            <div id="Enter">
+                <span class="whitecolor">Регистрация</span>
+            </div>
+            <div id="Tip1">
+                <span class="greycolor">Зарегистрируйтесь, чтобы присоединиться к WebStar</span>
+            </div>
+            <p>
+                <div id="name_label">
+                    <label class="whitecolor">Имя</label>
+                </div>  
+                <!-- ошибка закралась куда-то в классы div class="password" -->
+                <div> 
+                    <input class="text-field__input"
+                    type="text" 
+                    name="name"
+                    id="name_box"
+                    placeholder="Введите имя" required
+                    value="Иван"/>
+                </div>
+            </p>
+            <p>
+                <div id="surname_label">
+                    <label class="whitecolor">Фамилия</label>
+                </div>
+                <div>
+                    <input class="text-field__input"
+                    type="text" 
+                    name="surname"
+                    id="surname_box"
+                    placeholder="Введите фамилию" required
+                    value="Иванов"/>
+                </div>
+            </p>
+            <p>
                 <div id="phone_label">
                     <label class="whitecolor">Телефон</label>
                 </div>
@@ -179,11 +204,11 @@
                     <input class="text-field__input"
                     type="text" 
                     name="birthdate"
-                    id="birthdate_box"
+                    id="accept_passw_box"
                     placeholder="Введите дату рождения" required
                     value="01/01/1980"/>
                     <image type="image" 
-                    src="png-transparent-calendar-feather-icon 1.png" 
+                    src="png-transparent-calendar-feather-icon 2.png" 
                     id="date_button">
                 </div>
             </p>
@@ -196,24 +221,23 @@
                     type="text" 
                     name="address"
                     id="address_box"
-                    placeholder="Введите адрес" required
+                    placeholder="Введите страну" required
                     value="Россия"/>
                 </div>
-            </p>
+            </p> 
             <p>
-                <div class="form_radio">
+                <div class="form_radio1">
                     <input id="radio_button1" type="radio" name="radio" value="1" checked>
-                    <label class="whitecolor" for="radio_button1">Муж</label>
+                    <label class="whitecolor">Муж</label>
                 </div>
                  
-                <div class="form_radio">
+                <div class="form_radio2">
                     <input id="radio_button2" type="radio" name="radio" value="2">
                     <label class="whitecolor" for="radio_button2">Жен</label>
                 </div>
-            </p>
-            
+            </p>       
             <p><button type="submit" class="enter_button"
-                id="box4">Зарегистрироваться</button>
+                id="box4">Ура — зарегистрироваться</button>
             </p>
         </form>
     </div>
