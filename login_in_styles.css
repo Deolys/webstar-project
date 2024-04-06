@@ -9,8 +9,8 @@
 }
 
 body{
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     width: 1440px;
     height: 680p;
     background-color: black;
