@@ -78,10 +78,9 @@
     &:focus::placeholder {
       color: transparent;
     }
-  }
-
-  @media(max-width: 540px) {
-    font-size: 14px;
+    @media(max-width: 540px) {
+      font-size: 14px;
+    }
   }
 }
 
@@ -104,6 +103,8 @@
   }
 
   &__button {
+    font-family: Inter, sans-serif;
+    font-size: 16px;
     padding: 10.5px 12px;
     display: inline-block;
     margin-left: 12px;
