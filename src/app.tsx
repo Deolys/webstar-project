@@ -8,9 +8,9 @@ import Edit from './pages/card-editing';
 const App = () => {
   return (
     <>
-      {/* <Main /> */}
+      <Main />
       {/* <Card /> */}
-      <Edit />
+      {/* <Edit /> */}
 
     </>
   );
