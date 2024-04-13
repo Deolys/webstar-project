@@ -6,6 +6,7 @@ import '../styles/card-styles.css';
 import logo from '../assets/icons/logo.svg';
 import starGreen from '../assets/icons/star-green.svg';
 import options from '../assets/icons/settings-4-svgrepo-com.svg';
+import buttonArrow from '../assets/icons/next-light-svgrepo-com.svg';
 
 const Burger = ({ onHeaderLinksToggle }) => {
     const [isBurgerOpen, setIsBurgerOpen] = useState(false);
@@ -76,7 +77,9 @@ const Edit = () => {
             </div>
             <div className="photo-panel">
                 <div className="slider">
-                <button className="arrow-button" title="Предыдущее изображение"></button>
+                <button className="arrow-button" title="Предыдущее изображение">
+                  <img src = {buttonArrow}/>
+                </button>
                     <div className="pagination-dots">
                         <span className="dot active"></span>
                         <span className="dot"></span>
@@ -102,7 +105,9 @@ const Edit = () => {
                         <li><img src="" alt="portfolio image 9" style={{visibility: 'hidden'}}/></li>
                         <li><img src="" alt="portfolio image 10" style={{visibility: 'hidden'}}/></li>
                     </ul>
-                    <button className="arrow-button right" title="Следующее изображение"></button>
+                    <button className="arrow-button right" title="Следующее изображение">
+                      <img src = {buttonArrow}/>
+                    </button>
                 </div>
             </div>
             <div className="tags-panel">

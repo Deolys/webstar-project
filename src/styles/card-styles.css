@@ -1,24 +1,3 @@
-@font-face {
-  font-family: Montserrat;
-  font-weight: 800;
-  src: url("../assets/fonts/Montserrat-ExtraBold.ttf");
-}
-@font-face {
-  font-family: Inter;
-  font-weight: 400;
-  src: url("../assets/fonts/Inter-Regular.ttf");
-}
-@font-face {
-  font-family: Inter;
-  font-weight: 500;
-  src: url("../assets/fonts/Inter-Medium.ttf");
-}
-@font-face {
-  font-family: Inter;
-  font-weight: 600;
-  src: url("../assets/fonts/Inter-SemiBold.ttf");
-}
-
 html {
   font-size: 16px;
 }
@@ -54,183 +33,8 @@ button {
   height: auto;
   align-items: center;
 } */
-/* .header {
-  font-size: 16px;
-  position: sticky;
-  width: 100%;
-  z-index: 10;
-  top: 0;
-  border-bottom: 1px solid #4d4d4d;
-  background: rgba(217, 217, 217, 0.2);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-  box-shadow: rgba(0, 0, 0, 0.2) 0 0 20px;
-}
-.header__container {
-  padding-block: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-}
-.header__logo {
-  cursor: pointer;
-}
-.header__links {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.header__link {
-  border-radius: 12px;
-  padding: 12px 20px;
-  cursor: pointer;
-}
-@media (max-width: 540px) {
-  .header__links {
-    display: none;
-  }
-}
 
-.favourites-link {
-  padding: 0;
-  display: flex;
-  align-items: center;
-  color: #18E772;
-}
-@media (max-width: 680px) {
-  .favourites-link__title {
-    display: none;
-  }
-}
-@media (max-width: 540px) {
-  .favourites-link__title {
-    display: block;
-  }
-}
-
-.sign-up-link,
-.my-card-link {
-  color: var(--dark-text-color);
-  background: rgb(23, 233, 107);
-  background: linear-gradient(110deg, rgb(23, 233, 107) 0%, rgb(36, 215, 194) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#17e96b",endColorstr="#24d7c2",GradientType=1);
-}
-
-.login-link,
-.logout-link {
-  color: #20DCAA;
-  border: 1px solid #20DCAA;
-}
-
-#burger {
-  z-index: 2;
-  width: 45px;
-  height: 30px;
-  margin-top: 26px;
-  cursor: pointer;
-  display: none;
-}
-@media (max-width: 540px) {
-  #burger {
-    display: block;
-  }
-}
-
-.bar {
-  height: 5px;
-  width: 100%;
-  background-color: #14B270;
-  display: block;
-  border-radius: 5px;
-  transition: 0.3s ease;
-}
-
-#bar1 {
-  transform: translateY(-4px);
-}
-
-#bar3 {
-  transform: translateY(4px);
-}
-
-.burger-bg, #burger {
-  top: 0;
-  right: 10px;
-  position: absolute;
-}
-
-.header__links.change {
-  position: absolute;
-  top: 60px;
-  right: 10px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-.change .bar {
-  background-color: white;
-}
-
-.change #bar1 {
-  transform: translateY(4px) rotateZ(-45deg);
-}
-
-.change #bar2 {
-  opacity: 0;
-}
-
-.change #bar3 {
-  transform: translateY(-6px) rotateZ(45deg);
-}
-
-.burger-bg__content {
-  width: 0;
-  height: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  overflow: hidden;
-  display: none;
-}
-@media (max-width: 540px) {
-  .burger-bg__content {
-    display: block;
-  }
-  .header h1 {
-    font-size: 1rem;
-  }
-}
-
-.burger-bg__content.change {
-  width: 220px;
-  height: 350px;
-}
-
-.burger-bg {
-  width: 0;
-  height: 0;
-  background: #2A3639;
-  border-radius: 50%;
-  transition: 0.3s ease;
-}
-
-.change-bg {
-  position: absolute;
-  width: 520px;
-  height: 460px;
-  transform: translate(60%, -25%);
-}
-
-.change {
-  display: block;
-}
-
-
-
-.logo {
+/*.logo {
   margin: 1rem;
 }
 
@@ -340,6 +144,9 @@ li img {
   gap: 0.625rem;
   margin-top: 0.625rem;
   justify-content: center;
+  background-color: #545b6f6c;
+  border-radius: 50px;
+  padding: 0.2rem;
   z-index: 1;
 }
 
@@ -355,26 +162,34 @@ li img {
 }
 
 .arrow-button{
-  background-image:url(../assets/icons/arrow-btn.svg);
   background-repeat:no-repeat, repeat-x;
   background-position:center;
   opacity: 0.8;
   cursor: pointer;
-  height: 3.125rem;
+  height: 100%;
   width: 3.125rem;
   min-width: 32px;
-  border-radius: 7px;
+  border-radius: 7px 0px 0px 7px;
   border: none;
-  margin: 0.5rem;
+  margin: 0;
   z-index: 1;
 }
 
 .arrow-button:hover {
-  outline: 3px solid #23D7C2
+  background-color: #68676950;
 }
 
 .arrow-button.right{
-  background-image:url(../assets/icons/arrow-btn-right.svg);
+  border-radius: 0px 7px 7px 0px;
+}
+.arrow-button img {
+  transform: rotate(180deg);
+  height: 4rem;
+  width: 2rem;
+  margin: auto;
+}
+.arrow-button.right img {
+  transform: none;
 }
 
 .profile-photo {
@@ -518,7 +333,6 @@ li img {
   height: 18.75rem;
   z-index: 0;
   background-color: #B5CCCD;
-  border-radius: 10px;
   display: flex;
 }
 

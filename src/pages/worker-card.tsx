@@ -8,6 +8,7 @@ import logo from '../assets/icons/logo.svg';
 import starGreen from '../assets/icons/star-green.svg';
 import favourites from '../assets/icons/favourites-btn.svg';
 import options from '../assets/icons/settings-4-svgrepo-com.svg';
+import buttonArrow from '../assets/icons/next-light-svgrepo-com.svg';
 
 import background from '../assets/images/background-hills.png';
 import profilePicture from 'src/assets/images/ivoryowl.jpg';
@@ -107,7 +108,9 @@ const Card = () => {
           </div>
           <div className="photo-panel">
               <div className="slider">
-              <button className="arrow-button" title="Предыдущее изображение"></button>
+              <button className="arrow-button" title="Предыдущее изображение">
+                <img src = {buttonArrow}/>
+              </button>
                   <div className="pagination-dots">
                       <span className="dot active"></span>
                       <span className="dot"></span>
@@ -132,7 +135,9 @@ const Card = () => {
                       <li><img src={sliderPicture} alt="portfolio image 9" style={{visibility: 'hidden'}}/></li>
                       <li><img src={sliderPicture} alt="portfolio image 10" style={{visibility: 'hidden'}}/></li>
                   </ul>
-                  <button className="arrow-button right" title="Следующее изображение"></button>
+                  <button className="arrow-button right" title="Следующее изображение">
+                    <img src = {buttonArrow}/>
+                  </button>
               </div>
           </div>
           <div className="tags-panel">
