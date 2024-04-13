@@ -1,0 +1,55 @@
+.whitecolor{
+    color: white;
+}
+.greencolor {
+    color: #35C7AD;
+}
+.greycolor {
+    color: #C3C3C3;
+}
+.text-field__label {
+    display: block;
+    margin-top: 100px;
+}
+.text-field__input {
+    font-family: 'Montserrat', sans-serif;
+    /* margin-top: 0px; */
+    font-size: 1rem;
+    font-weight: 500;
+    text-indent: 10px;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #bdbdbd;
+}
+.enter_button{
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 30px;
+    cursor: pointer;
+}
+a:link {
+    color: #35C7AD;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: #35C7AD;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: orange;
+    background-color: transparent;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
