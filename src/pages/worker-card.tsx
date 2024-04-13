@@ -201,8 +201,13 @@ const Card = () => {
           </div>
       </main>
       {/*<script src="scripts.js"></script>*/}
+      <div className="ellipses">
+        <div className="ellipse"></div>
+        <div className="ellipse"></div>
+        <div className="ellipse" ></div>
+        <div className="ellipse" ></div>
+      </div>
   </body>
-        
       </>
     );
   };

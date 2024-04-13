@@ -59,6 +59,7 @@ header h1 {
   background-color: #3E434F;
   border-radius: 20px;
   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .buttons-panel{
@@ -208,6 +209,7 @@ li img {
 }
 
 .profile-photo img {
+  object-fit: cover;
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -521,4 +523,45 @@ li img {
     height: auto;
     align-items: center;
   }
+}
+.ellipses{
+  position: absolute;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  width: 100%;
+  max-width: 220rem;
+  margin-top: 2rem;
+  gap: 20rem;
+  height: inherit;
+  clip-rule: evenodd;
+  padding: 0;
+  overflow: hidden;
+}
+.ellipse {
+  width: 620px;
+  height: 460px;
+  background: url('../assets/images/Ellipse1.png') no-repeat center center;
+  background-size: contain;
+  z-index: 0;
+  margin-right:  calc(-50% - 400px);
+ }
+.ellipse:nth-child(even) {
+  margin-right: 0;
+  margin-left:  calc(-50% - 400px);
+}
+.ellipse:nth-child(4n+1) {
+  background-image: url('../assets/images/Ellipse1.png');
+}
+
+.ellipse:nth-child(4n+2) {
+  background-image: url('../assets/images/Ellipse2.png');
+}
+
+.ellipse:nth-child(4n+3) {
+  background-image: url('../assets/images/Ellipse3.png');
+}
+
+.ellipse:nth-child(4n+4) {
+  background-image: url('../assets/images/Ellipse4.png');
 }

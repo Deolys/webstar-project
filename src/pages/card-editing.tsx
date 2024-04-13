@@ -173,6 +173,12 @@ const Edit = () => {
                 <button className="manipulate-btn accept">Готово</button>
             </div>
         </main>
+        <div className="ellipses">
+          <div className="ellipse"></div>
+          <div className="ellipse"></div>
+          <div className="ellipse" ></div>
+          <div className="ellipse" ></div>
+        </div>
     </body>
         </>
     );
