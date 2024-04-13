@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import '../styles/normalize.css';
+import '../styles/style.css';
 import '../styles/card-styles.css';
+
 
 import logo from '../assets/icons/logo.svg';
 import starGreen from '../assets/icons/star-green.svg';
@@ -63,7 +65,7 @@ const Card = () => {
         <a className="header__logo logo">
           <img className="logo__icon" src={logo}/>
         </a>
-        <h1>Профиль <br/> пользователя</h1>
+        
         <nav className={`header__links ${isHeaderLinksOpen ? 'change' : ''}`}>
           <a className="header__link favourites-link ">
               <img className="favourite-green__icon" src={starGreen} title="Избранное" aria-label="Избранное" />
@@ -94,6 +96,7 @@ const Card = () => {
       </div>
     </header>
       <main className="main-container">
+      {/* <label className="container-label">Профиль пользователя</label> */}
           <div className="buttons-panel">
               <button className="angle-button options" title="Редактировать профиль" style={{visibility: 'hidden'}}>
                   <img src={options}/>
@@ -103,8 +106,8 @@ const Card = () => {
               </button>
           </div>
           <div className="photo-panel">
-              <button className="arrow-button" title="Предыдущее изображение"></button>
               <div className="slider">
+              <button className="arrow-button" title="Предыдущее изображение"></button>
                   <div className="pagination-dots">
                       <span className="dot active"></span>
                       <span className="dot"></span>
@@ -129,8 +132,8 @@ const Card = () => {
                       <li><img src={sliderPicture} alt="portfolio image 9" style={{visibility: 'hidden'}}/></li>
                       <li><img src={sliderPicture} alt="portfolio image 10" style={{visibility: 'hidden'}}/></li>
                   </ul>
+                  <button className="arrow-button right" title="Следующее изображение"></button>
               </div>
-              <button className="arrow-button right" title="Следующее изображение"></button>
           </div>
           <div className="tags-panel">
               <span className="tag">Figma</span>
