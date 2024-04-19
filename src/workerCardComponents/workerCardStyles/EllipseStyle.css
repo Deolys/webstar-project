@@ -1,0 +1,27 @@
+.ellipse {
+    width: 620px;
+    height: 460px;
+    background: url('../../assets/images/Ellipse1.png') no-repeat center center;
+    background-size: contain;
+    z-index: 0;
+    margin-right:  calc(-50% - 400px);
+   }
+  .ellipse:nth-child(even) {
+    margin-right: 0;
+    margin-left:  calc(-50% - 400px);
+  }
+  .ellipse:nth-child(4n+1) {
+    background-image: url('../../assets/images/Ellipse1.png');
+  }
+  
+  .ellipse:nth-child(4n+2) {
+    background-image: url('../../assets/images/Ellipse2.png');
+  }
+  
+  .ellipse:nth-child(4n+3) {
+    background-image: url('../../assets/images/Ellipse3.png');
+  }
+  
+  .ellipse:nth-child(4n+4) {
+    background-image: url('../../assets/images/Ellipse4.png');
+  }

@@ -1,0 +1,30 @@
+.arrow-button{
+    background-repeat:no-repeat, repeat-x;
+    background-position:center;
+    opacity: 0.8;
+    cursor: pointer;
+    height: 100%;
+    width: 3.125rem;
+    min-width: 32px;
+    border-radius: 7px 0px 0px 7px;
+    border: none;
+    margin: 0;
+    z-index: 1;
+  }
+  
+  .arrow-button:hover {
+    background-color: #68676950;
+  }
+  
+  .arrow-button.right{
+    border-radius: 0px 7px 7px 0px;
+  }
+  .arrow-button img {
+    transform: rotate(180deg);
+    height: 4rem;
+    width: 2rem;
+    margin: auto;
+  }
+  .arrow-button.right img {
+    transform: none;
+  }

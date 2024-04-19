@@ -75,40 +75,38 @@ const Edit = () => {
                     <img src={options}/>
                 </button>
             </div>
-            <div className="photo-panel">
-                <div className="slider">
-                <button className="arrow-button" title="Предыдущее изображение">
+            <div className="slider">
+            <button className="arrow-button" title="Предыдущее изображение">
+              <img src = {buttonArrow}/>
+            </button>
+                <div className="pagination-dots">
+                    <span className="dot active"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                    <span className="dot"></span>
+                </div>
+                <button className="upload-btn"></button>
+                <ul>
+                    <li><img src="" alt="portfolio image 1" style={{visibility: 'hidden'}}/></li>
+                    <li><img src="" alt="portfolio image 2" style={{visibility: 'hidden'}}/></li>
+                    <li><img src="" alt="portfolio image 3" style={{visibility: 'hidden'}}/></li>
+                    <li><img src="" alt="portfolio image 4" style={{visibility: 'hidden'}}/></li>
+                    <li><img src="" alt="portfolio image 5" style={{visibility: 'hidden'}}/></li>
+                    <li><img src="" alt="portfolio image 6" style={{visibility: 'hidden'}}/></li>
+                    <li><img src="" alt="portfolio image 7" style={{visibility: 'hidden'}}/></li>
+                    <li><img src="" alt="portfolio image 8" style={{visibility: 'hidden'}}/></li>
+                    <li><img src="" alt="portfolio image 9" style={{visibility: 'hidden'}}/></li>
+                    <li><img src="" alt="portfolio image 10" style={{visibility: 'hidden'}}/></li>
+                </ul>
+                <button className="arrow-button right" title="Следующее изображение">
                   <img src = {buttonArrow}/>
                 </button>
-                    <div className="pagination-dots">
-                        <span className="dot active"></span>
-                        <span className="dot"></span>
-                        <span className="dot"></span>
-                        <span className="dot"></span>
-                        <span className="dot"></span>
-                        <span className="dot"></span>
-                        <span className="dot"></span>
-                        <span className="dot"></span>
-                        <span className="dot"></span>
-                        <span className="dot"></span>
-                    </div>
-                    <button className="upload-btn"></button>
-                    <ul>
-                        <li><img src="" alt="portfolio image 1" style={{visibility: 'hidden'}}/></li>
-                        <li><img src="" alt="portfolio image 2" style={{visibility: 'hidden'}}/></li>
-                        <li><img src="" alt="portfolio image 3" style={{visibility: 'hidden'}}/></li>
-                        <li><img src="" alt="portfolio image 4" style={{visibility: 'hidden'}}/></li>
-                        <li><img src="" alt="portfolio image 5" style={{visibility: 'hidden'}}/></li>
-                        <li><img src="" alt="portfolio image 6" style={{visibility: 'hidden'}}/></li>
-                        <li><img src="" alt="portfolio image 7" style={{visibility: 'hidden'}}/></li>
-                        <li><img src="" alt="portfolio image 8" style={{visibility: 'hidden'}}/></li>
-                        <li><img src="" alt="portfolio image 9" style={{visibility: 'hidden'}}/></li>
-                        <li><img src="" alt="portfolio image 10" style={{visibility: 'hidden'}}/></li>
-                    </ul>
-                    <button className="arrow-button right" title="Следующее изображение">
-                      <img src = {buttonArrow}/>
-                    </button>
-                </div>
             </div>
             <div className="tags-panel">
                 <button className="upload-btn rel"></button>
@@ -129,42 +127,40 @@ const Edit = () => {
                 </div>
     
                 <div className="profile-description">
-                    <div className="username">Имя пользователя</div>
-                    <div className="location">Город, Страна</div>
-                    <div className="bio">
-                        <textarea maxLength={350} placeholder="Напишите что-нибудь о себе"></textarea>
-                    </div>
+                    <span className="username">Имя пользователя</span>
+                    <span className="location">Город, Страна</span>
+                    <textarea maxLength={350} placeholder="Напишите что-нибудь о себе"></textarea>
                 </div>
             </div>
     
             <div className="content-container">
                 <label className="container-label">Информация о работе пользователя</label>
-                <section className="content-item">
+                <article className="content-item">
                     <div className="item-photo">
                         <img src="" alt="content image №1" style={{visibility: 'hidden'}}/>
                         <button className="upload-btn"></button>
                     </div>
                     <input type="text" placeholder="Введите название..."/>
                     <textarea maxLength={350} placeholder="Введите описание"></textarea>
-                </section>
+                </article>
     
-                <section className="content-item">
+                <article className="content-item">
                     <div className="item-photo">
                         <img src="" alt="content image №2" style={{visibility: 'hidden'}}/>
                         <button className="upload-btn"></button>
                     </div>
                     <input type="text" placeholder="Введите название..."/>
                     <textarea maxLength={350} placeholder="Введите описание"></textarea>
-                </section>
+                </article>
                 
-                <section className="content-item">
+                <article className="content-item">
                     <div className="item-photo">
                         <img src="" alt="content image №3" style={{visibility: 'hidden'}}/>
                         <button className="upload-btn"></button>
                     </div>
                     <input type="text" placeholder="Введите название..."/>
                     <textarea maxLength={350} placeholder="Введите описание"></textarea>
-                </section>
+                </article>
     
                 <button className="upload-btn rel"></button>
             </div>

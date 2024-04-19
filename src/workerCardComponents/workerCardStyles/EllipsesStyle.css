@@ -1,0 +1,14 @@
+.ellipses{
+    position: absolute;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    width: 100%;
+    max-width: 220rem;
+    margin-top: 2rem;
+    gap: 20rem;
+    height: inherit;
+    clip-rule: evenodd;
+    padding: 0;
+    overflow: hidden;
+  }
