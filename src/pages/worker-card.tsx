@@ -42,7 +42,7 @@ const Card = () => {
     }
 
     return (
-      <body className="card-body">
+      <div className="card-body">
         <Header></Header>
       {/* <header className="header">
       <div className="header__container">
@@ -105,7 +105,7 @@ const Card = () => {
       </main>
       
       <Ellipses count={"4"}/>
-      </body>
+      </div>
       );
   };
   
