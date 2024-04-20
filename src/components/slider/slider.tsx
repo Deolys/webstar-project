@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 
-import SliderBtn from './SliderBtn.jsx';
-import UploadBtn from './UploadBtn.jsx';
+import {SliderBtn} from '../slider-btn';
+import {UploadBtn} from '../upload-btn';
 
-import './workerCardStyles/SliderStyle.css';
+import {StyledSlider, PaginationDots, Dot} from './slider.styled';
 
 export default function Slider({sliderData, isEditing}) {
     const [slideIndex, setSlideIndex] = useState(1)
@@ -30,24 +30,24 @@ export default function Slider({sliderData, isEditing}) {
     }
 
     return (
-        <div className="slider">
-            <SliderBtn direction={"left"} bindAction={leftSlide} alt="Предыдущее изображение"/>
+        <StyledSlider>
+            <SliderBtn isRight={false} bindAction={leftSlide}/>
             <ul>
                 {sliderData.map((item, index) => {return (
-                       <li key={index} className={slideIndex === index + 1 ? "active" : ""}>
+                       <li key={index} className={slideIndex === index + 1 ? 'active' : ''}>
                            <img src={item.image} alt="Изображение на слайдере"/>
                        </li>
                    )
                 })}
                 {isEditing && <UploadBtn />}
             </ul>
-            <SliderBtn direction={"right"} bindAction={rightSlide} alt="Следующее изображение"/>
-            <div className="pagination-dots" onClick={() => moveDot(index + 1)}>
+            <SliderBtn isRight={true} bindAction={rightSlide}/>
+            <PaginationDots onClick={() => moveDot(slideIndex + 1)}>
                     {Array.from({length: sliderData.length}).map((_, index) => (
-                    <div key={index} className={slideIndex === index + 1 ? "dot active" : "dot"}>
-                    </div>
+                    <Dot key={index} isActive={slideIndex === index + 1}>
+                    </Dot>
                 ))}
-            </div>
-        </div>
+            </PaginationDots>
+        </StyledSlider>
     );
 }

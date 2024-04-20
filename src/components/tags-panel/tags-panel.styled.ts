@@ -1,13 +1,15 @@
-.tags-panel {
+import styled from '@emotion/styled';
+
+export const StyledTagsPanel = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin: 0rem 5.874rem;
     justify-content: flex-start;
     align-items: center;
     height: auto;
-  }
+`;
   
-  .tag {
+export const Tag = styled.span`
     background-color: #213741;
     color: #35D4F8;
     padding: 1rem;
@@ -18,4 +20,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+`;
+  

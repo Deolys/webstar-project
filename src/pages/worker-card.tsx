@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import '../styles/normalize.css';
 import '../styles/style.css';
-import '../workerCardComponents/workerCardStyles/card-styles.css';
+import '../styles/card-styles.css';
 
 
-import {Header} from '../components/Header/Header';
-import TopButtonsPanel from '../workerCardComponents/TopButtonsPanel.jsx';
-import UploadBtn from '../workerCardComponents/UploadBtn.jsx';
-import TagsPanel from '../workerCardComponents/TagsPanel.jsx';
-import ProfileContainer from '../workerCardComponents/ProfileContainer.jsx';
-import Article from '../workerCardComponents/Article.jsx';
-import BottomEditButtonsPanel from '../workerCardComponents/BottomEditButtonsPanel.jsx';
-import Ellipses from '../workerCardComponents/Ellipses.jsx';
-import Slider from '../workerCardComponents/Slider.jsx';
+import {Header} from '../components/Header';
+import {TopButtonsPanel} from '../components/top-buttons-panel';
+import {UploadBtn} from '../components/upload-btn';
+import {TagsPanel} from '../components/tags-panel';
+import {ProfileInfo} from '../components/profile-info';
+import {WorkArticle} from '../components/work-article';
+import {BottomButtonsPanel} from '../components/bottom-buttons-panel';
+import {Ellipses} from '../components/ellipses';
+import {Slider} from '../components/slider';
 
-import {sliderData, someTags, profileData, articleData1} from '../workerCardComponents/exampleData.js';
+import {sliderData, someTags, profileData, articleData1} from '../example-data/example-data.js';
 
 
 const Card = () => {
@@ -44,41 +44,6 @@ const Card = () => {
     return (
       <div className="card-body">
         <Header></Header>
-      {/* <header className="header">
-      <div className="header__container">
-        <a className="header__logo logo">
-          <img className="logo__icon" src={logo}/>
-        </a>
-        
-        <nav className={`header__links ${isHeaderLinksOpen ? 'change' : ''}`}>
-          <a className="header__link favourites-link ">
-              <img className="favourite-green__icon" src={starGreen} title="Избранное" aria-label="Избранное" />
-              <span className="favourites-link__title">Избранное</span>
-          </a>
-
-          <a className="header__link my-card-link">
-            <button className="my-card-btn">Моя карточка</button>
-          </a>
-
-          <a className="header__link logout-link ">
-            <button className="logout-btn">Выйти</button>
-          </a>
-
-          <a className="header__link login-link hidden">
-            <button className="login-btn">Войти</button>
-          </a>
-
-          <a className="header__link sign-up-link hidden">
-            <button className="sign-up-btn">Зарегистрироваться</button>
-          </a>
-
-
-
-        </nav>
-      <Burger onHeaderLinksToggle={handleHeaderLinksToggle}/>
-
-      </div>
-    </header> */}
 
       <main className="main-container">
       {/* <label className="container-label">Профиль пользователя</label> */}
@@ -89,19 +54,19 @@ const Card = () => {
 
           <TagsPanel initialTags={someTags} isEditing={isEditMode}/>
 
-          <ProfileContainer profileData={profileData} isEditing={isEditMode}/>
+          <ProfileInfo profileData={profileData} isEditing={isEditMode}/>
 
           <div className="content-container">
               <label className="container-label">Информация о работе пользователя</label>
               { articleData1.map((item, index) => 
                 {
-                  return(<Article key={index} articleData={item} isEditing={isEditMode}/>)
+                  return(<WorkArticle key={index} articleData={item} isEditing={isEditMode}/>)
                 })
               }
               {isEditMode&&<UploadBtn isRel={true} bindAction={addArticle}/>}
           </div>
         
-          <BottomEditButtonsPanel isEditing={isEditMode} cancelBtnAction={handleEditModeToggle} finishBtnAction={handleEditModeToggle}/>
+          <BottomButtonsPanel isEditing={isEditMode} cancelBtnAction={handleEditModeToggle} finishBtnAction={handleEditModeToggle}/>
       </main>
       
       <Ellipses count={"4"}/>
