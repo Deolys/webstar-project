@@ -4,9 +4,7 @@ import '../styles/style.css';
 import '../workerCardComponents/workerCardStyles/card-styles.css';
 
 
-import logo from '../assets/icons/logo.svg';
-import starGreen from '../assets/icons/star-green.svg';
-
+import {Header} from '../components/Header/Header';
 import TopButtonsPanel from '../workerCardComponents/TopButtonsPanel.jsx';
 import UploadBtn from '../workerCardComponents/UploadBtn.jsx';
 import TagsPanel from '../workerCardComponents/TagsPanel.jsx';
@@ -18,41 +16,6 @@ import Slider from '../workerCardComponents/Slider.jsx';
 
 import {sliderData, someTags, profileData, articleData1} from '../workerCardComponents/exampleData.js';
 
-const Burger = ({ onHeaderLinksToggle }) => {
-    const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-    const handleBurgerClick = () => {
-      setIsBurgerOpen(!isBurgerOpen);
-      onHeaderLinksToggle();
-    };  
-  
-    useEffect(() => {
-      const handleOutsideClick = (e) => {
-        if (isBurgerOpen && !e.target.closest('.burger') && !e.target.closest('.header__links')) {
-          setIsBurgerOpen(false);
-          onHeaderLinksToggle();
-        }
-      };
-  
-      document.body.addEventListener('click', handleOutsideClick);
-  
-      return () => {
-        document.body.removeEventListener('click', handleOutsideClick);
-      };
-    }, [isBurgerOpen]);
-  
-    return (
-      <>
-        <div id="burger" className={`burger ${isBurgerOpen ? 'change' : ''}`} onClick={handleBurgerClick}>
-          <div id="bar1" className="bar"></div>
-          <div id="bar2" className="bar"></div>
-          <div id="bar3" className="bar"></div>
-        </div>
-        <div className={`burger-bg__content ${isBurgerOpen ? 'change' : ''}`}>
-          <div id="burger-bg" className={`burger-bg ${isBurgerOpen ? 'change-bg' : ''}`}></div>
-        </div>
-      </>
-    );
-  };
 
 const Card = () => {
     const [isHeaderLinksOpen, setIsHeaderLinksOpen] = useState(false);
@@ -80,7 +43,8 @@ const Card = () => {
 
     return (
       <body className="card-body">
-      <header className="header">
+        <Header></Header>
+      {/* <header className="header">
       <div className="header__container">
         <a className="header__logo logo">
           <img className="logo__icon" src={logo}/>
@@ -114,7 +78,7 @@ const Card = () => {
       <Burger onHeaderLinksToggle={handleHeaderLinksToggle}/>
 
       </div>
-    </header>
+    </header> */}
 
       <main className="main-container">
       {/* <label className="container-label">Профиль пользователя</label> */}
