@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-import { Header } from "../../components/Header";
-import { Sidebar } from "../../components/Sidebar";
-import { Card } from "../../components/Card";
-import { Search } from "../../components/Search";
+import { Header } from "../../components/header";
+import { Sidebar } from "../../components/sidebar";
+import { Card } from "../../components/card";
+import { Search } from "../../components/search";
 
 import "../../styles/normalize.css";
 import "../../styles/style.css";
@@ -11,7 +11,13 @@ import "../../styles/style.css";
 import site1 from "../../assets/images/site1.jpeg";
 import site2 from "../../assets/images/site2.png";
 import site3 from "../../assets/images/site3.jpg";
-import { CardsDiv, ContentContainer, PageContainer, PageMain, Title } from "./styled";
+import {
+  CardsDiv,
+  ContentContainer,
+  PageContainer,
+  PageMain,
+} from "./styled";
+import { Title } from "../../components/title";
 
 const MainCards = [
   {
@@ -42,35 +48,40 @@ const MainCards = [
     id: "id104",
     imageUrl: site3,
     title: "Дизайн сайтов. Разработка сайтов под ключ",
-    tags: ["Сайты", "Под ключ", "Десктоп"],
+    tags: ["Дизайн", "Под ключ"],
   },
   {
     id: "id105",
     imageUrl: site2,
     title: "FullStack разработка приложений на React",
-    tags: ["Сайты", "Под ключ", "Десктоп"],
+    tags: ["Сайты", "Под ключ", "Мобильная разработка"],
   },
 ];
 
 export function Main() {
   const [selectedTags, setSelectedTags] = useState([]);
 
+  const filteredCards =
+    selectedTags.length > 0
+      ? MainCards.filter((item) =>
+          selectedTags.every((tag) => item.tags.includes(tag))
+        )
+      : MainCards;
+
   return (
     <div className="wrapper">
       <Header />
       <ContentContainer>
-        <Sidebar selectedTags={selectedTags} onSelect={setSelectedTags}/>
+        <Sidebar selectedTags={selectedTags} onSelect={setSelectedTags} />
         <PageMain>
           <PageContainer>
             <section className="main">
-              <Title>
-                WebStar - create your digital dream with us
-              </Title>
+              <Title>WebStar - create your digital dream with us</Title>
               <Search />
               <CardsDiv>
-                {MainCards.map((item, index) => (
+                {filteredCards.map((item, index) => (
                   <Card
-                    key={index}
+                    key={item.id}
                     id={item.id}
                     imageUrl={item.imageUrl}
                     title={item.title}

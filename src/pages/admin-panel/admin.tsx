@@ -1,13 +1,14 @@
 import React from "react";
 
-import { Header } from "../../components/Header";
-import { Search } from "../../components/Search";
-import { Message } from "../../components/Message";
+import { Header } from "../../components/header";
+import { Search } from "../../components/search";
+import { Message } from "../../components/message";
 
 import "../../styles/normalize.css";
 import "../../styles/style.css";
 
-import { Container, MessagesDiv, Title, TopDiv } from "./styled";
+import { Container, MessagesDiv, TopDiv } from "./styled";
+import { Title } from "../../components/title";
 
 const MessagesArray = [
   {
@@ -45,7 +46,7 @@ const AdminPanel = () => {
           <Container>
             <section className="panel">
               <TopDiv>
-                <Title>
+                <Title letterSpace={"-0.02em"}>
                   With great power comes great responsibility
                 </Title>
                 <Search />

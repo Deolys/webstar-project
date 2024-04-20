@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { CardTags } from "./CardTags";
+import { CardTags } from "./card-tags";
 
 import starFilled from '../../assets/icons/star-filled.svg';
 import starOutline from '../../assets/icons/star-outline.svg';

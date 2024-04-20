@@ -1,24 +1,12 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.main`
-  max-width: 1440px;
-  padding-inline: clamp(0.625rem, -0.625rem + 6.25vw, 5rem);
-  margin: 0 auto;
-`;
 
-export const TopDiv = styled.div`
-  padding-inline: 195px;
-  @media (max-width: 1080px) {
-    padding-inline: 0;
-  }
-`;
-
-export const Title = styled.h2`
-  letter-spacing: -0.02em;
+export const MainTitle = styled.h1`
+  letter-spacing: ${(props:any) => props.letterSpace ? props.letterSpace: ''};
   padding-block: 60px;
   font-family: Montserrat, sans-serif;
   font-size: 38px;
-  font-weight: 800px;
+  font-weight: 800;
   background: rgb(23, 233, 107);
   background: -moz-linear-gradient(
     110deg,
@@ -40,11 +28,26 @@ export const Title = styled.h2`
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  @media (max-width: 1080px) {
+  background-size: 300%;
+  animation: gradient 5s infinite;
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @media (max-width: 1024px) {
     font-size: 32px;
   }
-`;
 
-export const MessagesDiv = styled.div`
-  margin-top: 60px;
+  @media (max-width: 540px) {
+    font-size: 24px;
+  }
 `;
