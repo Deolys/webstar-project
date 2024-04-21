@@ -6,7 +6,7 @@ import '../../styles/style.css';
 import {globalStyles, CardBody, MainContainer, ContentContainer, ContainerLabel} from "./worker-card.styled";
 
 
-import {Header} from '../../components/Header';
+import {Header} from '../../components/header';
 import {TopButtonsPanel} from '../../components/top-buttons-panel';
 import {UploadBtn} from '../../components/upload-btn';
 import {TagsPanel} from '../../components/tags-panel';
