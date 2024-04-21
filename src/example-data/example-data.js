@@ -3,8 +3,7 @@ import image2 from 'src/assets/images/Landing page designs.jpg'
 import image3 from'src/assets/images/MobileAppWork.jpg'
 import image4 from 'src/assets/images/Landing page.jpg'
 import image5 from'src/assets/images/Ellipse3.png'
-
-import background from '../assets/images/background-hills.png';
+import background from 'src/assets/images/background-hills.png';
 import profilePicture1 from 'src/assets/images/ivoryowl.jpg';
 
 export const sliderData = [

@@ -2,6 +2,14 @@ html {
   font-size: 12px;
 }
 
+button {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
 .card-body {
   display: flex;
   flex-direction: column;
@@ -13,37 +21,7 @@ html {
   font-family: Inter;
 }
 
-button {
-  padding: 0;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  color: inherit;
-}
-/* .header2 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  display: flex;
-  background-color: #2F3134;
-  padding: auto; 
-  width: 100%;
-  min-height: 64px;
-  height: auto;
-  align-items: center;
-} */
-
-/*.logo {
-  margin: 1rem;
-}
-
-.logo img {
-  max-width: 146px;
-  height: auto;
-} */
-
-header h1 {
+/* header h1 {
   font-size: 1.625rem;
   font-weight: bold;
   margin: 0 auto;
@@ -51,7 +29,7 @@ header h1 {
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-}
+} */
 
 .main-container {
   width: 100%;

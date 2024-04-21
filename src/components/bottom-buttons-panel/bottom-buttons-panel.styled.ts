@@ -10,6 +10,7 @@ export const BottomBar = styled.div`
   background-color: #2F3134;
   justify-content: center;
   border-radius: 0 0 20px 20px;
+  
   @media (max-width: 600px) {
     display: flex;
     flex-direction: column;

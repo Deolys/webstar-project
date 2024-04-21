@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
-import '../styles/normalize.css';
-import '../styles/style.css';
-import '../styles/card-styles.css';
+import {Global} from '@emotion/react';
+import '../../styles/normalize.css';
+import '../../styles/style.css';
+
+import {globalStyles, CardBody, MainContainer, ContentContainer, ContainerLabel} from "./worker-card.styled";
 
 
-import {Header} from '../components/Header';
-import {TopButtonsPanel} from '../components/top-buttons-panel';
-import {UploadBtn} from '../components/upload-btn';
-import {TagsPanel} from '../components/tags-panel';
-import {ProfileInfo} from '../components/profile-info';
-import {WorkArticle} from '../components/work-article';
-import {BottomButtonsPanel} from '../components/bottom-buttons-panel';
-import {Ellipses} from '../components/ellipses';
-import {Slider} from '../components/slider';
+import {Header} from '../../components/Header';
+import {TopButtonsPanel} from '../../components/top-buttons-panel';
+import {UploadBtn} from '../../components/upload-btn';
+import {TagsPanel} from '../../components/tags-panel';
+import {ProfileInfo} from '../../components/profile-info';
+import {WorkArticle} from '../../components/work-article';
+import {BottomButtonsPanel} from '../../components/bottom-buttons-panel';
+import {Ellipses} from '../../components/ellipses';
+import {Slider} from '../../components/slider';
 
-import {sliderData, someTags, profileData, articleData1} from '../example-data/example-data.js';
+import {sliderData, someTags, profileData, articleData1} from '../../example-data/example-data.js';
 
 
 const Card = () => {
@@ -42,10 +44,12 @@ const Card = () => {
     }
 
     return (
-      <div className="card-body">
+      <>
+      <Global styles={globalStyles}/>
+      <CardBody>
         <Header></Header>
 
-      <main className="main-container">
+      <MainContainer>
       {/* <label className="container-label">Профиль пользователя</label> */}
           
           <TopButtonsPanel isOwner={true} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
@@ -56,21 +60,22 @@ const Card = () => {
 
           <ProfileInfo profileData={profileData} isEditing={isEditMode}/>
 
-          <div className="content-container">
-              <label className="container-label">Информация о работе пользователя</label>
+          <ContentContainer>
+              <ContainerLabel>Информация о работе пользователя</ContainerLabel>
               { articleData1.map((item, index) => 
                 {
                   return(<WorkArticle key={index} articleData={item} isEditing={isEditMode}/>)
                 })
               }
               {isEditMode&&<UploadBtn isRel={true} bindAction={addArticle}/>}
-          </div>
+          </ContentContainer>
         
           <BottomButtonsPanel isEditing={isEditMode} cancelBtnAction={handleEditModeToggle} finishBtnAction={handleEditModeToggle}/>
-      </main>
+      </MainContainer>
       
       <Ellipses count={"4"}/>
-      </div>
+      </CardBody>
+      </>
       );
   };
   
