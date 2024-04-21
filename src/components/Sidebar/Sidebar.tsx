@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { Categories } from "./Categories";
-import { Displays } from "./Displays";
+import { Categories } from "./categories";
+import { Displays } from "./displays";
 
 import arrow from "../../assets/icons/arrow.svg";
 import { ShowButton, SidebarAside } from "./styled";
