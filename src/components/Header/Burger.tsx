@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { Background, BackgroundDiv, Bar, BurgerDiv } from "./styled";
+
 export function Burger ({ onHeaderLinksToggle }) {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const handleBurgerClick = () => {
@@ -9,7 +11,7 @@ export function Burger ({ onHeaderLinksToggle }) {
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (isBurgerOpen && !e.target.closest('.burger') && !e.target.closest('.header__links')) {
+      if (isBurgerOpen && !e.target.closest('.burger') && !e.target.closest('.header-links') && !e.target.closest('.burger-el')) {
         setIsBurgerOpen(false);
         onHeaderLinksToggle();
       }
@@ -24,14 +26,14 @@ export function Burger ({ onHeaderLinksToggle }) {
 
   return (
     <>
-      <div id="burger" className={`burger ${isBurgerOpen ? 'change' : ''}`} onClick={handleBurgerClick}>
-        <div id="bar1" className="bar"></div>
-        <div id="bar2" className="bar"></div>
-        <div id="bar3" className="bar"></div>
-      </div>
-      <div className={`burger-bg__content ${isBurgerOpen ? 'change' : ''}`}>
-        <div id="burger-bg" className={`burger-bg ${isBurgerOpen ? 'change-bg' : ''}`}></div>
-      </div>
+      <BurgerDiv className={`burger ${isBurgerOpen ? 'change' : ''}`} onClick={handleBurgerClick}>
+        <Bar></Bar>
+        <Bar></Bar>
+        <Bar></Bar>
+      </BurgerDiv>
+      <BackgroundDiv className={`burger-el ${isBurgerOpen ? 'change' : ''}`}>
+        <Background className={isBurgerOpen ? 'change-bg' : ''}></Background>
+      </BackgroundDiv>
     </>
   );
 };

@@ -1,14 +1,15 @@
 import React from 'react';
 
-import Main from './pages/main';
-import Admin from './pages/admin';
 import Card from './pages/worker-card/worker-card';
+import Main from './pages/main/main';
+import AdminPanel from './pages/admin-panel/admin';
 
 const App = () => {
   return (
     <>
       <Main />
       {/* <Card /> */}
+      {/* <AdminPanel /> */}
     </>
   );
 };

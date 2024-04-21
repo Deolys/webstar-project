@@ -1,5 +1,7 @@
 import React from "react";
-import { MessageButtons } from "./MessageButtons";
+
+import { MessageButtons } from "./message-buttons";
+
 import { MessageDiv, MessageNum, Title } from "./styled";
 
 export function Message({ number, title }) {

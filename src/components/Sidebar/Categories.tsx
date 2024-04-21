@@ -1,8 +1,9 @@
 import React from "react";
 import { CategoriesTitle, Tag, TagsDiv } from "./styled";
 
+const tagsArray = ["Сайты", "Десктоп", "Дизайн", "Под ключ", "Мобильные устройства", "Вёрстка"];
+
 export function Categories({selectedTags, setSelectedTags}) {
-  const tagsArray = ["Сайты", "Десктоп", "Дизайн", "Под ключ", "Мобильные устройства", "Вёрстка"];
 
   const toggleTag = (tag: string) => {
     if (selectedTags && selectedTags.includes(tag)) {
