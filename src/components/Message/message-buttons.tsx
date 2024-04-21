@@ -1,4 +1,5 @@
 import React from "react";
+
 import { ButtonAccept, ButtonReject, ButtonView } from "./styled";
 
 export function MessageButtons() {

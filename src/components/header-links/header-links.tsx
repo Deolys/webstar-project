@@ -2,29 +2,33 @@ import React from 'react';
 
 import starGreen from '../../assets/icons/star-green.svg';
 
+import { BorderLink, FavouritesLink, FavouritesTitle, GradientLink, LinksNav } from './styled';
+
+let isAuth = true;
+
 export function HeaderLinks({ isOpen }) {
   return (
-      <nav className={`header__links ${isOpen ? 'change' : ''}`}>
-          <a className="header__link favourites-link ">
-              <img className="favourite-green__icon" src={starGreen} title="Избранное" aria-label="Избранное" />
-              <span className="favourites-link__title">Избранное</span>
-          </a>
+    <LinksNav className="header-links" isOpen={isOpen}>
+    <FavouritesLink isVisible={isAuth}>
+      <img className="favourite-green__icon" src={starGreen} title="Избранное" aria-label="Избранное" />
+      <FavouritesTitle>Избранное</FavouritesTitle>
+    </FavouritesLink>
 
-          <a className="header__link my-card-link">
-              <button className="my-card-btn">Моя карточка</button>
-          </a>
+    <GradientLink isVisible={isAuth}>
+      <button className="my-card-btn">Моя карточка</button>
+    </GradientLink>
 
-          <a className="header__link logout-link ">
-              <button className="logout-btn">Выйти</button>
-          </a>
+    <BorderLink isVisible={isAuth}>
+      <button className="logout-btn">Выйти</button>
+    </BorderLink>
 
-          <a className="header__link login-link hidden">
-              <button className="login-btn">Войти</button>
-          </a>
+    <GradientLink isVisible={!isAuth}>
+      <button className="sign-up-btn">Зарегистрироваться</button>
+    </GradientLink>
 
-          <a className="header__link sign-up-link hidden">
-              <button className="sign-up-btn">Зарегистрироваться</button>
-          </a>
-      </nav>
+    <BorderLink isVisible={!isAuth}>
+      <button className="login-btn">Войти</button>
+    </BorderLink>
+  </LinksNav>
   );
 }

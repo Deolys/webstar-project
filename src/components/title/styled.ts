@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 
 export const MainTitle = styled.h1`
-  letter-spacing: ${(props:any) => props.letterSpace ? props.letterSpace: ''};
+  letter-spacing: ${(props: {letterSpace: string}) => props.letterSpace ? props.letterSpace: ''};
   padding-block: 60px;
   font-family: Montserrat, sans-serif;
   font-size: 38px;
