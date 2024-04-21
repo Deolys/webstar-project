@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Main from './pages/main';
-import Admin from './pages/admin';
+import Main from './pages/main/main';
+import AdminPanel from './pages/admin-panel/admin';
 import Card from './pages/worker-card';
 import Edit from './pages/card-editing';
 
@@ -11,7 +11,7 @@ const App = () => {
       <Main />
       {/* <Card /> */}
       {/* <Edit /> */}
-
+      {/* <AdminPanel /> */}
     </>
   );
 };
