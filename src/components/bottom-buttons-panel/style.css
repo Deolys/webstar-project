@@ -1,0 +1,53 @@
+.bottom-bar {
+    position: sticky;
+    width: inherit + 1.25rem;
+    height: 5rem;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    background-color: #2F3134;
+    justify-content: center;
+    border-radius: 0 0 20px 20px;
+}
+
+.manipulate-btn {
+    width: 15.75rem;
+    height: 4rem;
+    font-size: 1.25rem;
+    margin: 0.5rem;
+    font-weight: bold;
+    background-image: linear-gradient(20deg, #17E96B, #24D7C2);
+    border:none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.manipulate-btn:hover {
+    outline: 3px solid #23d7c289
+}
+
+.manipulate-btn.cancel {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    border-radius: 0px;
+    border: 2px solid transparent;
+    background-color: transparent;
+    border-image: linear-gradient(20deg, #24D7C2 38%, #17E96B 65%);
+    border-image-slice: 1;
+    float: left;
+}
+
+.manipulate-btn.accept {
+    float: right;
+}
+
+@media (max-width: 600px) {
+    .bottom-bar {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      align-items: center;
+    }
+  }
+  
