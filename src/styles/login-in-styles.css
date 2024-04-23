@@ -8,14 +8,47 @@
     outline: none;
 }
 
+:root {
+    --max-width: 1440px;
+    --min-width: 320px;
+}
+
+html{
+    position: fixed;
+    box-sizing: border-box;
+
+
+    @media (max-width:1840px) {
+        font-size: 18px;
+    }
+    @media (max-width:1440px) {
+        font-size: 16px;
+    }
+    @media (max-width:900px) {
+        font-size: 15px;
+        
+    }
+    @media (max-width: 540px) {
+        font-size: 10px;
+    }
+
+}
+
+/* @media screen {
+    
+} */
 body{
+    /* my width: 1440px; height: 720px */
+    max-width: 1440px;
+    width: 100%;
+    max-height: 720px;
+    min-width: 320px;
+    height: 100%;
     align-items: center;
-    justify-content: center;
-    width: 1440px;
-    height: 680p;
     background-color: black;
     font-family: Montserrat;
 }
+
 
 header {
     width: 100%;
@@ -24,71 +57,66 @@ header {
 }
 
 #box {
-    width:400px;
-    height:440px;
+
+    display: flex;
     background-color:#2F3134; 
     border: 0px #2F3134;
     border-radius: 30px;
-    right: 550px;
-    bottom: 150px;
-    margin: auto;
-    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -220px; /* Negative half of height. */
+    margin-left: -140px; /* Negative half of width. */
     padding: 46px 30px;
 }
 
+@media (max-width: 900px) {
+    .box{
+        height: calc(100vh / 600 * 10);;
+    }
+}
+
 #box2 {
-    /* width:350px; */
-    height:40px;
+    height: 3rem;
     background-color:#D9D9D9; 
     border: 1px #2F3134;
-    border-radius: 10px;
-    right: 575px;
-    bottom: 370px;   
+    border-radius: 10px;  
 }
 
 #box3 {
-    /* width:350px; */
-    height:40px;
+    height: 3rem;
     background-color:#D9D9D9; 
     border: 1px #2F3134;
     border-radius: 10px;
-    right: 575px;
-    bottom: 290px;   
 }
 
 #box4{
     width:100%;
-    height:40px;
+    height: 3rem;
     background: linear-gradient(#25458B, #23D7C2);    
     border: 1px #2F3134;
     border-radius: 10px;
     font-weight: bold;
-    right: 575px;
-    bottom: 220px; 
 }
 
-#page-name {
-    left: 567px;
-    top: 150px;
+#page_name {
     z-index: 1;
     margin-top: -15px;
     font-weight: bold;
 }
 
-#login-label {
-    left: 567px;
+#login_label {
+
     bottom: 420px;
     z-index: 1; 
     font-weight: bold;
     margin-top: 15px;
     margin-bottom: 7px;
-    /* width: 93px;
-    height: 50px; */
 }
 
-#pasw-label {
-    left: 567px;
-    bottom: 340px;
+#pasw_label {
     z-index: 1; 
     margin-top: 10px;
     margin-bottom: 7px;
@@ -96,44 +124,35 @@ header {
 }
 
 #Enter{
-    left: 567px;
-    bottom: 490px;
+
     z-index: 1; 
     font-weight: bold;
-    margin-top: 11px;
-    font-size: 28px;
+    margin-top: 1rem;
+    font-size: 2.8rem;
 }
 
 #Tip1{
-    left: 567px;
-    bottom: 460px;
-    z-index: 1; 
     margin-top: 11px;
     margin-bottom: 6px;
     font-weight: bold;
 }
 
 #Tip2{
-    left: 590px;
-    bottom: 180px;
-    margin-top: 30px;
-    margin-left: 25px;
-    z-index: 1; 
+    margin-top: 2rem;
+    margin-left: 5rem;
 }
 
-#Eye-button{
+#Eye_button{
     right: 10px;
     top: 5px;
     background-color: transparent;
-    width: 30px;
-    height: 30px;
+    width: 2.5rem;
+    height: 2.5rem;
     z-index: 1;
     position: absolute;
 }
 
-#Choose-role{
-    left: 567px;
-    bottom: 490px;
+#Choose_role{
     z-index: 1; 
     font-weight: bold;
     margin-top: 11px;
@@ -141,39 +160,39 @@ header {
     font-size: 28px;
 }
 
-#form-radio1{
+#form_radio1{
     max-width: 30px;
     position: relative;
 }
 
-#form-radio{
+#form_radio{
     max-width: 30px;
     position: absolute;
     margin-left: 50px;
 }
 
-#text-radio{
+#text_radio{
     display: block; 
     width: 20px; 
     position: relative;
     margin-top: -50px;
 }
 
-#radio-label1{
+#radio_label1{
     display: block; 
     width: 20px; 
     position: absolute;
     margin-left: 50px;
 }
 
-#radio-label2{
+#radio_label2{
     display: block; 
     width: 20px; 
     position: absolute;
     margin-left: 150px;
 }
 
-#radio-button1 {
+#radio_button1 {
     position: absolute;
     width: 30px;
 	height: 30px;
@@ -182,7 +201,7 @@ header {
     font-weight: bold;
 }
 
-#radio-button2 {
+#radio_button2 {
     position: absolute;
     width: 30px;    
 	height: 30px;
@@ -198,45 +217,55 @@ header {
     border: 1px #2F3134;
     border-radius: 10px;
     font-weight: bold;
-    color: wheat;
+    color: white;
     margin-top: 50px;
 }
 
-#pop-up-win{
+#pop_up_win{
     position: absolute;
     z-index: 1;
     backdrop-filter: blur(5px);
-    width:300px;
-    height:300px;
     background-color:#2F3134; 
     border: 0px #2F3134;
     border-radius: 30px;
     padding: 46px 30px;
-    margin-left: 570px;
-    margin-top: 100px;
+    display: flex;
+    justify-content:center;
+    margin-top: 250px;
+    visibility: hidden;
+}
+
+#pop_up_win:target {
     visibility: visible;
 }
 
 #spot1{
-    /* left: 850px;
-    bottom: 195px; */
-    position: absolute;
+    bottom: 195px;
+    left: -25rem;
+    position: fixed;
     z-index: -1; 
-    width:674px;
-    height:874px;
-    margin-left: 800px;
-    margin-top: -400px;
+    width:67rem;
+    height:87rem;
+    margin-left: 100vw;
+    margin-top: -50rem;
     background-color: transparent;
 }
 
 #spot2{
-    /* left: -70px;
-    bottom: -150px; */
-    position: absolute;
+    left: -190px;
+    bottom: -390px;
+    position: fixed;
     z-index: -1; 
-    width:700px;
-    height:600px;
-    margin-top: 200px;
-    margin-left: -100px;
+    width:70rem;
+    height:60rem;
+    margin-top: -15rem;
+    margin-left: -35rem;
     background-color: transparent;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
 }
