@@ -17,7 +17,7 @@ export function Header() {
   return (
     <HeaderBlock>
       <HeaderWrapper>
-        <LogoLink href="#">
+        <LogoLink href="/">
           <img className="logo__icon" src={logo} srcSet={logo} alt="WebStar" />
         </LogoLink>
         <HeaderLinks isOpen={isHeaderLinksOpen} />

@@ -1,16 +1,14 @@
 import React from 'react';
 
-import Main from './pages/main/main';
-import AdminPanel from './pages/admin-panel/admin';
-import Card from './pages/worker-card/worker-card';
+import { BrowserRouter } from "react-router-dom";
+
+import { PageRoutes } from "./routes";
 
 const App = () => {
   return (
-    <>
-      <Main />
-      {/* <Card /> */}
-      {/* <AdminPanel /> */}
-    </>
+    <BrowserRouter>
+      <PageRoutes />
+    </BrowserRouter>
   );
 };
 

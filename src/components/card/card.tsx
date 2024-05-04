@@ -1,17 +1,20 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 import { CardTags } from "./card-tags";
 
 
 import starFilled from '../../assets/icons/star-filled.svg';
 import starOutline from '../../assets/icons/star-outline.svg';
+
 import { CardArticle, CardImage, DescDiv, FavouriteDiv, FavouriteIcon, ImageDiv, Title } from "./styled";
+
+import { URLs } from "../../__data__/urls";
 
 export function Card({ id, imageUrl, title, tags, selectedTags}) {
 
-
   return (
-      <a href={`/card/${id}`} className="card-link" target="_blank">
+      <Link to={URLs.ui.cardDetail.getUrl(id)} target="_blank">
           <CardArticle>
               <FavouriteDiv>
                   <FavouriteIcon src={starOutline} title="Избранное" alt="Иконка избранного" />
@@ -24,6 +27,6 @@ export function Card({ id, imageUrl, title, tags, selectedTags}) {
                   <CardTags tags={tags} selectedTags={selectedTags}/>
               </DescDiv>
           </CardArticle>
-      </a>
+      </Link>
   );
 }
