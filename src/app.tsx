@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Main from './pages/main';
-import Admin from './pages/admin';
-import Authentication from './pages/auth/auth';
+import { BrowserRouter } from "react-router-dom";
+
+import { PageRoutes } from "./routes";
 
 const App = () => {
   return (
-    <>
-      <Authentication />
-    </>
+    <BrowserRouter>
+      <PageRoutes />
+    </BrowserRouter>
   );
 };
 

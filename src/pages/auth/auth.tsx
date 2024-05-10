@@ -8,6 +8,7 @@ import closedEye from "../../assets/images/bi-eye-slash.png";
 import { FormInput } from '../../components/form-input';
 import { Wrapper, BaseStyles, Form, FormLabel, FormTitle, FormSubTitle, ColoredText, FormButton, FormLink, EyeButton, PasswordDiv} from './auth.styled';
 
+import { URLs } from "../../__data__/urls";
 
 const Authentication = () => {
   return(
@@ -44,7 +45,7 @@ const Authentication = () => {
                   <FormButton>Войти</FormButton>
 
                   <ColoredText fontSize="24px">
-                    Нет аккаунта? <FormLink href="#">Давайте создадим!</FormLink>
+                    Нет аккаунта? <FormLink href={URLs.ui.register}>Давайте создадим!</FormLink>
                   </ColoredText>
                 </Form>
 
@@ -86,7 +87,7 @@ const Authentication = () => {
                   <FormButton>Зарегистрироваться</FormButton>
 
                   <ColoredText fontSize="24px">
-                    Уже есть аккаунт? <FormLink>Войти</FormLink>
+                    Уже есть аккаунт? <FormLink href={URLs.ui.login}>Войти</FormLink>
                   </ColoredText>
                 </Form>
 

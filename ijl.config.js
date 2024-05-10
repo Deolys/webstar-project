@@ -9,7 +9,14 @@ module.exports = {
   },
   /* use https://kc.admin.inno-js.ru/ to create config, navigations and features */
   navigations: {
-    'webstar-project.main': '/webstar-project'
+    'webstar-project.main': '/webstar-project',
+    'webstar-project.card.add': '/add-card',
+    'webstar-project.card.detail': '/card/:cardId',
+    'webstar-project.card.detail.edit': '/card/:cardId/edit',
+    'webstar-project.login': '/login',
+    'webstar-project.register': '/register',
+    'webstar-project.favourites': '/favourites',
+    'webstar-project.admin': '/admin',
   },
   features: {
     'webstar-project': {
