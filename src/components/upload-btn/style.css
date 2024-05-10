@@ -1,0 +1,26 @@
+.upload-btn {
+  position: absolute;
+  background-image:url(../../assets/icons/Plus.svg);
+  background-repeat:no-repeat, repeat-x;
+  background-position:center left, center left;
+  background-size: cover;
+  cursor: pointer;
+  height: 3.125rem;
+  width: 3.125rem;
+  border: none;
+  border-radius: 50%; 
+  margin: 0.875rem;
+}
+
+.upload-btn.rel {
+  position: relative;
+}
+
+.upload-btn:hover {
+  outline: 3px solid #23D7C2
+}
+
+.upload-btn:active {
+  opacity: 0.5;
+  outline: 3px solid #23D7C2
+}

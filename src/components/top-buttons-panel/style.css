@@ -1,0 +1,30 @@
+.buttons-panel{
+    display:inline-block;
+    height: auto;
+    border-radius: 1.25rem 1.25rem 0 0;
+    width: 100%;
+}
+
+.angle-button {
+    cursor: pointer;
+    width: 4rem;
+    height: 4rem;
+    float: right;
+    border: none;
+    border-radius: 0 20px 0 20px;
+    background-color: #2A2E38;
+}
+
+.angle-button.options {
+    float: left;
+    border-radius: 20px 0 20px 0;
+}
+
+.angle-button img {
+    width: 100%;
+    height: 100%;
+}
+
+.angle-button:hover {
+    outline: 2px solid #23D7C2;
+}
