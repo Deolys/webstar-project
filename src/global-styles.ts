@@ -1,5 +1,11 @@
 import { css } from "@emotion/react";
 
+import InterMedium from "./assets/fonts/Inter-Medium.ttf";
+import InterRegular from "./assets/fonts/Inter-Regular.ttf";
+import InterSemiBold from "./assets/fonts/Inter-SemiBold.ttf";
+import MontserratExtraBold from "./assets/fonts/Montserrat-ExtraBold.ttf";
+import MontserratVariableFont from "./assets/fonts/Montserrat-VariableFont_wght.ttf";
+
 export const globalStyles = css`
 html {
   line-height: 1.15; /* 1 */
@@ -183,34 +189,30 @@ template {
 
 @charset "UTF-8";
 
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); */
-
-
 @font-face {
   font-family: Montserrat;
   font-weight: 500;
-  src: url("../assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  src: url(${MontserratVariableFont}) format("truetype");
 }
-
 @font-face {
   font-family: Montserrat;
   font-weight: 800;
-  src: url("../assets/fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  src: url(${MontserratExtraBold}) format("truetype");
 }
 @font-face {
   font-family: Inter;
   font-weight: 400;
-  src: url("../assets/fonts/Inter-Regular.ttf") format("truetype");
+  src: url(${InterRegular}) format("truetype");
 }
 @font-face {
   font-family: Inter;
   font-weight: 500;
-  src: url("../assets/fonts/Inter-Medium.ttf") format("truetype");
+  src: url(${InterMedium}) format("truetype");
 }
 @font-face {
   font-family: Inter;
   font-weight: 600;
-  src: url("../assets/fonts/Inter-SemiBold.ttf") format("truetype");
+  src: url(${InterSemiBold}) format("truetype");
 }
 [class*=__container] {
   max-width: 1440px;

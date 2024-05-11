@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {Global} from '@emotion/react';
-import '../../styles/normalize.css';
-import '../../styles/style.css';
 
 import {globalStyles, CardBody, MainContainer, ContentContainer, ContainerLabel} from "./worker-card.styled";
 
