@@ -4,9 +4,6 @@ import { Header } from "../../components/header";
 import { Search } from "../../components/search";
 import { Message } from "../../components/message";
 
-import "../../styles/normalize.css";
-import "../../styles/style.css";
-
 import { Container, MessagesDiv, TopDiv } from "./styled";
 import { Title } from "../../components/title";
 

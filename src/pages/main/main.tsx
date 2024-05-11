@@ -5,9 +5,6 @@ import { Sidebar } from "../../components/sidebar";
 import { Card } from "../../components/card";
 import { Search } from "../../components/search";
 
-import "../../styles/normalize.css";
-import "../../styles/style.css";
-
 import site1 from "../../assets/images/site1.jpeg";
 import site2 from "../../assets/images/site2.png";
 import site3 from "../../assets/images/site3.jpg";
