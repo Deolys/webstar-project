@@ -1,27 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
 import firstDisplay from '../../assets/icons/first-display.svg'
 import secondDisplay from '../../assets/icons/second-display.svg'
-import { ButtonsDiv, DisplaysTitle } from "./styled";
+import { ButtonsDiv, DisplaysTitle, DisplaysBlock } from "./styled";
 
-export function Displays() {
+export function Displays({setCardsInOneColumn}) {
+  const [oneColumn, setOneColumn] = useState(false);
+
+  const handleCardsInOneColumnChange = () => {
+    setCardsInOneColumn((prevDisplays) =>!prevDisplays);
+    setOneColumn((prevDisplays) =>!prevDisplays);
+  }
+
   return (
-    <div className="sidebar__displays displays">
+    <DisplaysBlock>
       <DisplaysTitle>Отображение</DisplaysTitle>
       <ButtonsDiv>
-        <button
-          className="double-column-btn"
+
+        { oneColumn ?
+          <button
+          onClick={handleCardsInOneColumnChange}
           title="Разместить карточки в две колонки"
         >
-          <img className="first-display__icon" src={firstDisplay} />
+          <img src={firstDisplay} alt="Отображение в две колонки"/>
         </button>
+        :
         <button
-          className="single-column-btn"
+          onClick={handleCardsInOneColumnChange}
           title="Разместить карточки в одну колонку"
         >
-          <img className="second-display__icon" src={secondDisplay} />
-        </button>
+          <img src={secondDisplay} alt="Отображение в одну колонку" />
+        </button>}
       </ButtonsDiv>
-    </div>
+    </DisplaysBlock>
   );
 }

@@ -45,7 +45,7 @@ const Card = () => {
       <>
       <Global styles={globalStyles}/>
       <CardBody>
-        <Header></Header>
+        <Header  showFavourites setShowFavourites />
 
       <MainContainer>
       {/* <label className="container-label">Профиль пользователя</label> */}

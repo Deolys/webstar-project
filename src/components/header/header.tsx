@@ -7,7 +7,7 @@ import logo from '../../assets/icons/logo.svg';
 
 import { HeaderBlock, HeaderWrapper, LogoLink } from "./styled";
 
-export function Header() {
+export function Header({showFavourites, setShowFavourites}) {
   const [isHeaderLinksOpen, setIsHeaderLinksOpen] = useState(false);
 
   const handleHeaderLinksToggle = () => {
@@ -20,7 +20,7 @@ export function Header() {
         <LogoLink href="/">
           <img className="logo__icon" src={logo} srcSet={logo} alt="WebStar" />
         </LogoLink>
-        <HeaderLinks isOpen={isHeaderLinksOpen} />
+        <HeaderLinks isOpen={isHeaderLinksOpen} setShowFavourites={setShowFavourites} showFavourites={showFavourites} />
         <Burger onHeaderLinksToggle={handleHeaderLinksToggle} />
       </HeaderWrapper>
     </HeaderBlock>
