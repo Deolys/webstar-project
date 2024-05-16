@@ -11,7 +11,7 @@ import { CardArticle, CardImage, DescDiv, FavouriteDiv, FavouriteIcon, ImageDiv,
 import { URLs } from "../../__data__/urls";
 import { cardPreviews } from "../../assets/images";
 
-export function Card({ id, imageUrl, title, tags, selectedTags, setFavouriteCards}) {
+export function Card({ id, imageUrl, title, tags, selectedTags, setFavouriteCards, cardsInOneColumn}) {
 
 const [isFavourite, setIsFavourite] = useState(() => {
     const storedFavourites = JSON.parse(localStorage.getItem('favouriteCards'));
@@ -37,7 +37,7 @@ const [isFavourite, setIsFavourite] = useState(() => {
                   <FavouriteIcon src={isFavourite? starFilled : starOutline} title="Избранное" alt="Иконка избранного" />
               </FavouriteDiv>
               <ImageDiv>
-                  <CardImage src={cardPreviews[imageUrl]} alt="Превью карточки" aria-label="Превью карточки" />
+                  <CardImage src={cardPreviews[imageUrl]} big={cardsInOneColumn} alt="Превью карточки" aria-label="Превью карточки" />
               </ImageDiv>
               <DescDiv>
                   <Title>{title}</Title>

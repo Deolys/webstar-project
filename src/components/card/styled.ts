@@ -27,7 +27,7 @@ export const ImageDiv = styled.div`
 `;
 
 export const CardImage = styled.img`
-  height: 260px;
+  height: ${(props: { big: Boolean }) => props.big ? "500px" : "260px"};
   width: 100%;
   object-fit: cover;
   @media (max-width: 540px) {

@@ -72,6 +72,7 @@ export function Main() {
                     tags={item.tags}
                     selectedTags={selectedTags}
                     setFavouriteCards={setFavouriteCards}
+                    cardsInOneColumn={cardsInOneColumn}
                   />
                 ))}
               </CardsDiv>
