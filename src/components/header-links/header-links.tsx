@@ -10,18 +10,24 @@ let isAuth = true;
 
 const nav = {
   card: { title: "My card", href: URLs.ui.cardDetailEdit.getUrl("_user-card-id") },
-  favourites: { title: "Favourites", href: URLs.ui.favourites },
   login: { title: "Login", href: URLs.ui.login },
   register: { title: "Login", href: URLs.ui.register },
 };
 
-export function HeaderLinks({ isOpen }) {
+export function HeaderLinks({ isOpen, showFavourites, setShowFavourites }) {
+  const onMainPage = location.pathname === "/webstar-project";
+
+  const handleShowFavourites = (e) => {
+    e.preventDefault();
+    setShowFavourites((prevShow) => !prevShow);
+  }
+
   return (
     <LinksNav isOpen={isOpen}>
-    <FavouritesLink isVisible={isAuth} href={nav.favourites.href}>
+    {onMainPage && <FavouritesLink isVisible={isAuth} onClick={handleShowFavourites} isActive={showFavourites}>
       <img className="favourite-green__icon" src={starGreen} title="Избранное" aria-label="Избранное" />
       <FavouritesTitle>Избранное</FavouritesTitle>
-    </FavouritesLink>
+    </FavouritesLink>}
 
     <GradientLink isVisible={isAuth} href={nav.card.href}>
       <button className="my-card-btn">Моя карточка</button>

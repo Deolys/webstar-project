@@ -31,6 +31,6 @@ export const PageContainer = styled(Container)`
 
 export const CardsDiv = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(231px, 1fr));
+  grid-template-columns: ${(props: {cardsInOneColumn: boolean}) => (props.cardsInOneColumn? "1fr" : "repeat(auto-fill, minmax(231px, 1fr))")};
   gap: 80px clamp(1.875rem, -3.195rem + 11.19vw, 6.875rem); //30-110px 725-1440px
 `;

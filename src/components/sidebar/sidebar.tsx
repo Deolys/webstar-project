@@ -6,7 +6,7 @@ import { Displays } from "./displays";
 import arrow from "../../assets/icons/arrow.svg";
 import { ShowButton, SidebarAside } from "./styled";
 
-export function Sidebar({selectedTags, onSelect}) {
+export function Sidebar({selectedTags, onSelect, setCardsInOneColumn}) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(window.innerWidth >= 1024);
 
   const handleSidebarClick = () => {
@@ -21,7 +21,7 @@ export function Sidebar({selectedTags, onSelect}) {
         <img src={arrow} title="Боковая панель" alt="Боковая панель" />
       </ShowButton>
       <Categories selectedTags={selectedTags} setSelectedTags={onSelect}/>
-      <Displays />
+      <Displays setCardsInOneColumn={setCardsInOneColumn} />
     </SidebarAside>
   );
 }
