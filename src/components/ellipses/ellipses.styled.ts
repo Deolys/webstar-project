@@ -21,16 +21,16 @@ export const StyledEllipses = styled.div`
 `;
 
 export const Ellipse = styled.div`
-  width: 620px;
-  height: 460px;
+  width: 520px;
+  height: 360px;
   background: url(${Ellipse1}) no-repeat center center;
   background-size: contain;
   z-index: 0;
-  margin-right: calc(-50% - 400px);
+  margin-right: calc(-50% - 350px);
 
   &:nth-of-type(even) {
     margin-right: 0;
-    margin-left: calc(-50% - 400px);
+    margin-left: calc(-50% - 350px);
   }
 
   &:nth-of-type(4n+2) {

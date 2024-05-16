@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import {DeleteBtn} from '../delete-btn';
 
 export const ContentItem = styled.div`
   display: grid;
@@ -151,4 +152,20 @@ export const ItemParagraph = styled.p`
     margin-left: 0;
     margin-right: 0;
   }
+`;
+
+export const RemoveArticleBtn = styled.div`
+  grid-row: 3/ 4;
+  grid-column: 1/3;
+  margin-top: 1rem;
+  justify-self:center;
+
+  @media (max-width: 750px) {
+    grid-row: 4/ 5;
+    grid-column: 1 / 2;
+  }
+`;
+
+export const ImageInput = styled.input`
+  display: none;
 `;

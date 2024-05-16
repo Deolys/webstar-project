@@ -1,50 +1,75 @@
-import React, {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 
 import {SliderBtn} from '../slider-btn';
 import {UploadBtn} from '../upload-btn';
+import {DeleteBtn} from "../delete-btn";
 
-import {StyledSlider, PaginationDots, Dot} from './slider.styled';
+import {StyledSlider, PaginationDots, Dot, DeleteSlideBtn, SliderUl, SliderLi, SliderInput} from './slider.styled';
 
 export default function Slider({sliderData, isEditing}) {
-    const [slideIndex, setSlideIndex] = useState(1)
+    const [slides, setSlides] = useState(sliderData || []);
+    const [slideIndex, setSlideIndex] = useState(0)
+    const [url, setUrl] = useState(null);
+    const [isSliderFull, setIsSliderFull] = useState(false);
+
     const rightSlide = () => {
-        if(slideIndex !== sliderData.length){
-            setSlideIndex(slideIndex + 1)
-        } 
-        else if (slideIndex === sliderData.length){
-            setSlideIndex(1)
-        }
+        setSlideIndex((slideIndex + 1)%slides.length);
     }
 
     const leftSlide = () => {
-        if(slideIndex !== 1){
-            setSlideIndex(slideIndex - 1)
-        }
-        else if (slideIndex === 1){
-            setSlideIndex(sliderData.length)
-        }
+        setSlideIndex((slideIndex + slides.length - 1)%slides.length);
     }
 
-    const moveDot = index => {
-        setSlideIndex(index)
-    }
+    const removeSlide = () => {
+        const newSlides = [...slides];
+        newSlides.splice(slideIndex, 1);
+        setSlides(newSlides);
+        setSlideIndex((slideIndex + newSlides.length - 1)%newSlides.length);
+    };
+
+    useEffect(() => {
+        if (url) {
+           const newSlides = [...slides];
+           newSlides.push({image:url});
+           setSlides(newSlides);
+           setUrl(null);
+       }
+    }, [url]);
+    
+    useEffect(() => {
+        if(slides.length >= 10)
+            setIsSliderFull(true);
+        else
+            setIsSliderFull(false);
+    }, [slides]);
+
+    const imgInputRef=useRef(null);
+
+    const handleUrlChange = (event) =>{
+        setUrl(URL.createObjectURL(event.target.files[0]));
+      }
 
     return (
         <StyledSlider>
             <SliderBtn isRight={false} bindAction={leftSlide}/>
-            <ul>
-                {sliderData.map((item, index) => {return (
-                       <li key={index} className={slideIndex === index + 1 ? 'active' : ''}>
+            <SliderUl>
+                {slides.map((item, index) => {return (
+                       <SliderLi key={index} className={slideIndex === index ? 'active' : ''}>
                            <img src={item.image} alt="Изображение на слайдере"/>
-                       </li>
+                       </SliderLi>
                    )
                 })}
-                {isEditing && <UploadBtn />}
-            </ul>
+                <SliderInput ref={imgInputRef} onChange={handleUrlChange} type="file" accept="image"/>
+                {isEditing && !isSliderFull && <UploadBtn bindAction={() => imgInputRef.current.click()}/>} 
+                {isEditing && 
+                <DeleteSlideBtn title='Удалить изображение'>
+                    <DeleteBtn bindAction={removeSlide}/>
+                </DeleteSlideBtn>}
+            </SliderUl>
             <SliderBtn isRight={true} bindAction={rightSlide}/>
-            <PaginationDots onClick={() => moveDot(slideIndex + 1)}>
-                    {Array.from({length: sliderData.length}).map((_, index) => (
-                    <Dot key={index} isActive={slideIndex === index + 1}>
+            <PaginationDots>
+                    {Array.from({length: slides.length}).map((_, index) => (
+                    <Dot key={index} isActive={slideIndex === index}>
                     </Dot>
                 ))}
             </PaginationDots>
