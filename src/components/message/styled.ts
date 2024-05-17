@@ -35,7 +35,7 @@ const Button = styled.button`
   color: var(--dark-text-color);
   cursor: pointer;
   @media (max-width: 1080px) {
-    &:first-child {
+    &:first-of-type {
       margin-left: 0;
     }
   }

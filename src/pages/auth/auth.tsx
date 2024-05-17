@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import "../../styles/normalize.css";
-import "../../styles/style.css";
-
 import closedEye from "../../assets/images/bi-eye-slash.png";
 
 import { FormInput } from '../../components/form-input';

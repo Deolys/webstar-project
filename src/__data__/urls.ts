@@ -19,7 +19,6 @@ export const URLs = {
     },
     login: getNavigationsValue('webstar-project.login') && `${baseUrl}${getNavigationsValue('webstar-project.login')}`,
     register: getNavigationsValue('webstar-project.register') && `${baseUrl}${getNavigationsValue('webstar-project.register')}`,
-    favourites: getNavigationsValue('webstar-project.favourites') && `${baseUrl}${getNavigationsValue('webstar-project.favourites')}`,
     admin: getNavigationsValue('webstar-project.admin') && `${baseUrl}${getNavigationsValue('webstar-project.admin')}`
   },
   api: {},
