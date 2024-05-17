@@ -1,0 +1,23 @@
+{
+    "data":[
+        {
+            "id":"1111", 
+            "image": "image1", 
+            "label": "Desktop", 
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor consequatur eligendi accusantium possimus nihil rerum, voluptatum, quibusdam illo neque incidunt fugit nostrum iusto provident ipsa aliquam consectetur laborum, quas reprehenderit est! Quidem dolorem consectetur itaque quas corrupti, nam optio ullam amet asperiores repellendus rerum voluptate consequatur ducimus doloremque. Eum, in?"
+        },
+        {
+            "id":"2222", 
+            "image": "image2", 
+            "label": "Mobile", 
+            "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure mollitia omnis qui est doloremque accusantium ab! Suscipit cumque laboriosam perspiciatis error. Beatae neque nesciunt labore accusamus velit, numquam laborum adipisci asperiores facilis veniam hic id voluptatibus maiores libero, enim quia esse, fugiat temporibus cum voluptas!" 
+        },
+        {
+            "id":"3333", 
+            "image": "image3", 
+            "label": "Design", 
+            "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt tempore impedit iste? Suscipit, reprehenderit? Provident recusandae maxime aliquid accusantium quam tempora ipsa, necessitatibus fugit, non unde adipisci explicabo repudiandae vitae qui? Quibusdam deserunt ad nostrum ullam ipsam corporis illo dicta in, voluptatibus voluptatem quidem ipsum tenetur est laborum sed, quod similique distinctio voluptas illum repellat vero aperiam sunt dolore quas. Optio eos vitae at cum molestiae et libero illo natus eaque"
+        }
+
+    ]
+}

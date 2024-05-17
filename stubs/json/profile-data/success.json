@@ -1,0 +1,9 @@
+{
+    "data":{
+        "name": "Имя пользователя", 
+        "geolocation": "г. Казань", 
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
+        "profilePicture": "profilePicture1", 
+        "backgroundImage": "backgroundImage1"
+    }
+}
