@@ -46,22 +46,25 @@ const Card = () => {
       setArticleCount(articleData1.length);
     }
 
-    const [cardData, setCardData] = useState([]);
-    const [articleData, setArticleData] = useState([]);
-    const [profileData, setProfileData] = useState([]);
-    const [sliderImages, setSliderImages] = useState([]);
-    const [someTags, setSomeTags] = useState([]);
+    const [data, setData] = useState({
+      cardData: [],
+      articles: [],
+      profileData: [],
+      sliderImages: [],
+      tags: []
+    });
     useEffect(() => {
       const id = location.pathname.split('/').pop();
       fetch(`/api/cards-data/${id}`)
       .then(response => response.json())
       .then(data => {
-        setCardData(data);
-        setArticleData(data.articles);
-        setProfileData(data.profileData);
-        setSliderImages(data.sliderImages);
-        setSomeTags(data.tags);
-        console.log('data.tags: ', data.tags);
+        setData({
+          cardData: data,
+          articles: data.articles,
+          profileData: data.profileData,
+          sliderImages: data.sliderImages,
+          tags: data.tags
+        });
       })
     }, [])
 
@@ -77,15 +80,15 @@ const Card = () => {
           
           <TopButtonsPanel isOwner={true} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
 
-          <Slider sliderData={sliderImages} isEditing={isEditMode}/>
+          <Slider sliderData={data.sliderImages} isEditing={isEditMode}/>
 
-          <TagsPanel tags={someTags} setTags={setSomeTags} isEditing={isEditMode}/>
+          <TagsPanel tags={data.tags} setData={setData} isEditing={isEditMode}/>
 
-          <ProfileInfo profileData={profileData} isEditing={isEditMode}/>
+          <ProfileInfo profileData={data.profileData} isEditing={isEditMode}/>
 
           <ContentContainer>
               <ContainerLabel>Информация о работе пользователя</ContainerLabel>
-              { articleData.map((item, _) => 
+              { data.articles.map((item, _) => 
                 {
                   return(<WorkArticle key={item.id} articleData={item} isEditing={isEditMode} bindAction={deleteArticle(item.id)}/>)
                 })
