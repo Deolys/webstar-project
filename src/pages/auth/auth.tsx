@@ -13,7 +13,7 @@ const Authentication = () => {
       <main>
               <Wrapper>
 
-                <Form>
+              {location.pathname.split('/').pop() === 'login' && <Form>
                   <FormTitle> 
                     <ColoredText color="#35C7AD"> Дом </ColoredText>
                       / Авторизация
@@ -44,9 +44,9 @@ const Authentication = () => {
                   <ColoredText fontSize="24px">
                     Нет аккаунта? <FormLink href={URLs.ui.register}>Давайте создадим!</FormLink>
                   </ColoredText>
-                </Form>
+                </Form>}
 
-                <Form>
+                {location.pathname.split('/').pop() === 'register' && <Form>
                   <FormTitle> 
                     <ColoredText color="#35C7AD"> Дом </ColoredText>
                       / Регистрация
@@ -86,7 +86,7 @@ const Authentication = () => {
                   <ColoredText fontSize="24px">
                     Уже есть аккаунт? <FormLink href={URLs.ui.login}>Войти</FormLink>
                   </ColoredText>
-                </Form>
+                </Form>}
 
               </Wrapper>
           </main>
