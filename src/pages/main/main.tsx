@@ -62,6 +62,7 @@ export function Main() {
   const [showFavourites, setShowFavourites] = useState(false);
   const [cardsInOneColumn, setCardsInOneColumn] = useState(false);
 
+
   // const [cardsData, setCardsData] = useState([])
   // useEffect(() => {
   //   fetch('/api/cards-data')
@@ -70,6 +71,7 @@ export function Main() {
   //     setCardsData(data.data);
   //   })
   // }, [])
+
 
   const handleSearchChange = (e) => {
     const value = e.currentTarget.value;
