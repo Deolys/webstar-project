@@ -63,14 +63,14 @@ export function Main() {
   const [cardsInOneColumn, setCardsInOneColumn] = useState(false);
 
 
-  // const [cardsData, setCardsData] = useState([])
-  // useEffect(() => {
-  //   fetch('/api/cards-data')
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     setCardsData(data.data);
-  //   })
-  // }, [])
+  const [cardsData, setCardsData] = useState([])
+  useEffect(() => {
+    fetch('/api/cards-data')
+    .then(response => response.json())
+    .then(data => {
+      setCardsData(data.data);
+    })
+  }, [])
 
 
   const handleSearchChange = (e) => {

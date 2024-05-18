@@ -5,8 +5,9 @@ import {DeleteBtn} from "../delete-btn";
 
 import {StyledTagsPanel, Tag, RemoveTagBtn} from "./tags-panel.styled";
 
-export default function TagsPanel({initialTags, isEditing}) {
-    const [tags, setTags] = useState(initialTags || []);
+export default function TagsPanel({tags, setTags, isEditing}) {
+    // const [tags, setTags] = useState(initialTags || []);
+
 
     const addTag = (tagName) => {
         tags.length <5 &&setTags([...tags, tagName]);
