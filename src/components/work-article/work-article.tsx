@@ -7,7 +7,7 @@ import {ContentItem, ItemPhoto, ItemTextarea, ItemLabel, ItemInput, ItemParagrap
 
 export default function WorkArticle({ articleData, isEditing, bindAction}) {
 
-  const [workImage, setWorkImage] = useState(articleData.image);
+  const [workImage, setWorkImage] = useState(articleData.imageUrl);
   const imgInputRef = useRef(null);
   const handleUrlChange = (e) => {
     setWorkImage(URL.createObjectURL(e.target.files[0]));

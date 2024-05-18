@@ -14,7 +14,7 @@ import {BottomButtonsPanel} from '../../components/bottom-buttons-panel';
 import {Ellipses} from '../../components/ellipses';
 import {Slider} from '../../components/slider';
 
-import {sliderData, someTags, profileData, articleData1} from '../../example-data/example-data.js';
+import {/*sliderData,*/ /*someTags,*/ /*profileData,*/ articleData1} from '../../example-data/example-data.js';
 
 
 const Card = () => {
@@ -46,6 +46,26 @@ const Card = () => {
       setArticleCount(articleData1.length);
     }
 
+    const [cardData, setCardData] = useState([]);
+    const [articleData, setArticleData] = useState([]);
+    const [profileData, setProfileData] = useState([]);
+    const [sliderImages, setSliderImages] = useState([]);
+    const [someTags, setSomeTags] = useState([]);
+    useEffect(() => {
+      const id = location.pathname.split('/').pop();
+      fetch(`/api/cards-data/${id}`)
+      .then(response => response.json())
+      .then(data => {
+        setCardData(data);
+        setArticleData(data.articles);
+        setProfileData(data.profileData);
+        setSliderImages(data.sliderImages);
+        setSomeTags(data.tags);
+        console.log('data.tags: ', data.tags);
+      })
+    }, [])
+
+
     return (
       <>
       <Global styles={globalStyles}/>
@@ -57,15 +77,15 @@ const Card = () => {
           
           <TopButtonsPanel isOwner={true} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
 
-          <Slider sliderData={sliderData} isEditing={isEditMode}/>
+          <Slider sliderData={sliderImages} isEditing={isEditMode}/>
 
-          <TagsPanel initialTags={someTags} isEditing={isEditMode}/>
+          <TagsPanel tags={someTags} setTags={setSomeTags} isEditing={isEditMode}/>
 
           <ProfileInfo profileData={profileData} isEditing={isEditMode}/>
 
           <ContentContainer>
               <ContainerLabel>Информация о работе пользователя</ContainerLabel>
-              { articleData1.map((item, _) => 
+              { articleData.map((item, _) => 
                 {
                   return(<WorkArticle key={item.id} articleData={item} isEditing={isEditMode} bindAction={deleteArticle(item.id)}/>)
                 })

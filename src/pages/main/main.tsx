@@ -13,45 +13,6 @@ import {
 } from "./styled";
 import { Title } from "../../components/title";
 
-const cardsData = [
-  {
-    "id": "1",
-    "imageUrl": "site1",
-    "title": "Верстка сайтов любой сложности. Мобильная разработка",
-    "tags": ["Сайты", "Под ключ", "Десктоп"]
-  },
-  {
-    "id": "2",
-    "imageUrl": "site3",
-    "title": "Дизайн сайтов. Разработка сайтов под ключ",
-    "tags": ["Сайты", "Под ключ", "Десктоп"]
-  },
-  {
-    "id": "3",
-    "imageUrl": "site2",
-    "title": "FullStack разработка приложений на React",
-    "tags": ["Сайты", "Под ключ", "Десктоп"]
-  },
-  {
-    "id": "4",
-    "imageUrl": "site1",
-    "title": "Верстка сайтов любой сложности. Мобильная разработка",
-    "tags": ["Сайты", "Под ключ", "Десктоп"]
-  },
-  {
-    "id": "5",
-    "imageUrl": "site3",
-    "title": "Дизайн сайтов. Разработка сайтов под ключ",
-    "tags": ["Дизайн", "Под ключ"]
-  },
-  {
-    "id": "6",
-    "imageUrl": "site2",
-    "title": "FullStack разработка приложений на React",
-    "tags": ["Сайты", "Под ключ", "Мобильные устройства"]
-  }
-]
-
 export function Main() {
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -63,14 +24,14 @@ export function Main() {
   const [cardsInOneColumn, setCardsInOneColumn] = useState(false);
 
 
-  // const [cardsData, setCardsData] = useState([])
-  // useEffect(() => {
-  //   fetch('/api/cards-data')
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     setCardsData(data.data);
-  //   })
-  // }, [])
+  const [cardsData, setCardsData] = useState([])
+  useEffect(() => {
+    fetch('/api/cards-data')
+    .then(response => response.json())
+    .then(data => {
+      setCardsData(data.data);
+    })
+  }, [])
 
 
   const handleSearchChange = (e) => {
