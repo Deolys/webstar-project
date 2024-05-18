@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 
 export const StyledSlider = styled.div`
   position: relative;
@@ -16,48 +15,57 @@ export const StyledSlider = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
 
-  ul {
-    width: 100%;
-    display: flex;
-    list-style: none;
-    align-items: center;
-    justify-content: center;
-  };
+export const SliderUl = styled.ul`
+  width: 100%;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+`;
 
-  li {
-    display: none;
-    position: absolute;
-    object-fit: contain;
-    width: 100%;
+export const SliderLi = styled.li`
+  display: none;
+  position: absolute;
+  object-fit: contain;
+  width: 100%;
 
-    &.active {
-        display: inline-block;
-      };
-  };
+  &.active {
+      display: inline-block;
+    };
 
-  li img {
+  img {
     width: 100%;
   };
 `;
 
 export const PaginationDots = styled.div`
-    position: absolute;
-    top: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    margin-top: 0.625rem;
-    justify-content: center;
-    background-color: #545b6f6c;
-    border-radius: 50px;
-    padding: 0.2rem;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: 0.625rem;
+  justify-content: center;
+  background-color: #545b6f6c;
+  border-radius: 50px;
+  padding: 0.2rem;
+  z-index: 1;
 `;
 
 export const Dot = styled.div`
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background-color: ${(props: {isActive: Boolean}) => props.isActive ? '#23D7C2' : '#D9D9D9'};
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: ${(props: {isActive: Boolean}) => props.isActive ? '#23D7C2' : '#D9D9D9'};
+`;
+
+export const DeleteSlideBtn = styled.div`
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+`
+export const SliderInput = styled.input`
+  display: none;
 `;

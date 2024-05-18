@@ -21,10 +21,11 @@ const Card = () => {
     const [isHeaderLinksOpen, setIsHeaderLinksOpen] = useState(false);
     const [isEditMode, setIsEditMode] = useState(false);
     const [isFavouritesAdded, setIsFavouritesAdded] = useState(false);
+    const [articleCount, setArticleCount] = useState(articleData1.length);
+
     const handleHeaderLinksToggle = () => {
       setIsHeaderLinksOpen(!isHeaderLinksOpen);
     }; 
-    const [articleCount, setArticleCount] = useState(articleData1.length);
 
     const handleEditModeToggle = () => {
       setIsEditMode(!isEditMode);
@@ -34,10 +35,14 @@ const Card = () => {
       setIsFavouritesAdded(!isFavouritesAdded)
     }
 
-
-
     const addArticle = () => {
-      articleData1.length<5 && articleData1.push({image: "", label: "", text: ""});
+      articleData1.length<5 && articleData1.push({id: Math.random().toString(36).substring(2), image: "", label: "", text: ""});
+      setArticleCount(articleData1.length);
+    }
+
+    const deleteArticle = (id) => () => {
+      console.log(id);
+      articleData1.splice(articleData1.findIndex(item => item.id === id), 1);
       setArticleCount(articleData1.length);
     }
 
@@ -60,9 +65,9 @@ const Card = () => {
 
           <ContentContainer>
               <ContainerLabel>Информация о работе пользователя</ContainerLabel>
-              { articleData1.map((item, index) => 
+              { articleData1.map((item, _) => 
                 {
-                  return(<WorkArticle key={index} articleData={item} isEditing={isEditMode}/>)
+                  return(<WorkArticle key={item.id} articleData={item} isEditing={isEditMode} bindAction={deleteArticle(item.id)}/>)
                 })
               }
               {isEditMode&&<UploadBtn isRel={true} bindAction={addArticle}/>}
