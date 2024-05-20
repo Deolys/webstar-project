@@ -2,15 +2,22 @@ import React, {useState, useRef} from 'react';
 
 import {UploadBtn} from '../upload-btn';
 import {DeleteBtn} from '../delete-btn';
+import { ImageInput } from '../image-input';
 
-import {ContentItem, ItemPhoto, ItemTextarea, ItemLabel, ItemInput, ItemParagraph, RemoveArticleBtn, ImageInput} from './work-article.styled';
+import {ContentItem, ItemPhoto, ItemTextarea, ItemLabel, ItemInput, ItemParagraph, RemoveArticleBtn} from './work-article.styled';
 
-export default function WorkArticle({ articleData, isEditing, bindAction}) {
+import { cardPreviews } from "../../assets/images";
 
-  const [workImage, setWorkImage] = useState(articleData.imageUrl);
+export default function WorkArticle({articleData, isEditing, bindDeleteArticle}) {
+
+  const [workImage, setWorkImage] = useState(cardPreviews[articleData.imageUrl]);
+
   const imgInputRef = useRef(null);
+
   const handleUrlChange = (e) => {
-    setWorkImage(URL.createObjectURL(e.target.files[0]));
+    articleData.imageUrl = URL.createObjectURL(e.target.files[0]);
+    setWorkImage(articleData.imageUrl);
+    imgInputRef.current.value = '';
   }
 
   return (
@@ -18,13 +25,13 @@ export default function WorkArticle({ articleData, isEditing, bindAction}) {
       <ItemPhoto>
         {workImage && <img src={workImage} alt="Контекстное изображение" />}
         {isEditing && <UploadBtn isRel={false} bindAction={()=>imgInputRef.current.click()}/>}
-        {isEditing && <ImageInput ref={imgInputRef} onChange={handleUrlChange} type="file" accept="image"/>}
+        {isEditing && <ImageInput reference={imgInputRef} onChange={handleUrlChange}/>}
       </ItemPhoto>
       {isEditing ? (
         <>
           <ItemInput type="text" maxLength={50} placeholder="Введите название..." defaultValue={articleData.label} onChange={(e) => {articleData.label = e.target.value}} />
           <RemoveArticleBtn title='Удалить карточку'>
-            <DeleteBtn bindAction={bindAction}/>
+            <DeleteBtn bindAction={bindDeleteArticle}/>
           </RemoveArticleBtn>
           <ItemTextarea maxLength={350} placeholder="Введите описание" defaultValue={articleData.text} onChange={(e) => {articleData.text = e.target.value}}></ItemTextarea>
         </>
@@ -39,6 +46,6 @@ export default function WorkArticle({ articleData, isEditing, bindAction}) {
 }
 
 WorkArticle.defaultProps = {
-  isEditing:false,
-  bindAction: () => {}
+  isEditing: false,
+  bindDeleteArticle: () => {}
 }

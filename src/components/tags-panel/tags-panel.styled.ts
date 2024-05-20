@@ -10,9 +10,7 @@ export const StyledTagsPanel = styled.div`
 `;
   
 export const Tag = styled.span`
-    background-color: #213741;
-    color: #35D4F8;
-    margin: 0.25rem 1.5rem;
+    margin: 0.25rem 0.5rem;
     height: 2.25rem;
     padding: 0 1rem;
     font-size: 1.125rem;
@@ -20,7 +18,13 @@ export const Tag = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
-`;
+    background-color: ${(props: { isSelected: Boolean }) =>
+    props.isSelected ? "#214139" : "#213741"};
+    color: ${(props: { isSelected: Boolean }) =>
+    props.isSelected ? "#17E99D" : "#35D4F8"};
+    cursor: ${(props: { isSelected: Boolean }) => 
+    props.isSelected? "default" : "pointer"};
+`
 
 export const RemoveTagBtn = styled.div`
     margin: auto;

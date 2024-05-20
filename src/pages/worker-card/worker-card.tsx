@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {Global} from '@emotion/react';
+import { useParams } from "react-router-dom";
+import { Global } from '@emotion/react';
 
 import {globalStyles, CardBody, MainContainer, ContentContainer, ContainerLabel} from "./worker-card.styled";
 
@@ -14,18 +15,19 @@ import {BottomButtonsPanel} from '../../components/bottom-buttons-panel';
 import {Ellipses} from '../../components/ellipses';
 import {Slider} from '../../components/slider';
 
-import {/*sliderData,*/ /*someTags,*/ /*profileData,*/ articleData1} from '../../example-data/example-data.js';
-
 
 const Card = () => {
-    const [isHeaderLinksOpen, setIsHeaderLinksOpen] = useState(false);
+    const {cardId} = useParams();
     const [isEditMode, setIsEditMode] = useState(false);
     const [isFavouritesAdded, setIsFavouritesAdded] = useState(false);
-    const [articleCount, setArticleCount] = useState(articleData1.length);
-
-    const handleHeaderLinksToggle = () => {
-      setIsHeaderLinksOpen(!isHeaderLinksOpen);
-    }; 
+    const [isOwner, setIsOwner] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [cardData, setCardData] = useState([]);
+    const [articleCount, setArticleCount] = useState(0);
+    const [articleData, setArticleData] = useState([]);
+    const [profileData, setProfileData] = useState([]);
+    const [sliderImages, setSliderImages] = useState([]);
+    const [someTags, setSomeTags] = useState([]);
 
     const handleEditModeToggle = () => {
       setIsEditMode(!isEditMode);
@@ -35,40 +37,70 @@ const Card = () => {
       setIsFavouritesAdded(!isFavouritesAdded)
     }
 
+    useEffect(() => {
+      fetch(`/api/cards-data/${cardId}`)
+      .then(response => response.json())
+      .then(data => {
+        setCardData(data);
+        setArticleData(data.articles);
+        setProfileData(data.profileData);
+        setSliderImages(data.sliderImages);
+        setSomeTags(data.tags);
+        setArticleCount(data.articles.length);
+      });
+
+      // if (currentUser && (currentUser.email === cardData.ownerId || currentUser.email === "admin@admin.ru")) {
+      //   fetch(`api/moderating-cards-data/${cardId}`)
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     if(data.isModerating) {
+      //       setCardData(data);
+      //       setArticleData(data.articles);
+      //       setProfileData(data.profileData);
+      //       setSliderImages(data.sliderImages);
+      //       setSomeTags(data.tags);
+      //       setArticleCount(data.articles.length);
+      //     }
+      //   });
+      // }
+    }, [])
+
     const addArticle = () => {
-      articleData1.length<5 && articleData1.push({id: Math.random().toString(36).substring(2), image: "", label: "", text: ""});
-      setArticleCount(articleData1.length);
+      if (articleData.length<5) {
+        articleData.push({id: Math.random().toString(36).substring(2), image: "", label: "", text: ""});
+        setArticleData(articleData);
+        setArticleCount(articleData.length);
+      }
     }
 
     const deleteArticle = (id) => () => {
-      console.log(id);
-      articleData1.splice(articleData1.findIndex(item => item.id === id), 1);
-      setArticleCount(articleData1.length);
+      articleData.splice(articleData.findIndex(item => item.id === id), 1);
+      setArticleData(articleData);
+      setArticleCount(articleData.length);
     }
 
-    const [data, setData] = useState({
-      cardData: [],
-      articles: [],
-      profileData: [],
-      sliderImages: [],
-      tags: []
-    });
-    useEffect(() => {
-      const id = location.pathname.split('/').pop();
-      fetch(`/api/cards-data/${id}`)
+    const postData = () => {
+      fetch('/api/cards-data/' + cardId, {method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          articles: articleData,
+          profileData: profileData,
+          sliderImages: sliderImages,
+          tags: someTags
+        })
+      })
       .then(response => response.json())
       .then(data => {
-        setData({
-          cardData: data,
-          articles: data.articles,
-          profileData: data.profileData,
-          sliderImages: data.sliderImages,
-          tags: data.tags
-        });
+        // Обработка ответа от сервера после отправки данных
+        console.log(data);
       })
-      console.log("data.profileData", data.profileData);
-    }, [])
-
+      .catch(error => {
+        // Обработка ошибки при отправке данных на сервер
+        console.error('Error:', error);
+      });
+    }
 
     return (
       <>
@@ -78,10 +110,9 @@ const Card = () => {
 
       <MainContainer>
       {/* <label className="container-label">Профиль пользователя</label> */}
-          
           <TopButtonsPanel isOwner={true} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
 
-          <Slider sliderData={data.sliderImages} isEditing={isEditMode}/>
+          <Slider sliderImages={sliderImages} setSliderImages={setSliderImages} isEditing={isEditMode}/>
 
           <TagsPanel tags={data.tags} setData={setData} isEditing={isEditMode}/>
 
@@ -91,7 +122,14 @@ const Card = () => {
               <ContainerLabel>Информация о работе пользователя</ContainerLabel>
               { data.articles.map((item, _) => 
                 {
-                  return(<WorkArticle key={item.id} articleData={item} isEditing={isEditMode} bindAction={deleteArticle(item.id)}/>)
+                  return(
+                  <WorkArticle 
+                    key={item.id} 
+                    articleData={item}
+                    isEditing={isEditMode} 
+                    bindDeleteArticle={deleteArticle(item.id)}
+                    />
+                  )
                 })
               }
               {isEditMode&&<UploadBtn isRel={true} bindAction={addArticle}/>}
@@ -100,7 +138,7 @@ const Card = () => {
           <BottomButtonsPanel isEditing={isEditMode} cancelBtnAction={handleEditModeToggle} finishBtnAction={handleEditModeToggle}/>
       </MainContainer>
       
-      <Ellipses count={"4"}/>
+      <Ellipses count={articleCount}/>
       </CardBody>
       </>
       );

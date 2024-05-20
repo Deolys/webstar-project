@@ -3,72 +3,82 @@ import React, {useState, useRef, useEffect} from "react";
 import {SliderBtn} from '../slider-btn';
 import {UploadBtn} from '../upload-btn';
 import {DeleteBtn} from "../delete-btn";
+import {ImageInput} from "../image-input";
 
-import {StyledSlider, PaginationDots, Dot, DeleteSlideBtn, SliderUl, SliderLi, SliderInput} from './slider.styled';
+import {StyledSlider, PaginationDots, Dot, DeleteSlideBtn, SliderUl, SliderLi} from './slider.styled';
 
-export default function Slider({sliderData, isEditing}) {
-    const [slides, setSlides] = useState(sliderData || []);
+import {cardPreviews} from "../../assets/images";
+
+export default function Slider({sliderImages, setSliderImages, isEditing}) {
     const [slideIndex, setSlideIndex] = useState(0)
     const [url, setUrl] = useState(null);
     const [isSliderFull, setIsSliderFull] = useState(false);
 
     const rightSlide = () => {
-        setSlideIndex((slideIndex + 1)%slides.length);
+        setSlideIndex((slideIndex + 1)%sliderImages.length || 0);
     }
 
     const leftSlide = () => {
-        setSlideIndex((slideIndex + slides.length - 1)%slides.length);
+        setSlideIndex((slideIndex + sliderImages.length - 1)%sliderImages.length || 0);
     }
 
     const removeSlide = () => {
-        const newSlides = [...slides];
-        newSlides.splice(slideIndex, 1);
-        setSlides(newSlides);
-        setSlideIndex((slideIndex + newSlides.length - 1)%newSlides.length);
+        const newSliderImages = sliderImages.filter((_, index) => index!== slideIndex);
+        setSliderImages(newSliderImages);
+        setSlideIndex(slideIndex-1 >=0 ? slideIndex-1 : 0);
     };
 
     useEffect(() => {
+        let images = [];
+        for (let i = 0; i < sliderImages.length; i++) {
+            images.push(cardPreviews[sliderImages[i]]);
+        }
+        setSliderImages(images);
+    },[])
+
+    useEffect(() => {
         if (url) {
-           const newSlides = [...slides];
-           newSlides.push({image:url});
-           setSlides(newSlides);
-           setUrl(null);
+            const newSliderImages = [...sliderImages];
+            newSliderImages.push(url);
+            setSliderImages(newSliderImages);
+            setUrl(null);
        }
     }, [url]);
     
     useEffect(() => {
-        if(slides.length >= 10)
+        if(sliderImages.length >= 10)
             setIsSliderFull(true);
         else
             setIsSliderFull(false);
-    }, [slides]);
+    }, [sliderImages]);
 
     const imgInputRef=useRef(null);
 
     const handleUrlChange = (event) =>{
         setUrl(URL.createObjectURL(event.target.files[0]));
+        imgInputRef.current.value = '';
       }
 
     return (
         <StyledSlider>
             <SliderBtn isRight={false} bindAction={leftSlide}/>
             <SliderUl>
-                {slides.map((item, index) => {return (
+                {sliderImages.map((item, index) => {return (
                        <SliderLi key={index} className={slideIndex === index ? 'active' : ''}>
-                           <img src={item.image} alt="Изображение на слайдере"/>
+                           <img src={cardPreviews[item]} alt="Изображение на слайдере"/>
                        </SliderLi>
                    )
                 })}
-                <SliderInput ref={imgInputRef} onChange={handleUrlChange} type="file" accept="image"/>
+                <ImageInput reference={imgInputRef} onChange={handleUrlChange}/>
                 {isEditing && !isSliderFull && <UploadBtn bindAction={() => imgInputRef.current.click()}/>} 
-                {isEditing && 
+                {isEditing && sliderImages.length>0 && 
                 <DeleteSlideBtn title='Удалить изображение'>
                     <DeleteBtn bindAction={removeSlide}/>
                 </DeleteSlideBtn>}
             </SliderUl>
             <SliderBtn isRight={true} bindAction={rightSlide}/>
             <PaginationDots>
-                    {Array.from({length: slides.length}).map((_, index) => (
+                    {Array.from({length: sliderImages.length}).map((_, index) => (
                     <Dot key={index} isActive={slideIndex === index}>
                     </Dot>
                 ))}

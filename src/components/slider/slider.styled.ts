@@ -66,6 +66,3 @@ export const DeleteSlideBtn = styled.div`
   bottom: 0;
   justify-content: center;
 `
-export const SliderInput = styled.input`
-  display: none;
-`;
