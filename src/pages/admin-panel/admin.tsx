@@ -25,7 +25,8 @@ const AdminPanel = () => {
       (response) => {
         response.json()
         .then((data) => {
-        setMessagesData(data.data);
+          const messages = data.data.filter((item) => item.onModerating === true);
+        setMessagesData(messages);
      });
    })
   }, []);

@@ -119,7 +119,7 @@
     {
       "id": "5",
       "ownerId": "555",
-      "onModerating": true,
+      "onModerating": false,
       "sliderImages": ["site2", "site1", "site3"],
       "title": "Дизайн сайтов. Разработка сайтов под ключ",
       "tags": ["Дизайн", "Под ключ"],
@@ -148,7 +148,7 @@
     {
       "id": "6",
       "ownerId": "666",
-      "onModerating": true,
+      "onModerating": false,
       "sliderImages": ["site3", "site1", "site3"],
       "title": "FullStack разработка приложений на React",
       "tags": ["Сайты", "Под ключ", "Мобильные устройства"],
