@@ -9,15 +9,19 @@ import { cardPreviews } from "../../assets/images";
 
 export default function ProfileInfo({profileData, isEditing}) {
     const [profileImage, setProfileImage] = useState(cardPreviews[profileData.profilePicture]);
-
-    useEffect(() => {
-        setProfileImage(cardPreviews[profileData.profilePicture]);
-    },[profileData.profilePicture]);
-
     const [backgroundImage, setBackgroundImage] = useState(cardPreviews[profileData.backgroundImage]);
+
     useEffect(() => {
-        setBackgroundImage(cardPreviews[profileData.backgroundImage]);
-    }, [profileData.backgroundImage]);
+        if (profileData && profileData.profilePicture && cardPreviews[profileData.profilePicture]) {
+                setProfileImage(cardPreviews[profileData.profilePicture]);
+            }
+      }, [profileData.profilePicture]);
+
+      useEffect(() => {
+        if (profileData && profileData.backgroundImage && cardPreviews[profileData.backgroundImage]) {
+                setBackgroundImage(cardPreviews[profileData.backgroundImage]);
+            }
+      }, [profileData.backgroundImage]);
 
     const profileImgInputRef = useRef(null);
     const backgroundImgInputRef = useRef(null);
