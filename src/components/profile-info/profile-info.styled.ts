@@ -62,6 +62,12 @@ export const Location = styled.span`
   margin-bottom: 0.625rem;
 `;
 
+export const StyledInput = styled.input`
+  font-style: italic;
+  font-size: 1.125rem;
+  margin-bottom: 0.625rem;
+`;
+
 export const StyledTextarea = styled.textarea`
   min-height: 12.5rem;
   height: auto;

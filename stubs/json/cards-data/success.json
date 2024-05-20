@@ -3,16 +3,15 @@
     {
       "id": "1",
       "ownerId": "111",
-      "verified": true,
       "imageUrl": "site1",
       "sliderImages": ["site1", "site2", "site3"],
       "title": "Верстка сайтов любой сложности. Мобильная разработка",
       "tags": ["Сайты", "Под ключ", "Десктоп"],
       "profileData": {
         "name": "Имя пользователя 1", 
-        "geolocation": "г. Казань", 
+        "geolocation": "Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
-        "profilePicture": "profilePicture1", 
+        "profilePicture": "site1", 
         "backgroundImage": "backgroundImage1"
       },
       "articles": [
@@ -33,7 +32,6 @@
     {
       "id": "2",
       "ownerId": "222",
-      "verified": true,
       "imageUrl": "site3",
       "sliderImages": ["site1", "site2", "site3"],
       "title": "Дизайн сайтов. Разработка сайтов под ключ",
@@ -63,7 +61,6 @@
     {
       "id": "3",
       "ownerId": "333",
-      "verified": true,
       "imageUrl": "site2",
       "title": "FullStack разработка приложений на React",
       "tags": ["Сайты", "Под ключ", "Десктоп"],
@@ -85,7 +82,6 @@
     {
       "id": "4",
       "ownerId": "444",
-      "verified": true,
       "imageUrl": "site1",
       "title": "Верстка сайтов любой сложности. Мобильная разработка",
       "tags": ["Сайты", "Под ключ", "Десктоп"],
@@ -107,7 +103,6 @@
     {
       "id": "5",
       "ownerId": "555",
-      "verified": true,
       "imageUrl": "site3",
       "title": "Дизайн сайтов. Разработка сайтов под ключ",
       "tags": ["Дизайн", "Под ключ"],
@@ -129,7 +124,6 @@
     {
       "id": "6",
       "ownerId": "666",
-      "verified": true,
       "imageUrl": "site2",
       "title": "FullStack разработка приложений на React",
       "tags": ["Сайты", "Под ключ", "Мобильные устройства"],
