@@ -1,28 +1,178 @@
 {
   "data": [
     {
-      "number": 100000,
-      "title": "Самое лучшее название, которое только можно придумать!"
+      "id": "1",
+      "ownerId": "user1@gmail.ru",
+      "onModerating": true,
+      "sliderImages": ["site1", "site2", "site3"],
+      "title": "Верстка сайтов любой сложности. Мобильная разработка",
+      "tags": ["Сайты", "Под ключ", "Десктоп"],
+      "profileData": {
+        "name": "Имя пользователя 1", 
+        "geolocation": "г. Казань", 
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
+        "profilePicture": "profilePicture1", 
+        "backgroundImage": "backgroundImage1"
+      },
+      "articles": [
+        {
+          "id": "1",
+          "label": "Верстка статичного сайта",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site1"
+        },
+        {
+          "id": "2",
+          "label": "Разработка простого мобильного приложения",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site2"
+        }
+      ]
     },
     {
-      "number": 100001,
-      "title": "Самое лучшее название, которое только можно придумать!"
+      "id": "2",
+      "ownerId": "222",
+      "onModerating": true,
+      "sliderImages": ["site2", "site1", "site3"],
+      "title": "Дизайн сайтов. Разработка сайтов под ключ",
+      "tags": ["Сайты", "Под ключ", "Десктоп"],
+      "profileData": {
+        "name": "Имя пользователя 2", 
+        "geolocation": "г. Казань", 
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
+        "profilePicture": "profilePicture1", 
+        "backgroundImage": "backgroundImage1"
+      },
+      "articles": [
+        {
+          "id": "1",
+          "label": "Верстка статичного сайта",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site1"
+        },
+        {
+          "id": "2",
+          "label": "Разработка простого мобильного приложения",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site2"
+        }
+      ]
     },
     {
-      "number": 100002,
-      "title": "Самое лучшее название, которое только можно придумать!"
+      "id": "3",
+      "ownerId": "333",
+      "onModerating": true,
+      "sliderImages": ["site3", "site1", "site3"],
+      "title": "FullStack разработка приложений на React",
+      "tags": ["Сайты", "Под ключ", "Десктоп"],
+      "profileData": {
+        "name": "Имя пользователя 1", 
+        "geolocation": "г. Казань", 
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
+        "profilePicture": "profilePicture1", 
+        "backgroundImage": "backgroundImage1"
+      },
+      "articles": [
+        {
+          "id": "1",
+          "label": "Верстка статичного сайта",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site1"
+        },
+        {
+          "id": "2",
+          "label": "Разработка простого мобильного приложения",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site2"
+        }
+      ]
     },
     {
-      "number": 100003,
-      "title": "Самое лучшее название, которое только можно придумать!"
+      "id": "4",
+      "ownerId": "444",
+      "onModerating": true,
+      "sliderImages": ["site1", "site1", "site3"],
+      "title": "Верстка сайтов любой сложности. Мобильная разработка",
+      "tags": ["Сайты", "Под ключ", "Десктоп"],
+      "profileData": {
+        "name": "Имя пользователя 1", 
+        "geolocation": "г. Казань", 
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
+        "profilePicture": "profilePicture1", 
+        "backgroundImage": "backgroundImage1"
+      },
+      "articles": [
+        {
+          "id": "1",
+          "label": "Верстка статичного сайта",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site1"
+        },
+        {
+          "id": "2",
+          "label": "Разработка простого мобильного приложения",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site2"
+        }
+      ]
     },
     {
-      "number": 100004,
-      "title": "Самое лучшее название, которое только можно придумать!"
+      "id": "5",
+      "ownerId": "555",
+      "onModerating": false,
+      "sliderImages": ["site2", "site1", "site3"],
+      "title": "Дизайн сайтов. Разработка сайтов под ключ",
+      "tags": ["Дизайн", "Под ключ"],
+      "profileData": {
+        "name": "Имя пользователя 1", 
+        "geolocation": "г. Казань", 
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
+        "profilePicture": "profilePicture1", 
+        "backgroundImage": "backgroundImage1"
+      },
+      "articles": [
+        {
+          "id": "1",
+          "label": "Верстка статичного сайта",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site1"
+        },
+        {
+          "id": "2",
+          "label": "Разработка простого мобильного приложения",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site2"
+        }
+      ]
     },
     {
-      "number": 100111,
-      "title": "Самое лучшее название, которое только можно придумать!"
+      "id": "6",
+      "ownerId": "666",
+      "onModerating": false,
+      "sliderImages": ["site3", "site1", "site3"],
+      "title": "FullStack разработка приложений на React",
+      "tags": ["Сайты", "Под ключ", "Мобильные устройства"],
+      "profileData": {
+        "name": "Имя пользователя 1", 
+        "geolocation": "г. Казань", 
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
+        "profilePicture": "profilePicture1", 
+        "backgroundImage": "backgroundImage1"
+      },
+      "articles": [
+        {
+          "id": "1",
+          "label": "Верстка статичного сайта",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site1"
+        },
+        {
+          "id": "2",
+          "label": "Разработка простого мобильного приложения",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+          "imageUrl": "site2"
+        }
+      ]
     }
   ]
 }

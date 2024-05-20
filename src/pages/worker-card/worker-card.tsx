@@ -114,13 +114,13 @@ const Card = () => {
 
           <Slider sliderImages={sliderImages} setSliderImages={setSliderImages} isEditing={isEditMode}/>
 
-          <TagsPanel tags={someTags} setTags={setSomeTags} isEditing={isEditMode}/>
+          <TagsPanel tags={data.tags} setData={setData} isEditing={isEditMode}/>
 
-          <ProfileInfo profileData={profileData} isEditing={isEditMode}/>
+          <ProfileInfo profileData={data.profileData} isEditing={isEditMode}/>
 
           <ContentContainer>
               <ContainerLabel>Информация о работе пользователя</ContainerLabel>
-              { articleData.map((item, _) => 
+              { data.articles.map((item, _) => 
                 {
                   return(
                   <WorkArticle 

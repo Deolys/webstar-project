@@ -1,4 +1,4 @@
-import { getNavigationsValue } from '@ijl/cli';
+import { getNavigationsValue, getConfigValue } from '@ijl/cli';
 import { generatePath } from 'react-router-dom';
 
 const baseUrl = getNavigationsValue('webstar-project.main');
@@ -21,5 +21,7 @@ export const URLs = {
     register: getNavigationsValue('webstar-project.register') && `${baseUrl}${getNavigationsValue('webstar-project.register')}`,
     admin: getNavigationsValue('webstar-project.admin') && `${baseUrl}${getNavigationsValue('webstar-project.admin')}`
   },
-  api: {},
+  api: {
+    main: getConfigValue('webstar-project.api')
+  },
 }

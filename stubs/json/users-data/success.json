@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "name": "Yuji Itadori",
+      "email": "user1@gmail.com",
+      "password": "12345",
+      "favourites": [
+        "1",
+        "2",
+        "6"
+      ]
+    },
+    {
+      "name": "Admin",
+      "email": "admin@admin.ru",
+      "password": "*****",
+      "favourites": []
+    },
+    {
+      "name": "User2",
+      "email": "user2@gmail.com",
+      "password": "qwer",
+      "favourites": []
+    },
+    {
+      "name": "Hatsune Miku",
+      "email": "super@star.ru",
+      "password": "12345",
+      "favourites": []
+    },
+    {
+      "name": "СберТян",
+      "email": "sb@sb.ru",
+      "password": "12345",
+      "favourites": []
+    }
+  ]
+}
