@@ -14,44 +14,6 @@ import {
 import { Title } from "../../components/title";
 import { AuthContext } from "../../contexts/auth-context";
 
-const cardsData = [
-  {
-    "id": "1",
-    "imageUrl": "site1",
-    "title": "Верстка сайтов любой сложности. Мобильная разработка",
-    "tags": ["Сайты", "Под ключ", "Десктоп"]
-  },
-  {
-    "id": "2",
-    "imageUrl": "site3",
-    "title": "Дизайн сайтов. Разработка сайтов под ключ",
-    "tags": ["Сайты", "Под ключ", "Десктоп"]
-  },
-  {
-    "id": "3",
-    "imageUrl": "site2",
-    "title": "FullStack разработка приложений на React",
-    "tags": ["Сайты", "Под ключ", "Десктоп"]
-  },
-  {
-    "id": "4",
-    "imageUrl": "site1",
-    "title": "Верстка сайтов любой сложности. Мобильная разработка",
-    "tags": ["Сайты", "Под ключ", "Десктоп"]
-  },
-  {
-    "id": "5",
-    "imageUrl": "site3",
-    "title": "Дизайн сайтов. Разработка сайтов под ключ",
-    "tags": ["Дизайн", "Под ключ"]
-  },
-  {
-    "id": "6",
-    "imageUrl": "site2",
-    "title": "FullStack разработка приложений на React",
-    "tags": ["Сайты", "Под ключ", "Мобильные устройства"]
-  }
-]
 
 export function Main() {
   const { currentUser } = useContext(AuthContext);
