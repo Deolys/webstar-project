@@ -14,6 +14,10 @@ import {
 import { Title } from "../../components/title";
 import { AuthContext } from "../../contexts/auth-context";
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> worker-card-page
 export function Main() {
   const { currentUser } = useContext(AuthContext);
 
