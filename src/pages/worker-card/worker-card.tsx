@@ -66,6 +66,7 @@ const Card = () => {
           tags: data.tags
         });
       })
+      console.log("data.profileData", data.profileData);
     }, [])
 
 

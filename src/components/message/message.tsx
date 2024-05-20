@@ -7,7 +7,7 @@ export function Message({ number, title }) {
     <MessageDiv>
       <MessageNum>#{number}</MessageNum>
       <Title>{title}</Title>
-      <MessageButtons />
+      <MessageButtons id={number}/>
     </MessageDiv>
   );
 }

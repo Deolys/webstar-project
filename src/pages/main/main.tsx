@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { Header } from "../../components/header";
 import { Sidebar } from "../../components/sidebar";
@@ -12,17 +12,43 @@ import {
   PageMain,
 } from "./styled";
 import { Title } from "../../components/title";
+import { AuthContext } from "../../contexts/auth-context";
 
 export function Main() {
+  const { currentUser } = useContext(AuthContext);
+
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [filteredCards, setFilteredCards] = useState([]);
+
+  const [userFavouritesData, setUserFavouritesData] = useState([]);
+  useEffect(() => {
+    if(currentUser) {
+      fetch('/api/user', {
+        headers: {
+          'Authorization': `Bearer ${currentUser.email}`
+        }
+      }).then(response => 
+        {
+          if (!response.ok) {
+            return response.text().then((errorMessage) => {
+                alert(errorMessage);
+                throw new Error(errorMessage);
+            });
+          }
+          return response.json();
+        }
+        ).then(data => {
+          setUserFavouritesData(data);
+        })
+    }
+  }, [currentUser])
+
   const [favouriteCards, setFavouriteCards] = useState(
     JSON.parse(localStorage.getItem('favouriteCards')) || []
   );
   const [showFavourites, setShowFavourites] = useState(false);
   const [cardsInOneColumn, setCardsInOneColumn] = useState(false);
-
 
   const [cardsData, setCardsData] = useState([])
   useEffect(() => {
@@ -40,7 +66,8 @@ export function Main() {
   };
 
   useEffect(() => {
-    localStorage.setItem('favouriteCards', JSON.stringify(favouriteCards));
+    if(!currentUser)
+      localStorage.setItem('favouriteCards', JSON.stringify(favouriteCards));
   }, [favouriteCards]);
 
   useEffect(() => {
@@ -48,10 +75,12 @@ export function Main() {
       cardsData.filter((card) =>
         card.title.toLowerCase().includes(searchValue.toLowerCase()) &&
         (selectedTags.length === 0 ||  selectedTags.every((tag) => card.tags.includes(tag))) &&
-        (!showFavourites || favouriteCards.find((cardId) => cardId === card.id))
-      )
+        (!showFavourites || 
+          (!!currentUser ? userFavouritesData.find((cardId) => cardId === card.id) :
+          favouriteCards.find((cardId) => cardId === card.id))
+      ))
     );
-  }, [searchValue, selectedTags, showFavourites, favouriteCards, cardsData]);
+  }, [searchValue, selectedTags, showFavourites, favouriteCards, cardsData, userFavouritesData, currentUser]);
 
   return (
     <div className="wrapper">
@@ -69,11 +98,13 @@ export function Main() {
                   <Card
                     key={item.id}
                     id={item.id}
-                    imageUrl={item.imageUrl}
+                    imageUrl={item.sliderImages[0]}
                     title={item.title}
                     tags={item.tags}
                     selectedTags={selectedTags}
                     setFavouriteCards={setFavouriteCards}
+                    setUserFavouritesData={setUserFavouritesData}
+                    userFavouritesData={userFavouritesData}
                     cardsInOneColumn={cardsInOneColumn}
                   />
                 ))}

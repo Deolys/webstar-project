@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import starGreen from '../../assets/icons/star-green.svg';
 
 import { BorderLink, FavouritesLink, FavouritesTitle, GradientLink, LinksNav } from './styled';
 
 import { URLs } from "../../__data__/urls";
-
-let isAuth = true;
+import { AuthContext } from '../../contexts/auth-context';
 
 const nav = {
   card: { title: "My card", href: URLs.ui.cardDetailEdit.getUrl("_user-card-id") },
@@ -16,7 +15,13 @@ const nav = {
 
 export function HeaderLinks({ isOpen, showFavourites, setShowFavourites }) {
   const onMainPage = location.pathname === "/webstar-project";
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const isAuth = !!currentUser;
 
+  const onLogOut = () => {
+    setCurrentUser(null);
+  }
+  
   const handleShowFavourites = (e) => {
     e.preventDefault();
     setShowFavourites((prevShow) => !prevShow);
@@ -24,7 +29,7 @@ export function HeaderLinks({ isOpen, showFavourites, setShowFavourites }) {
 
   return (
     <LinksNav isOpen={isOpen}>
-    {onMainPage && <FavouritesLink isVisible={isAuth} onClick={handleShowFavourites} isActive={showFavourites}>
+    {onMainPage && <FavouritesLink isVisible={true} onClick={handleShowFavourites} isActive={showFavourites}>
       <img className="favourite-green__icon" src={starGreen} title="Избранное" aria-label="Избранное" />
       <FavouritesTitle>Избранное</FavouritesTitle>
     </FavouritesLink>}
@@ -34,7 +39,7 @@ export function HeaderLinks({ isOpen, showFavourites, setShowFavourites }) {
     </GradientLink>
 
     <BorderLink isVisible={isAuth}>
-      <button className="logout-btn">Выйти</button>
+      <button className="logout-btn" onClick={onLogOut}>Выйти</button>
     </BorderLink>
 
     <GradientLink isVisible={!isAuth} href={nav.register.href}>

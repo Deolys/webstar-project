@@ -7,4 +7,8 @@ export const InputBox = styled.input`
   border: 1px #2F3134;
   border-radius: 10px;
   text-indent: 10px;
+  -webkit-text-fill-color: black;
+  ::placeholder {
+    opacity: 0.6;
+  }
 `;
