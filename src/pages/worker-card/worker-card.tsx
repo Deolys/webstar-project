@@ -96,7 +96,7 @@ const Card = () => {
         <Header  showFavourites setShowFavourites />
 
       <MainContainer>
-      {/* <label className="container-label">Профиль пользователя</label> */}
+        
           <TopButtonsPanel isOwner={isOwner} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
 
           <Slider sliderImages={sliderImages} setSliderImages={setSliderImages} isEditing={isEditMode}/>

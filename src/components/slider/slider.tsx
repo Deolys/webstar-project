@@ -10,6 +10,7 @@ import {StyledSlider, PaginationDots, Dot, DeleteSlideBtn, SliderUl, SliderLi} f
 import {cardPreviews} from "../../assets/images";
 
 export default function Slider({sliderImages, setSliderImages, isEditing}) {
+    const [slides, setSlides] = useState(sliderImages);
     const [slideIndex, setSlideIndex] = useState(0)
     const [url, setUrl] = useState(null);
     const [isSliderFull, setIsSliderFull] = useState(false);
@@ -29,20 +30,22 @@ export default function Slider({sliderImages, setSliderImages, isEditing}) {
     };
 
     useEffect(() => {
-        let images = [];
-        for (let i = 0; i < sliderImages.length; i++) {
-            images.push(cardPreviews[sliderImages[i]]);
+        if (cardPreviews && Object.keys(cardPreviews).length > 0) {
+            const updatedSliderImages = sliderImages.map(imgKey => cardPreviews[imgKey] || imgKey);
+            setSlides(updatedSliderImages);
         }
-        setSliderImages(images);
-    },[])
+    }, [sliderImages, cardPreviews, setSliderImages]);
 
     useEffect(() => {
         if (url) {
-            const newSliderImages = [...sliderImages];
-            newSliderImages.push(url);
-            setSliderImages(newSliderImages);
+            if (cardPreviews[url]) {
+                setSliderImages([...sliderImages, cardPreviews[url]]);
+            }
+            else {
+                setSliderImages([...sliderImages, url]);
+            }
             setUrl(null);
-       }
+        }
     }, [url]);
     
     useEffect(() => {
@@ -63,9 +66,9 @@ export default function Slider({sliderImages, setSliderImages, isEditing}) {
         <StyledSlider>
             <SliderBtn isRight={false} bindAction={leftSlide}/>
             <SliderUl>
-                {sliderImages.map((item, index) => {return (
+                {slides.map((item, index) => {return (
                        <SliderLi key={index} className={slideIndex === index ? 'active' : ''}>
-                           <img src={cardPreviews[item]} alt="Изображение на слайдере"/>
+                           <img src={item} alt="Изображение на слайдере"/>
                        </SliderLi>
                    )
                 })}
