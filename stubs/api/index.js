@@ -45,6 +45,22 @@ router.get('/cards-data/:id', (request, response) => {
   }
 })
 
+router.get('/messages/:id', (request, response) => {
+  try {
+    const cardsData = require('../json/messages/success.json');
+    const cardData = cardsData.data.find(card => card.id === cardId);
+
+    if (cardData) {
+      return response.json(cardData);
+    } 
+    response.status(404).send('Card not found');
+
+  } catch (error) {
+    console.error('Error reading file:', error);
+    response.status(500).send('Internal server error');
+  }
+})
+
 router.post('/login', (request, response) => {
  const { email, password } = request.body.loginData;
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Global } from '@emotion/react';
 
@@ -14,9 +14,11 @@ import {WorkArticle} from '../../components/work-article';
 import {BottomButtonsPanel} from '../../components/bottom-buttons-panel';
 import {Ellipses} from '../../components/ellipses';
 import {Slider} from '../../components/slider';
+import { AuthContext } from "../../contexts/auth-context";
 
 
 const Card = () => {
+    const { currentUser } = useContext(AuthContext);
     const {cardId} = useParams();
     const [isEditMode, setIsEditMode] = useState(false);
     const [isFavouritesAdded, setIsFavouritesAdded] = useState(false);
@@ -38,32 +40,40 @@ const Card = () => {
     }
 
     useEffect(() => {
-      fetch(`/api/cards-data/${cardId}`)
-      .then(response => response.json())
-      .then(data => {
-        setCardData(data);
-        setArticleData(data.articles);
-        setProfileData(data.profileData);
-        setSliderImages(data.sliderImages);
-        setSomeTags(data.tags);
-        setArticleCount(data.articles.length);
-      });
-
-      // if (currentUser && (currentUser.email === cardData.ownerId || currentUser.email === "admin@admin.ru")) {
-      //   fetch(`api/moderating-cards-data/${cardId}`)
-      //   .then(response => response.json())
-      //   .then(data => {
-      //     if(data.isModerating) {
-      //       setCardData(data);
-      //       setArticleData(data.articles);
-      //       setProfileData(data.profileData);
-      //       setSliderImages(data.sliderImages);
-      //       setSomeTags(data.tags);
-      //       setArticleCount(data.articles.length);
-      //     }
-      //   });
-      // }
-    }, [])
+      const fetchData = async () => {
+        try {
+          const response = await fetch(`/api/cards-data/${cardId}`);
+          const data = await response.json();
+          setCardData(data);
+          setArticleData(data.articles);
+          setProfileData(data.profileData);
+          setSliderImages(data.sliderImages);
+          setSomeTags(data.tags);
+          setArticleCount(data.articles.length);
+    
+          if (currentUser) {
+            setIsOwner(currentUser.email === data.ownerId);
+          }
+    
+          if (currentUser && (isOwner || currentUser.email === "admin@admin.ru")) {
+            const modResponse = await fetch(`api/moderating-cards-data/${cardId}`);
+            const modData = await modResponse.json();
+            if (modData.isModerating) {
+              setCardData(modData);
+              setArticleData(modData.articles);
+              setProfileData(modData.profileData);
+              setSliderImages(modData.sliderImages);
+              setSomeTags(modData.tags);
+              setArticleCount(modData.articles.length);
+            }
+          }
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+    
+      fetchData();
+    }, [currentUser, cardId, isOwner]);
 
     const addArticle = () => {
       if (articleData.length<5) {
@@ -79,29 +89,6 @@ const Card = () => {
       setArticleCount(articleData.length);
     }
 
-    const postData = () => {
-      fetch('/api/cards-data/' + cardId, {method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          articles: articleData,
-          profileData: profileData,
-          sliderImages: sliderImages,
-          tags: someTags
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        // Обработка ответа от сервера после отправки данных
-        console.log(data);
-      })
-      .catch(error => {
-        // Обработка ошибки при отправке данных на сервер
-        console.error('Error:', error);
-      });
-    }
-
     return (
       <>
       <Global styles={globalStyles}/>
@@ -110,17 +97,17 @@ const Card = () => {
 
       <MainContainer>
       {/* <label className="container-label">Профиль пользователя</label> */}
-          <TopButtonsPanel isOwner={true} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
+          <TopButtonsPanel isOwner={isOwner} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
 
           <Slider sliderImages={sliderImages} setSliderImages={setSliderImages} isEditing={isEditMode}/>
 
-          <TagsPanel tags={data.tags} setData={setData} isEditing={isEditMode}/>
+          <TagsPanel tags={someTags} setTags={setSomeTags} isEditing={isEditMode}/>
 
-          <ProfileInfo profileData={data.profileData} isEditing={isEditMode}/>
+          <ProfileInfo profileData={profileData} isEditing={isEditMode}/>
 
           <ContentContainer>
               <ContainerLabel>Информация о работе пользователя</ContainerLabel>
-              { data.articles.map((item, _) => 
+              { articleData.map((item, _) => 
                 {
                   return(
                   <WorkArticle 
