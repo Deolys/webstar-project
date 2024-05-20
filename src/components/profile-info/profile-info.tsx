@@ -12,17 +12,16 @@ export default function ProfileInfo({profileData, isEditing}) {
     const [backgroundImage, setBackgroundImage] = useState(cardPreviews[profileData.backgroundImage]);
 
     useEffect(() => {
-        if (profileData)
-        {
-            if(profileData.profilePicture && cardPreviews[profileData.profilePicture]) {
+        if (profileData && profileData.profilePicture && cardPreviews[profileData.profilePicture]) {
                 setProfileImage(cardPreviews[profileData.profilePicture]);
             }
+      }, [profileData.profilePicture]);
 
-            if(profileData.backgroundImage && cardPreviews[profileData.backgroundImage]) {
+      useEffect(() => {
+        if (profileData && profileData.backgroundImage && cardPreviews[profileData.backgroundImage]) {
                 setBackgroundImage(cardPreviews[profileData.backgroundImage]);
             }
-        }
-      }, [profileData]);
+      }, [profileData.backgroundImage]);
 
     const profileImgInputRef = useRef(null);
     const backgroundImgInputRef = useRef(null);

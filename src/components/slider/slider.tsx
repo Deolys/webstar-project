@@ -38,12 +38,7 @@ export default function Slider({sliderImages, setSliderImages, isEditing}) {
 
     useEffect(() => {
         if (url) {
-            if (cardPreviews[url]) {
-                setSliderImages([...sliderImages, cardPreviews[url]]);
-            }
-            else {
-                setSliderImages([...sliderImages, url]);
-            }
+            setSliderImages([...sliderImages, url]);
             setUrl(null);
         }
     }, [url]);
