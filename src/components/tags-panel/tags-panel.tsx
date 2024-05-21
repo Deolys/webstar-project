@@ -1,6 +1,6 @@
 import React from "react";
 
-import {StyledTagsPanel, Tag, RemoveTagBtn} from "./tags-panel.styled";
+import {StyledTagsPanel, Tag} from "./tags-panel.styled";
 
 const allTags = ["Сайты", "Десктоп", "Дизайн", "Под ключ", "Мобильные устройства", "Вёрстка"];
 

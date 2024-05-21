@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 
 import { FormInput } from '../../components/form-input';
-import { Wrapper, BaseStyles, Form, FormLabel, FormTitle, FormSubTitle, ColoredText, FormButton, FormLink, EyeButton, PasswordDiv} from './auth.styled';
+import { Wrapper, BaseStyles, Form, FormLabel, FormTitle, FormSubTitle, ColoredText, FormButton, FormLink, PasswordDiv} from './auth.styled';
 
 import { URLs } from "../../__data__/urls";
 import { AuthContext } from "../../contexts/auth-context";

@@ -76,7 +76,7 @@ export function Main() {
         card.title.toLowerCase().includes(searchValue.toLowerCase()) &&
         (selectedTags.length === 0 ||  selectedTags.every((tag) => card.tags.includes(tag))) &&
         (!showFavourites || 
-          (!!currentUser ? userFavouritesData.find((cardId) => cardId === card.id) :
+          (currentUser !== null ? userFavouritesData.find((cardId) => cardId === card.id) :
           favouriteCards.find((cardId) => cardId === card.id))
       ))
     );
@@ -94,7 +94,7 @@ export function Main() {
               <Search searchValue={searchValue} handleSearchChange={handleSearchChange} />
               <CardsDiv cardsInOneColumn={cardsInOneColumn}>
                 {filteredCards
-                .map((item, index) => (
+                .map((item, _index) => (
                   <Card
                     key={item.id}
                     id={item.id}

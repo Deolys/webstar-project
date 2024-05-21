@@ -23,8 +23,6 @@ const Card = () => {
     const [isEditMode, setIsEditMode] = useState(false);
     const [isFavouritesAdded, setIsFavouritesAdded] = useState(false);
     const [isOwner, setIsOwner] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false);
-    const [cardData, setCardData] = useState([]);
     const [articleCount, setArticleCount] = useState(0);
     const [articleData, setArticleData] = useState([]);
     const [profileData, setProfileData] = useState([]);
@@ -46,7 +44,6 @@ const Card = () => {
         try {
           const response = await fetch(`/api/cards-data/${cardId}`);
           const data = await response.json();
-          setCardData(data);
           setArticleData(data.articles);
           setProfileData(data.profileData);
           setSliderImages(data.sliderImages);
@@ -61,7 +58,6 @@ const Card = () => {
             const modResponse = await fetch(`/api/messages/${cardId}`);
             const modData = await modResponse.json();
             if (modData.onModerating) {
-              setCardData(modData);
               setArticleData(modData.articles);
               setProfileData(modData.profileData);
               setSliderImages(modData.sliderImages);
