@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 import {StyledTagsPanel, Tag, RemoveTagBtn} from "./tags-panel.styled";
 

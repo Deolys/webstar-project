@@ -25,7 +25,7 @@ export const ArrowButton = styled.button`
     margin: auto;
   }
 
-  ${(props: {isRight: Boolean}) => {
+  ${(props: {isRight: boolean}) => {
     if (props.isRight) {
         return css`
         border-radius: 0px 7px 7px 0px;

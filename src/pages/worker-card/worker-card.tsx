@@ -107,7 +107,7 @@ const Card = () => {
 
           <ContentContainer>
               <ContainerLabel>Информация о работе пользователя</ContainerLabel>
-              { articleData.map((item, _) => 
+              { articleData.map((item) => 
                 {
                   return(
                   <WorkArticle 

@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import {DeleteBtn} from '../delete-btn';
 
 export const ContentItem = styled.div`
   display: grid;
