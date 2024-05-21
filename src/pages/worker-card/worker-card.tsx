@@ -31,6 +31,8 @@ const Card = () => {
     const [sliderImages, setSliderImages] = useState([]);
     const [someTags, setSomeTags] = useState([]);
 
+    const onEdit = location.pathname.split('/').pop() === 'edit';
+
     const handleEditModeToggle = () => {
       setIsEditMode(!isEditMode);
     };
@@ -55,10 +57,10 @@ const Card = () => {
             setIsOwner(currentUser.email === data.ownerId);
           }
     
-          if (currentUser && (isOwner || currentUser.email === "admin@admin.ru")) {
-            const modResponse = await fetch(`api/moderating-cards-data/${cardId}`);
+          if (currentUser && onEdit && (isOwner || currentUser.email === "admin@admin.ru")) {
+            const modResponse = await fetch(`/api/messages/${cardId}`);
             const modData = await modResponse.json();
-            if (modData.isModerating) {
+            if (modData.onModerating) {
               setCardData(modData);
               setArticleData(modData.articles);
               setProfileData(modData.profileData);

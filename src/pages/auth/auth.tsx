@@ -9,8 +9,9 @@ import { AuthContext } from "../../contexts/auth-context";
 interface contextUser {
   currentUser: {
     email: string;
+    cardId: string;
   };
-  setCurrentUser: React.Dispatch<React.SetStateAction<{ email: string }>>;
+  setCurrentUser: React.Dispatch<React.SetStateAction<{ email: string, cardId: string }>>;
 }
 
 const Authentication = () => {
@@ -50,7 +51,7 @@ const Authentication = () => {
         return response.json();
       })
       .then((data) => {
-        setCurrentUser({email: data.email});
+        setCurrentUser({email: data.email, cardId: data.cardId});
         location.replace('/');
       })
     } catch (error) {
@@ -85,7 +86,7 @@ const Authentication = () => {
         return response.json();
       })
       .then((data) => {
-        setCurrentUser({email: data.email});
+        setCurrentUser({email: data.email, cardId: ""});
         location.replace('/');
       })
     } catch (error) {

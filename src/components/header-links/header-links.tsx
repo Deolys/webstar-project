@@ -16,11 +16,18 @@ const nav = {
 export function HeaderLinks({ isOpen, showFavourites, setShowFavourites }) {
   const onMainPage = location.pathname === "/webstar-project";
   const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const [ myCardUrl, setMyCardUrl ] = useState(nav.card.href);
   const isAuth = !!currentUser;
 
   const onLogOut = () => {
     setCurrentUser(null);
   }
+
+  useEffect(() => {
+    if(currentUser && currentUser.cardId) {
+      setMyCardUrl(URLs.ui.cardDetailEdit.getUrl(currentUser.cardId));
+    }
+  }, [currentUser]);
   
   const handleShowFavourites = (e) => {
     e.preventDefault();
@@ -34,7 +41,7 @@ export function HeaderLinks({ isOpen, showFavourites, setShowFavourites }) {
       <FavouritesTitle>Избранное</FavouritesTitle>
     </FavouritesLink>}
 
-    <GradientLink isVisible={isAuth} href={nav.card.href}>
+    <GradientLink isVisible={isAuth} href={myCardUrl}>
       <button className="my-card-btn">Моя карточка</button>
     </GradientLink>
 

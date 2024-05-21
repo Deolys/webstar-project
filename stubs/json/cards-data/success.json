@@ -30,7 +30,7 @@
     },
     {
       "id": "2",
-      "ownerId": "222",
+      "ownerId": "admin@admin.ru",
       "sliderImages": ["site2", "site1", "site3"],
       "title": "Дизайн сайтов. Разработка сайтов под ключ",
       "tags": ["Сайты", "Под ключ", "Десктоп"],
@@ -38,7 +38,7 @@
         "name": "Имя пользователя 2", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
-        "profilePicture": "profilePicture1", 
+        "profilePicture": "site2", 
         "backgroundImage": "backgroundImage1"
       },
       "articles": [
@@ -58,7 +58,7 @@
     },
     {
       "id": "3",
-      "ownerId": "333",
+      "ownerId": "user2@gmail.com",
       "sliderImages": ["site3", "site1", "site3"],
       "title": "FullStack разработка приложений на React",
       "tags": ["Сайты", "Под ключ", "Десктоп"],
@@ -66,7 +66,7 @@
         "name": "Имя пользователя 2", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
-        "profilePicture": "profilePicture1", 
+        "profilePicture": "site3", 
         "backgroundImage": "backgroundImage1"
       },
       "articles": [
@@ -86,7 +86,7 @@
     },
     {
       "id": "4",
-      "ownerId": "444",
+      "ownerId": "super@star.ru",
       "sliderImages": ["site1", "site1", "site3"],
       "title": "Верстка сайтов любой сложности. Мобильная разработка",
       "tags": ["Сайты", "Под ключ", "Десктоп"],
@@ -94,7 +94,7 @@
         "name": "Имя пользователя 2", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
-        "profilePicture": "profilePicture1", 
+        "profilePicture": "site3", 
         "backgroundImage": "backgroundImage1"
       },
       "articles": [
@@ -122,7 +122,7 @@
         "name": "Имя пользователя 2", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
-        "profilePicture": "profilePicture1", 
+        "profilePicture": "site3", 
         "backgroundImage": "backgroundImage1"
       },
       "articles": [
@@ -150,7 +150,7 @@
         "name": "Имя пользователя 2", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
-        "profilePicture": "profilePicture1", 
+        "profilePicture": "site3", 
         "backgroundImage": "backgroundImage1"
       },
       "articles": [

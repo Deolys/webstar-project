@@ -3,8 +3,9 @@ import React, { createContext, useState, useEffect } from 'react';
 interface contextUser {
   currentUser: {
     email: string;
+    cardId: string;
   };
-  setCurrentUser: React.Dispatch<React.SetStateAction<{ email: string }>>;
+  setCurrentUser: React.Dispatch<React.SetStateAction<{ email: string, cardId: string }>>;
 }
 export const AuthContext = createContext<contextUser>({
   currentUser: null,
@@ -17,15 +18,17 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const storedData = JSON.parse(window.localStorage.getItem('currentUser'));
     if (storedData) {
-      setCurrentUser({ email: storedData });
+      setCurrentUser({ email: storedData.email, cardId: storedData.cardId});
     }
   }, []);
 
   useEffect(() => {
-    if(!currentUser)
-      window.localStorage.removeItem('currentUser');
-    else
-      window.localStorage.setItem('currentUser', JSON.stringify(currentUser.email));
+    if(!currentUser) {
+        window.localStorage.removeItem('currentUser');
+    }
+    else {
+      window.localStorage.setItem('currentUser', JSON.stringify({email: currentUser.email, cardId: currentUser.cardId}));
+    }
   }, [currentUser]);
 
   return (
