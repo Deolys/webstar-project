@@ -14,7 +14,6 @@ import {
 import { Title } from "../../components/title";
 import { AuthContext } from "../../contexts/auth-context";
 
-
 export function Main() {
   const { currentUser } = useContext(AuthContext);
 

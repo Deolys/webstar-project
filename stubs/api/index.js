@@ -45,6 +45,24 @@ router.get('/cards-data/:id', (request, response) => {
   }
 })
 
+router.get('/messages/:id', (request, response) => {
+  const cardId = request.params.id;
+
+  try {
+    const cardsData = require('../json/messages/success.json');
+    const cardData = cardsData.data.find(card => card.id === cardId);
+
+    if (cardData) {
+      return response.json(cardData);
+    } 
+    response.status(404).send('Card not found');
+
+  } catch (error) {
+    console.error('Error reading file:', error);
+    response.status(500).send('Internal server error');
+  }
+})
+
 router.post('/login', (request, response) => {
  const { email, password } = request.body.loginData;
 
@@ -52,12 +70,18 @@ router.post('/login', (request, response) => {
   const users = require('../json/users-data/success.json');
   const user = users.data.find(user => user.email === email && user.password === password);
 
-  if (user) {
-    return response.json({
-        email: user.email
-    });
+  if (!user) {
+    response.status(401).send('Invalid credentials'); 
   } 
-  response.status(401).send('Invalid credentials'); 
+
+  const responseObject = {
+    email: user.email,
+  }
+
+  if (user.cardId){
+    responseObject.cardId = user.cardId || "";
+  }
+  return response.json(responseObject);
  } catch (error) {
     console.error('Error reading file:', error);
     response.status(500).send('Internal server error');

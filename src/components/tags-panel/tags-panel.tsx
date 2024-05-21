@@ -29,3 +29,4 @@ export default function TagsPanel({tags, setTags, isEditing}) {
         </StyledTagsPanel>
     );
 }
+
