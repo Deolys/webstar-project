@@ -43,7 +43,7 @@ const AdminPanel = () => {
   }, [searchValue, messagesData]);
 
   if(currentUser && currentUser.email !== "admin@admin.ru") {
-     location.replace("/");
+    location.replace(`${URLs.baseUrl}`);
   }
   
   return (
