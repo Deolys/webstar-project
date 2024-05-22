@@ -31,7 +31,7 @@ const [isFavourite, setIsFavourite] = useState(() => {
   const handleSetIsFavourite = (e) => {
     e.preventDefault();
     if (currentUser) {
-      fetch('/api/favourite', {
+      fetch(`${URLs.api.main}/favourite`, {
         method: 'POST', 
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

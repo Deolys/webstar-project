@@ -15,6 +15,7 @@ import {BottomButtonsPanel} from '../../components/bottom-buttons-panel';
 import {Ellipses} from '../../components/ellipses';
 import {Slider} from '../../components/slider';
 import { AuthContext } from "../../contexts/auth-context";
+import { URLs } from "../../__data__/urls";
 
 
 const Card = () => {
@@ -66,7 +67,7 @@ const Card = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch(`/api/cards-data/${cardId}`);
+          const response = await fetch(`${URLs.api.main}/cards-data/${cardId}`);
           const data = await response.json();
           setArticleData(data.articles);
           setProfileData(data.profileData);
@@ -79,7 +80,7 @@ const Card = () => {
           }
     
           if (currentUser && onEdit && (isOwner || currentUser.email === "admin@admin.ru")) {
-            const modResponse = await fetch(`/api/messages/${cardId}`);
+            const modResponse = await fetch(`${URLs.api.main}/messages/${cardId}`);
             const modData = await modResponse.json();
             if (modData.onModerating) {
               setArticleData(modData.articles);

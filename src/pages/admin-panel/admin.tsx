@@ -7,6 +7,7 @@ import { Message } from "../../components/message";
 import { Container, MessagesDiv, TopDiv } from "./styled";
 import { Title } from "../../components/title";
 import { AuthContext } from "../../contexts/auth-context";
+import { URLs } from "../../__data__/urls";
 
 const AdminPanel = () => {
   const { currentUser } = useContext(AuthContext);
@@ -21,7 +22,7 @@ const AdminPanel = () => {
   };
 
   useEffect(() => {
-    fetch("/api/messages").then(
+    fetch(`${URLs.api.main}/messages`).then(
       (response) => {
         response.json()
         .then((data) => {

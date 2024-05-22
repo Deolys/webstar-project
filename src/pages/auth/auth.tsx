@@ -32,7 +32,7 @@ const Authentication = () => {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     try {
-      fetch('/api/login', {
+      fetch(`${URLs.api.main}/login`, {
         method: 'POST',
         body: JSON.stringify({
           loginData: loginData
@@ -67,7 +67,7 @@ const Authentication = () => {
       return;
     }
     try {
-      fetch('/api/register', {
+      fetch(`${URLs.api.main}/register`, {
         method: 'POST',
         body: JSON.stringify({
           registerData: registerData

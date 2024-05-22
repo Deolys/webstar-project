@@ -13,6 +13,7 @@ import {
 } from "./styled";
 import { Title } from "../../components/title";
 import { AuthContext } from "../../contexts/auth-context";
+import { URLs } from "../../__data__/urls";
 
 export function Main() {
   const { currentUser } = useContext(AuthContext);
@@ -24,7 +25,7 @@ export function Main() {
   const [userFavouritesData, setUserFavouritesData] = useState([]);
   useEffect(() => {
     if(currentUser) {
-      fetch('/api/user', {
+      fetch(`${URLs.api.main}/user`, {
         headers: {
           'Authorization': `Bearer ${currentUser.email}`
         }
@@ -52,7 +53,7 @@ export function Main() {
 
   const [cardsData, setCardsData] = useState([])
   useEffect(() => {
-    fetch('/api/cards-data')
+    fetch(`${URLs.api.main}/cards-data`)
     .then(response => response.json())
     .then(data => {
       setCardsData(data.data);
