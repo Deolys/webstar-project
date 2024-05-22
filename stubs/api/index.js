@@ -71,7 +71,7 @@ router.post('/login', (request, response) => {
   const user = users.data.find(user => user.email === email && user.password === password);
 
   if (!user) {
-    response.status(401).send('Invalid credentials'); 
+    return response.status(401).send('Invalid credentials'); 
   } 
 
   const responseObject = {
