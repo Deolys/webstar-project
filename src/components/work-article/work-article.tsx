@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 
 import {UploadBtn} from '../upload-btn';
 import {DeleteBtn} from '../delete-btn';
@@ -12,6 +12,10 @@ export default function WorkArticle({articleData, isEditing, bindDeleteArticle})
 
   const [workImage, setWorkImage] = useState(cardPreviews[articleData.imageUrl]);
 
+  useEffect(()=>{
+    cardPreviews[articleData.imageUrl]&&setWorkImage(cardPreviews[articleData.imageUrl]);
+  }, [articleData.imageUrl]);
+  
   const imgInputRef = useRef(null);
 
   const handleUrlChange = (e) => {

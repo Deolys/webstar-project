@@ -28,16 +28,40 @@ const Card = () => {
     const [profileData, setProfileData] = useState([]);
     const [sliderImages, setSliderImages] = useState([]);
     const [someTags, setSomeTags] = useState([]);
+    const [cardUndoData, setCardUndoData] = useState({
+      articleCount: articleCount, 
+      articleData: articleData, 
+      profileData: profileData, 
+      sliderImages: sliderImages, 
+      someTags: someTags});
 
     const onEdit = location.pathname.split('/').pop() === 'edit';
 
     const handleEditModeToggle = () => {
-      setIsEditMode(!isEditMode);
+      if(!isEditMode)
+      {
+        setCardUndoData({
+          articleCount: articleCount, 
+          articleData: [...articleData.map(article => ({ ...article }))], 
+          profileData: {...profileData}, 
+          sliderImages: [...sliderImages], 
+          someTags: [...someTags]});
+        setIsEditMode(true);
+      }
     };
 
     const handleFavouritesToggle = () => {
       setIsFavouritesAdded(!isFavouritesAdded)
     }
+
+    const undoCardData = () => {
+      setArticleCount(cardUndoData.articleCount);
+      setArticleData([...cardUndoData.articleData.map(article => ({ ...article }))]);
+      setProfileData({ ...cardUndoData.profileData });
+      setSliderImages([...cardUndoData.sliderImages]);
+      setSomeTags([...cardUndoData.someTags]);
+      setIsEditMode(false);
+    };
 
     useEffect(() => {
       const fetchData = async () => {
@@ -75,16 +99,18 @@ const Card = () => {
 
     const addArticle = () => {
       if (articleData.length<5) {
-        articleData.push({id: Math.random().toString(36).substring(2), image: "", label: "", text: ""});
-        setArticleData(articleData);
-        setArticleCount(articleData.length);
+        const newArticleData = [...articleData];
+        newArticleData.push({id: Math.random().toString(36).substring(2), image: "", label: "", text: ""});
+        setArticleData(newArticleData);
+        setArticleCount(newArticleData.length);
       }
     }
 
     const deleteArticle = (id) => () => {
-      articleData.splice(articleData.findIndex(item => item.id === id), 1);
-      setArticleData(articleData);
-      setArticleCount(articleData.length);
+      const newArticleData = [...articleData];
+      newArticleData.splice(newArticleData.findIndex(item => item.id === id), 1);
+      setArticleData(newArticleData);
+      setArticleCount(newArticleData.length);
     }
 
     return (
@@ -94,7 +120,6 @@ const Card = () => {
         <Header  showFavourites setShowFavourites />
 
       <MainContainer>
-        
           <TopButtonsPanel isOwner={isOwner} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
 
           <Slider sliderImages={sliderImages} setSliderImages={setSliderImages} isEditing={isEditMode}/>
@@ -120,7 +145,7 @@ const Card = () => {
               {isEditMode&&<UploadBtn isRel={true} bindAction={addArticle}/>}
           </ContentContainer>
         
-          <BottomButtonsPanel isEditing={isEditMode} cancelBtnAction={handleEditModeToggle} finishBtnAction={handleEditModeToggle}/>
+          <BottomButtonsPanel isEditing={isEditMode} cancelBtnAction={undoCardData} finishBtnAction={()=>setIsEditMode(false)}/>
       </MainContainer>
       
       <Ellipses count={articleCount}/>

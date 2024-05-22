@@ -34,6 +34,9 @@ export default function Slider({sliderImages, setSliderImages, isEditing}) {
             const updatedSliderImages = sliderImages.map(imgKey => cardPreviews[imgKey] || imgKey);
             setSlides(updatedSliderImages);
         }
+        if(sliderImages&&slideIndex>=sliderImages.length) {
+            setSlideIndex(0)
+        }
     }, [sliderImages, cardPreviews, setSliderImages]);
 
     useEffect(() => {
