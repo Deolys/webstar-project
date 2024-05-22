@@ -58,7 +58,7 @@ export const Dot = styled.div`
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: ${(props: {isActive: Boolean}) => props.isActive ? '#23D7C2' : '#D9D9D9'};
+  background-color: ${(props: {isActive: boolean}) => props.isActive ? '#23D7C2' : '#D9D9D9'};
 `;
 
 export const DeleteSlideBtn = styled.div`
@@ -66,6 +66,3 @@ export const DeleteSlideBtn = styled.div`
   bottom: 0;
   justify-content: center;
 `
-export const SliderInput = styled.input`
-  display: none;
-`;

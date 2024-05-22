@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import {DeleteBtn} from '../delete-btn';
 
 export const ContentItem = styled.div`
   display: grid;
@@ -84,7 +83,7 @@ export const ItemLabel = styled.label`
   border: 1px solid #23d7c2;
   border-radius: 2.5rem;
   min-width: 8rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   margin-left: 2rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
@@ -108,7 +107,7 @@ export const ItemInput = styled.input`
   border: 1px solid #23d7c2;
   border-radius: 2.5rem;
   min-width: 8rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   margin-left: 2rem;
   margin-right: 1rem;
   margin-bottom: 1rem;

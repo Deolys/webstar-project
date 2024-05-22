@@ -26,7 +26,7 @@ export const Title = styled.div`
 const Button = styled.button`
   font-family: Inter, sans-serif;
   font-size: 16px;
-  padding: 10.5px 12px;
+  padding: 10.5px 11px;
   display: inline-block;
   margin-left: 12px;
   border-radius: 8px;
@@ -34,11 +34,7 @@ const Button = styled.button`
   font-weight: 400;
   color: var(--dark-text-color);
   cursor: pointer;
-  @media (max-width: 1080px) {
-    &:first-of-type {
-      margin-left: 0;
-    }
-  }
+  
   @media (max-width: 444px) {
     font-size: 12px;
   }
@@ -46,6 +42,9 @@ const Button = styled.button`
 
 export const ButtonView = styled(Button)`
   background-color: #23d7c2;
+  @media (max-width: 1080px) {
+    margin-left: 0;
+  }
 `;
 
 export const ButtonAccept = styled(Button)`

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import plusImage from '../../assets/icons/Plus.svg';
 
 export const StyledUploadBtn = styled.button`
-  position: ${(props: {isRel:Boolean}) => (props.isRel ? 'relative' : 'absolute')};
+  position: ${(props: {isRel:boolean}) => (props.isRel ? 'relative' : 'absolute')};
   background-image: url(${plusImage});
   background-repeat: no-repeat;
   background-position: center left;

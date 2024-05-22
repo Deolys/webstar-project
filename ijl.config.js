@@ -24,6 +24,6 @@ module.exports = {
     },
   },
   config: {
-    key: 'value'
+    "webstar-project.api": "/api"
   }
 }
