@@ -5,7 +5,7 @@ export const OpenCardTitle = ({cardTitle, setCardTitle, isEditing}) => {
 
   return (
   <>
-  {isEditing ? <StyledInput onChange={(e) => {cardTitle = e.target.value}} type="text" placeholder="Введите название карточки" defaultValue={cardTitle} maxLength={70} /> : <Title>{cardTitle}</Title>}
+  {isEditing ? <StyledInput onChange={(e) => {setCardTitle(e.target.value)}} type="text" placeholder="Введите название карточки" defaultValue={cardTitle} maxLength={70} /> : <Title>{cardTitle}</Title>}
   </>
   )
 }
