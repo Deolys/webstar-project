@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 export const StyledTagsPanel = styled.div`
     display: flex;
     flex-wrap: wrap;
-    margin: 0rem 5.874rem;
-    justify-content: flex-start;
+    margin: 0 auto;
+    justify-content: center;
     align-items: center;
     height: auto;
 `;

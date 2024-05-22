@@ -16,6 +16,7 @@ import {Ellipses} from '../../components/ellipses';
 import {Slider} from '../../components/slider';
 import { AuthContext } from "../../contexts/auth-context";
 import { URLs } from "../../__data__/urls";
+import { OpenCardTitle } from "../../components/open-card-title";
 
 
 const Card = () => {
@@ -27,6 +28,7 @@ const Card = () => {
     const [articleCount, setArticleCount] = useState(0);
     const [articleData, setArticleData] = useState([]);
     const [profileData, setProfileData] = useState([]);
+    const [cardTitle, setCardTitle] = useState('');
     const [sliderImages, setSliderImages] = useState([]);
     const [someTags, setSomeTags] = useState([]);
     const [cardUndoData, setCardUndoData] = useState({
@@ -34,7 +36,8 @@ const Card = () => {
       articleData: articleData, 
       profileData: profileData, 
       sliderImages: sliderImages, 
-      someTags: someTags});
+      someTags: someTags,
+      cardTitle: cardTitle});
 
     const onEdit = location.pathname.split('/').pop() === 'edit';
 
@@ -46,7 +49,8 @@ const Card = () => {
           articleData: [...articleData.map(article => ({ ...article }))], 
           profileData: {...profileData}, 
           sliderImages: [...sliderImages], 
-          someTags: [...someTags]});
+          someTags: [...someTags],
+          cardTitle: cardTitle});
         setIsEditMode(true);
       }
     };
@@ -61,6 +65,7 @@ const Card = () => {
       setProfileData({ ...cardUndoData.profileData });
       setSliderImages([...cardUndoData.sliderImages]);
       setSomeTags([...cardUndoData.someTags]);
+      setCardTitle(cardUndoData.cardTitle);
       setIsEditMode(false);
     };
 
@@ -70,6 +75,7 @@ const Card = () => {
           const response = await fetch(`${URLs.api.main}/cards-data/${cardId}`);
           const data = await response.json();
           setArticleData(data.articles);
+          setCardTitle(data.title);
           setProfileData(data.profileData);
           setSliderImages(data.sliderImages);
           setSomeTags(data.tags);
@@ -84,6 +90,7 @@ const Card = () => {
             const modData = await modResponse.json();
             if (modData.onModerating) {
               setArticleData(modData.articles);
+              setCardTitle(modData.title);
               setProfileData(modData.profileData);
               setSliderImages(modData.sliderImages);
               setSomeTags(modData.tags);
@@ -124,6 +131,7 @@ const Card = () => {
           <TopButtonsPanel isOwner={isOwner} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
 
           <Slider sliderImages={sliderImages} setSliderImages={setSliderImages} isEditing={isEditMode}/>
+          <OpenCardTitle cardTitle={cardTitle} setCardTitle={setCardTitle} isEditing={isEditMode}></OpenCardTitle>
 
           <TagsPanel tags={someTags} setTags={setSomeTags} isEditing={isEditMode}/>
 

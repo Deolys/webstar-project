@@ -19,7 +19,7 @@
       "favourites": []
     },
     {
-      "name": "User2",
+      "name": "Secret Guest",
       "email": "user2@gmail.com",
       "password": "qwer",
       "cardId": "3",
@@ -35,6 +35,13 @@
     {
       "name": "СберТян",
       "email": "sb@sb.ru",
+      "password": "12345",
+      "cardId": "5",
+      "favourites": []
+    },
+    {
+      "name": "Помощник Олег",
+      "email": "tin@tin.ru",
       "password": "12345",
       "cardId": "5",
       "favourites": []

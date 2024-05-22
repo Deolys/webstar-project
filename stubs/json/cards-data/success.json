@@ -7,7 +7,7 @@
       "title": "Верстка сайтов любой сложности. Мобильная разработка",
       "tags": ["Сайты", "Под ключ", "Десктоп"],
       "profileData": {
-        "name": "Имя пользователя 1", 
+        "name": "Yuji Itadori", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
         "profilePicture": "site1", 
@@ -35,7 +35,7 @@
       "title": "Дизайн сайтов. Разработка сайтов под ключ",
       "tags": ["Сайты", "Под ключ", "Десктоп"],
       "profileData": {
-        "name": "Имя пользователя 2", 
+        "name": "Admin", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
         "profilePicture": "site2", 
@@ -63,7 +63,7 @@
       "title": "FullStack разработка приложений на React",
       "tags": ["Сайты", "Под ключ", "Десктоп"],
       "profileData": {
-        "name": "Имя пользователя 2", 
+        "name": "Secret Guest", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
         "profilePicture": "site3", 
@@ -91,7 +91,7 @@
       "title": "Верстка сайтов любой сложности. Мобильная разработка",
       "tags": ["Сайты", "Под ключ", "Десктоп"],
       "profileData": {
-        "name": "Имя пользователя 2", 
+        "name": "Hatsune Miku", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
         "profilePicture": "site3", 
@@ -114,12 +114,12 @@
     },
     {
       "id": "5",
-      "ownerId": "555",
+      "ownerId": "sb@sb.ru",
       "sliderImages": ["site2", "site1", "site3"],
       "title": "Дизайн сайтов. Разработка сайтов под ключ",
       "tags": ["Дизайн", "Под ключ"],
       "profileData": {
-        "name": "Имя пользователя 2", 
+        "name": "СберТян", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
         "profilePicture": "site3", 
@@ -142,12 +142,12 @@
     },
     {
       "id": "6",
-      "ownerId": "666",
+      "ownerId": "tin@tin.ru",
       "sliderImages": ["site3", "site1", "site3"],
       "title": "FullStack разработка приложений на React",
       "tags": ["Сайты", "Под ключ", "Мобильные устройства"],
       "profileData": {
-        "name": "Имя пользователя 2", 
+        "name": "Помощник Олег", 
         "geolocation": "г. Казань", 
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita nemo cumque, magni doloremque aspernatur illo nisi magnam! Perspiciatis, aspernatur excepturi dolores autem, ut sequi dolore vitae doloremque ratione expedita velit molestias quidem hic quod culpa corrupti vel ad.", 
         "profilePicture": "site3", 
