@@ -52,7 +52,7 @@ const Authentication = () => {
       })
       .then((data) => {
         setCurrentUser({email: data.email, cardId: data.cardId});
-        location.replace('/');
+        location.replace(`${URLs.baseUrl}`);
       })
     } catch (error) {
       console.error('Error while logging in:', error);
@@ -87,7 +87,7 @@ const Authentication = () => {
       })
       .then((data) => {
         setCurrentUser({email: data.email, cardId: ""});
-        location.replace('/');
+        location.replace(`${URLs.baseUrl}`);
       })
     } catch (error) {
       console.error('Error while registering:', error);
