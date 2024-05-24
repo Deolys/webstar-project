@@ -27,7 +27,7 @@ export const ImageDiv = styled.div`
 `;
 
 export const CardImage = styled.img`
-  height: ${(props: { big: Boolean }) => props.big ? "500px" : "260px"};
+  height: ${(props: { big: boolean }) => props.big ? "500px" : "260px"};
   width: 100%;
   object-fit: cover;
   @media (max-width: 540px) {
@@ -59,9 +59,9 @@ export const Tag = styled.div`
   font-size: 14px;
   font-weight: 400;
   border-radius: 15px;
-  background-color: ${(props: { isSelected: Boolean }) =>
+  background-color: ${(props: { isSelected: boolean }) =>
     props.isSelected ? "#214139" : "#213741"};
-  color: ${(props: { isSelected: Boolean }) =>
+  color: ${(props: { isSelected: boolean }) =>
     props.isSelected ? "#17E99D" : "#35D4F8"};
   @media (max-width: 1024px) {
     font-size: 12px;
