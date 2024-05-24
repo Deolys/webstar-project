@@ -91,7 +91,6 @@ export const ItemLabel = styled.label`
   margin-bottom: 1rem;
   height: min-content;
   min-height: 2.5rem;
-  max-height: 6rem;
   overflow-wrap: break-word;
   width: auto;
   color: #ffffff;
