@@ -1,6 +1,6 @@
 import React from "react";
 
-import {BottomBar, ManipulateBtn} from './bottom-buttons-panel.styled'
+import { BottomBar, ManipulateBtn } from './bottom-buttons-panel.styled'
 
 export default function BottomButtonsPanel({isEditing, cancelBtnAction, finishBtnAction}) {
     return (

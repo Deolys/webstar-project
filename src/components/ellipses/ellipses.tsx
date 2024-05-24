@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Ellipse, StyledEllipses} from "./ellipses.styled";
+import { Ellipse, StyledEllipses } from "./ellipses.styled";
 
 export default function Ellipses({count}){
     return(

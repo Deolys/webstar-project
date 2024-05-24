@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const ContentItem = styled.div`
   display: grid;
-  grid-template-columns: auto minmax(50%, auto);
+  grid-template-columns: auto minmax(50%, min-content);
   grid-template-rows: auto max-content;
   width: 90%;
   height: auto;
@@ -32,6 +32,7 @@ export const ItemPhoto = styled.div`
   border-radius: 2.5rem;
   align-items: center;
   justify-content: center;
+  max-height: 35rem;
 
   img {
     width: 100%;
@@ -43,6 +44,7 @@ export const ItemPhoto = styled.div`
     grid-row: 2 / 3;
     grid-column: 1 / 2;
     margin-bottom: 1.25rem;
+    max-height: none;
   }
 `;
 
@@ -89,7 +91,7 @@ export const ItemLabel = styled.label`
   margin-bottom: 1rem;
   height: min-content;
   min-height: 2.5rem;
-  max-height: 6rem;
+  overflow-wrap: break-word;
   width: auto;
   color: #ffffff;
   background-color: transparent;
@@ -143,13 +145,12 @@ export const ItemParagraph = styled.p`
   border-radius: 2.5rem;
   float: right;
   resize: none;
-  overflow: hidden;
+  overflow-wrap: anywhere;
 
   @media (max-width: 750px) {
     grid-row: 3 / 4;
     grid-column: 1 / 2;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
   }
 `;
 
@@ -163,8 +164,4 @@ export const RemoveArticleBtn = styled.div`
     grid-row: 4/ 5;
     grid-column: 1 / 2;
   }
-`;
-
-export const ImageInput = styled.input`
-  display: none;
 `;

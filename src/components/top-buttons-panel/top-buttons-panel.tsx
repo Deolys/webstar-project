@@ -2,7 +2,7 @@ import React from "react";
 import favourites from '../../assets/icons/favourites-btn.svg';
 import options from '../../assets/icons/settings-4-svgrepo-com.svg';
 
-import {StyledTopButtonsPanel, AngleButton} from './top-buttons-panel.styled';
+import { StyledTopButtonsPanel, AngleButton } from './top-buttons-panel.styled';
 
 export default function TopButtonsPanel({isOwner, optionsBtnAction, favouritesBtnAction}){
     return (
