@@ -7,7 +7,7 @@ export const LinksNav = styled.nav`
   gap: 20px;
 
   @media(max-width: 540px) {
-    display: ${(props: {isOpen: Boolean}) => (props.isOpen ? 'flex' : 'none')};
+    display: ${(props: {isOpen: boolean}) => (props.isOpen ? 'flex' : 'none')};
     position: absolute;
     top: 60px;
     right: 10px;
@@ -18,7 +18,7 @@ export const LinksNav = styled.nav`
 `;
 
 const Link = styled.a`
-  display: ${(props: {isVisible: Boolean}) => (props.isVisible ? 'flex' : 'none')};
+  display: ${(props: {isVisible: boolean}) => (props.isVisible ? 'flex' : 'none')};
   border-radius: 12px;
   padding: 12px 20px;
   cursor: pointer;

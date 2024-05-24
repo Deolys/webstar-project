@@ -13,7 +13,7 @@ export const AngleButton = styled.button`
   height: 4rem;
   float: ${( props: {floatRight:boolean} ) => (props.floatRight ? 'right' : 'left')};
   border: none;
-  border-radius: ${( props:any ) => (props.floatRight ? '0 20px 0 20px' : '20px 0 20px 0')};
+  border-radius: ${( props: {floatRight:boolean} ) => (props.floatRight ? '0 20px 0 20px' : '20px 0 20px 0')};
   background-color: #2A2E38;
 
   img {
