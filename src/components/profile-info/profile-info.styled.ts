@@ -60,12 +60,15 @@ export const Location = styled.span`
   color: #ffffff;
   font-size: 1.125rem;
   margin-bottom: 0.625rem;
+  max-width: calc(100% - 2.5rem);
+  overflow-wrap: break-word;
 `;
 
 export const StyledInput = styled.input`
   font-style: italic;
   font-size: 1.125rem;
   margin-bottom: 0.625rem;
+  background-color: #8c8c8c;
 `;
 
 export const StyledTextarea = styled.textarea`
@@ -109,7 +112,7 @@ export const StyledP = styled.p`
   background-color: #3F484C;
   box-sizing: unset;    
   resize: none;
-
+  overflow-wrap: break-word;
   &::-webkit-scrollbar {
       display: none;
   };

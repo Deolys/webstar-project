@@ -1,13 +1,13 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 
-import {SliderBtn} from '../slider-btn';
-import {UploadBtn} from '../upload-btn';
-import {DeleteBtn} from "../delete-btn";
-import {ImageInput} from "../image-input";
+import  { SliderBtn } from '../slider-btn';
+import { UploadBtn } from '../upload-btn';
+import { DeleteBtn } from "../delete-btn";
+import { ImageInput } from "../image-input";
 
-import {StyledSlider, PaginationDots, Dot, DeleteSlideBtn, SliderUl, SliderLi} from './slider.styled';
+import { StyledSlider, PaginationDots, Dot, DeleteSlideBtn, SliderUl, SliderLi } from './slider.styled';
 
-import {cardPreviews} from "../../assets/images";
+import { cardPreviews } from "../../assets/images";
 
 export default function Slider({sliderImages, setSliderImages, isEditing}) {
     const [slides, setSlides] = useState(sliderImages);

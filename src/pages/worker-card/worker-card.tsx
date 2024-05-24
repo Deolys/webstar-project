@@ -2,7 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Global } from '@emotion/react';
 
-import {globalStyles, CardBody, MainContainer, ContentContainer, ContainerLabel} from "./worker-card.styled";
+import {
+  globalStyles, 
+  CardBody, 
+  MainContainer, 
+  ContentContainer, 
+  ContainerLabel
+} from "./worker-card.styled";
 
 
 import {Header} from '../../components/header';
@@ -14,10 +20,10 @@ import {WorkArticle} from '../../components/work-article';
 import {BottomButtonsPanel} from '../../components/bottom-buttons-panel';
 import {Ellipses} from '../../components/ellipses';
 import {Slider} from '../../components/slider';
-import { AuthContext } from "../../contexts/auth-context";
-import { URLs } from "../../__data__/urls";
 import { OpenCardTitle } from "../../components/open-card-title";
 
+import { AuthContext } from "../../contexts/auth-context";
+import { URLs } from "../../__data__/urls";
 
 const Card = () => {
     const { currentUser } = useContext(AuthContext);
@@ -127,37 +133,38 @@ const Card = () => {
       <CardBody>
         <Header  showFavourites setShowFavourites />
 
-      <MainContainer>
-          <TopButtonsPanel isOwner={isOwner} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
+        <MainContainer>
+            <TopButtonsPanel isOwner={isOwner} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
 
-          <Slider sliderImages={sliderImages} setSliderImages={setSliderImages} isEditing={isEditMode}/>
-          <OpenCardTitle cardTitle={cardTitle} setCardTitle={setCardTitle} isEditing={isEditMode}></OpenCardTitle>
+            <Slider sliderImages={sliderImages} setSliderImages={setSliderImages} isEditing={isEditMode}/>
+            
+            <OpenCardTitle cardTitle={cardTitle} setCardTitle={setCardTitle} isEditing={isEditMode}></OpenCardTitle>
 
-          <TagsPanel tags={someTags} setTags={setSomeTags} isEditing={isEditMode}/>
+            <TagsPanel tags={someTags} setTags={setSomeTags} isEditing={isEditMode}/>
 
-          <ProfileInfo profileData={profileData} isEditing={isEditMode}/>
+            <ProfileInfo profileData={profileData} isEditing={isEditMode}/>
 
-          <ContentContainer>
-              <ContainerLabel>Информация о работе пользователя</ContainerLabel>
-              { articleData.map((item) => 
-                {
-                  return(
-                  <WorkArticle 
-                    key={item.id} 
-                    articleData={item}
-                    isEditing={isEditMode} 
-                    bindDeleteArticle={deleteArticle(item.id)}
-                    />
-                  )
-                })
-              }
-              {isEditMode&&<UploadBtn isRel={true} bindAction={addArticle}/>}
-          </ContentContainer>
+            <ContentContainer>
+                <ContainerLabel>Информация о работе пользователя</ContainerLabel>
+                { articleData.map((item) => 
+                  {
+                    return(
+                    <WorkArticle 
+                      key={item.id} 
+                      articleData={item}
+                      isEditing={isEditMode} 
+                      bindDeleteArticle={deleteArticle(item.id)}
+                      />
+                    )
+                  })
+                }
+                {isEditMode&&<UploadBtn isRel={true} bindAction={addArticle}/>}
+            </ContentContainer>
+          
+            <BottomButtonsPanel isEditing={isEditMode} cancelBtnAction={undoCardData} finishBtnAction={()=>setIsEditMode(false)}/>
+        </MainContainer>
         
-          <BottomButtonsPanel isEditing={isEditMode} cancelBtnAction={undoCardData} finishBtnAction={()=>setIsEditMode(false)}/>
-      </MainContainer>
-      
-      <Ellipses count={articleCount}/>
+        <Ellipses count={articleCount}/>
       </CardBody>
       </>
       );

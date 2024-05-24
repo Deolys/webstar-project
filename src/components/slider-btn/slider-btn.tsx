@@ -1,7 +1,7 @@
 import React from "react";
 
 import buttonArrow from '../../assets/icons/triangle-right.svg';
-import {ArrowButton} from './slider-btn.styled';
+import { ArrowButton } from './slider-btn.styled';
 
 export default function SliderBtn({isRight, bindAction}) {
     return (
