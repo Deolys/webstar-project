@@ -1,9 +1,19 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 
-import {UploadBtn} from "../upload-btn";
-import {ImageInput} from "../image-input";
+import { UploadBtn } from "../upload-btn";
+import { ImageInput } from "../image-input";
 
-import {ProfileContainer, ProfilePhoto, ProfileDescription, Username, Location, StyledTextarea, StyledP, Background, StyledInput} from "./profile-info.styled";
+import {
+    ProfileContainer, 
+    ProfilePhoto, 
+    ProfileDescription, 
+    Username, 
+    Location, 
+    StyledTextarea, 
+    StyledP, 
+    Background, 
+    StyledInput
+} from "./profile-info.styled";
 
 import { cardPreviews } from "../../assets/images";
 
@@ -63,6 +73,7 @@ export default function ProfileInfo({profileData, isEditing}) {
                     {isEditing ?
                         <>
                             <StyledInput 
+                            maxLength={50}
                             placeholder="Город" 
                             defaultValue={profileData.geolocation} 
                             type="text" 

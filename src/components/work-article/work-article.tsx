@@ -1,10 +1,18 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
-import {UploadBtn} from '../upload-btn';
-import {DeleteBtn} from '../delete-btn';
+import { UploadBtn } from '../upload-btn';
+import { DeleteBtn } from '../delete-btn';
 import { ImageInput } from '../image-input';
 
-import {ContentItem, ItemPhoto, ItemTextarea, ItemLabel, ItemInput, ItemParagraph, RemoveArticleBtn} from './work-article.styled';
+import {
+  ContentItem, 
+  ItemPhoto, 
+  ItemTextarea, 
+  ItemLabel, 
+  ItemInput, 
+  ItemParagraph, 
+  RemoveArticleBtn
+} from './work-article.styled';
 
 import { cardPreviews } from "../../assets/images";
 

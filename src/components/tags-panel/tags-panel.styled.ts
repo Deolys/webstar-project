@@ -18,18 +18,11 @@ export const Tag = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${(props: { isSelected: Boolean }) =>
+    background-color: ${(props: { isSelected: boolean }) =>
     props.isSelected ? "#214139" : "#213741"};
-    color: ${(props: { isSelected: Boolean }) =>
+    color: ${(props: { isSelected: boolean }) =>
     props.isSelected ? "#17E99D" : "#35D4F8"};
-    cursor: ${(props: { isSelected: Boolean }) => 
+    cursor: ${(props: { isSelected: boolean }) => 
     props.isSelected? "default" : "pointer"};
-`
-
-export const RemoveTagBtn = styled.div`
-    margin: auto;
-    margin-right: -1rem;
-    margin-left: 0.5rem;
-    align-self:center;
 `;
   

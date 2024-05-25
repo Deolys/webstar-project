@@ -1,6 +1,6 @@
 import React from "react";
 
-import {StyledInput} from "./image-input.styled";
+import { StyledInput } from "./image-input.styled";
 
 export default function ImageInput({reference, onChange}) {
     return (
