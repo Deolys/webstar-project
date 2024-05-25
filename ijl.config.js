@@ -14,6 +14,7 @@ module.exports = {
     'webstar-project.card.detail': '/card/:cardId',
     'webstar-project.card.detail.edit': '/card/:cardId/edit',
     'webstar-project.login': '/login',
+    'webstar-project.login.recover':'/login/recover',
     'webstar-project.register': '/register',
     'webstar-project.favourites': '/favourites',
     'webstar-project.admin': '/admin',

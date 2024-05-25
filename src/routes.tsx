@@ -14,6 +14,7 @@ export const PageRoutes = () => (
       <Route path={URLs.baseUrl} element={<Main />} />
       <Route path={URLs.ui.admin} element={<AdminPanel />} />
       <Route path={URLs.ui.login} element={< Authentication/>} />
+      <Route path={URLs.ui.recover} element={< Authentication/>} />
       <Route path={URLs.ui.register} element={< Authentication/>} />
       <Route path={URLs.ui.cardDetail.url} element={<Card />} />
       <Route path={URLs.ui.cardDetailEdit.url} element={<Card />} />
