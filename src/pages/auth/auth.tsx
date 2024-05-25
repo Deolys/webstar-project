@@ -101,7 +101,21 @@ const Authentication = () => {
     } else if (currentLocation === 'register') {
       setRegisterData({ ...registerData, [name]: value });
     }
+    else if (currentLocation === 'recover') {
+      setRegisterData({ ...registerData, [name]: value });
+    }
   };
+
+  const handleRecoverSubmit = (e) => {
+    e.preventDefault();
+    if(registerData.password!== registerData.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+    alert('Пароль восстановлен');
+    setCurrentUser({email: registerData.email, cardId: ""});
+    location.replace(`${URLs.baseUrl}`);
+  }
 
   return(
     <BaseStyles>
@@ -140,6 +154,9 @@ const Authentication = () => {
 
                   <ColoredText fontSize="24px">
                     Нет аккаунта? <FormLink href={URLs.ui.register}>Давайте создадим!</FormLink>
+                  </ColoredText>
+                  <ColoredText fontSize="24px">
+                    Забыли пароль? <FormLink href={URLs.ui.recover}>Восстановить!</FormLink>
                   </ColoredText>
                 </Form>}
 
@@ -189,6 +206,47 @@ const Authentication = () => {
                   </PasswordDiv>
                   
                   <FormButton type="submit" onSubmit={handleRegisterSubmit}>Зарегистрироваться</FormButton>
+
+                  <ColoredText fontSize="24px">
+                    Уже есть аккаунт? <FormLink href={URLs.ui.login}>Войти</FormLink>
+                  </ColoredText>
+                </Form>}
+
+                {currentLocation === 'recover' && 
+                <Form onSubmit={handleRecoverSubmit}>
+                  <FormTitle> 
+                    <ColoredText color="#35C7AD"> Дом </ColoredText>
+                      / Восстановление пароля
+                  </FormTitle>
+                  <FormSubTitle>Восстановить пароль</FormSubTitle>
+                  
+                  <FormLabel marginTop="6px" marginBottom="6px">Email</FormLabel>
+                  
+                  <FormInput type="email"
+                  name="email"
+                  placeholder="Введите email"
+                  inputValue={registerData.email} onChange={handleInputChange}
+                  />
+                  
+
+                  <FormLabel marginTop="6px" marginBottom="6px" >Придумайте новый пароль</FormLabel>
+                  <PasswordDiv>
+                    <FormInput  type="password"
+                    name="password"
+                    placeholder="Введите пароль"
+                    inputValue={registerData.password} onChange={handleInputChange}/>
+                    
+                  </PasswordDiv>
+                  <FormLabel marginTop="6px" marginBottom="6px" >Повторите пароль</FormLabel>
+                  <PasswordDiv>
+                    <FormInput  type="password"
+                    name="confirmPassword"
+                    placeholder="Введите пароль"
+                    inputValue={registerData.confirmPassword} onChange={handleInputChange}/>
+                    
+                  </PasswordDiv>
+                  
+                  <FormButton type="submit" onSubmit={handleRecoverSubmit}>Установить новый пароль</FormButton>
 
                   <ColoredText fontSize="24px">
                     Уже есть аккаунт? <FormLink href={URLs.ui.login}>Войти</FormLink>
