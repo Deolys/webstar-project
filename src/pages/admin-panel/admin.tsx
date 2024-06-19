@@ -8,10 +8,13 @@ import { Container, MessagesDiv, TopDiv } from "./styled";
 import { Title } from "../../components/title";
 import { AuthContext } from "../../contexts/auth-context";
 import { URLs } from "../../__data__/urls";
+import { ErrorSign } from "../../components/error-sign";
+import { Loading } from "../../components/loading";
 
 const AdminPanel = () => {
   const { currentUser } = useContext(AuthContext);
-
+  const [errorPicture, setErrorPicture] = useState(false);
+  const [isLoad, setIsLoad] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [searchMessages, setSearchMessages] = useState([]);
   const [messagesData, setMessagesData] = useState([]);
@@ -22,14 +25,23 @@ const AdminPanel = () => {
   };
 
   useEffect(() => {
-    fetch(`${URLs.api.main}/messages`).then(
-      (response) => {
-        response.json()
+    setIsLoad(true);
+    fetch(`${URLs.api.main}/messages`).then((response) => {
+      if (!response.ok) {
+        return response.text().then((errorMessage) => {
+            setErrorPicture(true);
+            throw new Error(errorMessage);
+        });
+      }
+      return response.json();
+    })
         .then((data) => {
           const messages = data.data.filter((item) => item.onModerating === true);
+          setIsLoad(false);
+          setErrorPicture(false);
         setMessagesData(messages);
-     });
-   })
+     }).catch((error) => setErrorPicture(true));
+   
   }, []);
 
   useEffect(() => {
@@ -60,7 +72,9 @@ const AdminPanel = () => {
                 <Search searchValue={searchValue} handleSearchChange={handleSearchChange} />
               </TopDiv>
               <MessagesDiv>
-                {searchMessages.map((item) => (
+                {errorPicture ? <ErrorSign text="Возникла ошибка. Попробуйте позже"/> :
+                isLoad ? <Loading /> :
+                searchMessages.map((item) => (
                   <Message key={item.id} number={item.id} title={item.title}/>
                 ))}
               </MessagesDiv>

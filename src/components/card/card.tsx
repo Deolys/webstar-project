@@ -38,8 +38,8 @@ const [isFavourite, setIsFavourite] = useState(() => {
           cardId: id,
           email: currentUser.email
          }) 
-        }).then(responce => {
-          if(responce.ok) {
+        }).then(response => {
+          if(response.ok) {
            setIsFavourite((wasFavourite) => {
             wasFavourite ?
             setUserFavouritesData(userFavouritesData.filter(cardId => cardId!== id)) : 

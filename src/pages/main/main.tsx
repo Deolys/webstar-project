@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useMemo } from "react";
 
 import { Header } from "../../components/header";
 import { Sidebar } from "../../components/sidebar";
@@ -14,17 +14,21 @@ import {
 import { Title } from "../../components/title";
 import { AuthContext } from "../../contexts/auth-context";
 import { URLs } from "../../__data__/urls";
+import { ErrorSign } from "../../components/error-sign";
+import { Loading } from "../../components/loading";
 
 export function Main() {
   const { currentUser } = useContext(AuthContext);
 
   const [selectedTags, setSelectedTags] = useState([]);
   const [searchValue, setSearchValue] = useState("");
-  const [filteredCards, setFilteredCards] = useState([]);
+  const [errorPicture, setErrorPicture] = useState(false);
+  const [isLoad, setIsLoad] = useState(false);
 
   const [userFavouritesData, setUserFavouritesData] = useState([]);
   useEffect(() => {
     if(currentUser) {
+      setIsLoad(true)
       fetch(`${URLs.api.main}/user`, {
         headers: {
           'Authorization': `Bearer ${currentUser.email}`
@@ -33,13 +37,15 @@ export function Main() {
         {
           if (!response.ok) {
             return response.text().then((errorMessage) => {
-                alert(errorMessage);
+                setErrorPicture(true);
                 throw new Error(errorMessage);
             });
           }
           return response.json();
         }
         ).then(data => {
+          setErrorPicture(false);
+          setIsLoad(false);
           setUserFavouritesData(data);
         })
     }
@@ -53,11 +59,25 @@ export function Main() {
 
   const [cardsData, setCardsData] = useState([])
   useEffect(() => {
+    setIsLoad(true)
     fetch(`${URLs.api.main}/cards-data`)
-    .then(response => response.json())
+    .then((response) => 
+      {
+        if (!response.ok) {
+          setErrorPicture(true);
+          throw new Error("Error with cards data");
+        }
+        return response.json();
+      }
+      )    
     .then(data => {
+      setIsLoad(false);
+      setErrorPicture(false);
       setCardsData(data.data);
+    }).catch((error) => {
+      setErrorPicture(true);
     })
+
   }, [])
 
 
@@ -71,8 +91,8 @@ export function Main() {
       localStorage.setItem('favouriteCards', JSON.stringify(favouriteCards));
   }, [favouriteCards]);
 
-  useEffect(() => {
-    setFilteredCards(
+  const filteredCards = useMemo(() => {
+    return(
       cardsData.filter((card) =>
         card.title.toLowerCase().includes(searchValue.toLowerCase()) &&
         (selectedTags.length === 0 ||  selectedTags.every((tag) => card.tags.includes(tag))) &&
@@ -94,8 +114,10 @@ export function Main() {
               <Title>WebStar - create your digital dream with us</Title>
               <Search searchValue={searchValue} handleSearchChange={handleSearchChange} />
               <CardsDiv cardsInOneColumn={cardsInOneColumn}>
-                {filteredCards
-                .map((item, _index) => (
+                {errorPicture && <ErrorSign text="Возникла ошибка. Попробуйте позже"/>}
+                {isLoad ? <Loading /> :
+                filteredCards
+                .map((item) => (
                   <Card
                     key={item.id}
                     id={item.id}
@@ -108,7 +130,8 @@ export function Main() {
                     userFavouritesData={userFavouritesData}
                     cardsInOneColumn={cardsInOneColumn}
                   />
-                ))}
+                ))
+                }
               </CardsDiv>
             </section>
           </PageContainer>

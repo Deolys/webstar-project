@@ -1,0 +1,1 @@
+export { ErrorSign } from './error-sign';

@@ -22,7 +22,6 @@ export const Tag = styled.span`
     props.isSelected ? "#214139" : "#213741"};
     color: ${(props: { isSelected: boolean }) =>
     props.isSelected ? "#17E99D" : "#35D4F8"};
-    cursor: ${(props: { isSelected: boolean }) => 
-    props.isSelected? "default" : "pointer"};
+    cursor: pointer;
 `;
   

@@ -24,6 +24,8 @@ import { OpenCardTitle } from "../../components/open-card-title";
 
 import { AuthContext } from "../../contexts/auth-context";
 import { URLs } from "../../__data__/urls";
+import { ErrorSign } from "../../components/error-sign";
+import { Loading } from "../../components/loading";
 
 const Card = () => {
     const { currentUser } = useContext(AuthContext);
@@ -37,6 +39,8 @@ const Card = () => {
     const [cardTitle, setCardTitle] = useState('');
     const [sliderImages, setSliderImages] = useState([]);
     const [someTags, setSomeTags] = useState([]);
+    const [errorPicture, setErrorPicture] = useState(false);
+    const [isLoad, setIsLoad] = useState(false);
     const [cardUndoData, setCardUndoData] = useState({
       articleCount: articleCount, 
       articleData: articleData, 
@@ -78,7 +82,12 @@ const Card = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
+          setIsLoad(true);
           const response = await fetch(`${URLs.api.main}/cards-data/${cardId}`);
+          if (!response.ok) {
+            setErrorPicture(true);
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
           const data = await response.json();
           setArticleData(data.articles);
           setCardTitle(data.title);
@@ -86,6 +95,8 @@ const Card = () => {
           setSliderImages(data.sliderImages);
           setSomeTags(data.tags);
           setArticleCount(data.articles.length);
+          setIsLoad(false);
+          setErrorPicture(false);
     
           if (currentUser) {
             setIsOwner(currentUser.email === data.ownerId);
@@ -93,6 +104,10 @@ const Card = () => {
     
           if (currentUser && onEdit && (isOwner || currentUser.email === "admin@admin.ru")) {
             const modResponse = await fetch(`${URLs.api.main}/messages/${cardId}`);
+            if (!response.ok) {
+              setErrorPicture(true);
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
             const modData = await modResponse.json();
             if (modData.onModerating) {
               setArticleData(modData.articles);
@@ -101,9 +116,11 @@ const Card = () => {
               setSliderImages(modData.sliderImages);
               setSomeTags(modData.tags);
               setArticleCount(modData.articles.length);
+              setErrorPicture(false);
             }
           }
         } catch (error) {
+          setErrorPicture(true);
           console.error('Error fetching data:', error);
         }
       };
@@ -134,10 +151,13 @@ const Card = () => {
         <Header  showFavourites setShowFavourites />
 
         <MainContainer>
+          {errorPicture ? <ErrorSign text="Не удалось загрузить карточку. Попробуйте позже"/> : 
+          isLoad ? <Loading/> : 
+            <>
             <TopButtonsPanel isOwner={isOwner} favouritesBtnAction={handleFavouritesToggle} optionsBtnAction={handleEditModeToggle}/>
 
             <Slider sliderImages={sliderImages} setSliderImages={setSliderImages} isEditing={isEditMode}/>
-            
+
             <OpenCardTitle cardTitle={cardTitle} setCardTitle={setCardTitle} isEditing={isEditMode}></OpenCardTitle>
 
             <TagsPanel tags={someTags} setTags={setSomeTags} isEditing={isEditMode}/>
@@ -160,8 +180,9 @@ const Card = () => {
                 }
                 {isEditMode&&<UploadBtn isRel={true} bindAction={addArticle}/>}
             </ContentContainer>
-          
+
             <BottomButtonsPanel isEditing={isEditMode} cancelBtnAction={undoCardData} finishBtnAction={()=>setIsEditMode(false)}/>
+            </>}
         </MainContainer>
         
         <Ellipses count={articleCount}/>
