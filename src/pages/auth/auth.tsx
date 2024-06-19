@@ -5,6 +5,7 @@ import { Wrapper, BaseStyles, Form, FormLabel, FormTitle, FormSubTitle, ColoredT
 
 import { URLs } from "../../__data__/urls";
 import { AuthContext } from "../../contexts/auth-context";
+import { ErrorSign } from "../../components/error-sign";
 
 interface contextUser {
   currentUser: {
@@ -15,6 +16,8 @@ interface contextUser {
 }
 
 const Authentication = () => {
+  const [passError, setPassError] = useState(false);
+  const [errorPicture, setErrorPicture] = useState(false);
   const currentLocation = location.pathname.split('/').pop();
   const { setCurrentUser } = useContext<contextUser>(AuthContext)
   const [loginData, setLoginData] = useState({
@@ -44,26 +47,27 @@ const Authentication = () => {
       .then((response) => {
         if (!response.ok) {
           return response.text().then((errorMessage) => {
-              alert(errorMessage);
+              setErrorPicture(true);
               throw new Error(errorMessage);
           });
         }
         return response.json();
       })
       .then((data) => {
+        setErrorPicture(false);
         setCurrentUser({email: data.email, cardId: data.cardId});
         location.replace(`${URLs.baseUrl}`);
       })
     } catch (error) {
+      setErrorPicture(true);
       console.error('Error while logging in:', error);
-      alert('Error while logging in');
     }
   };
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
     if(registerData.password!== registerData.confirmPassword) {
-      alert('Passwords do not match');
+      setPassError(true);
       return;
     }
     try {
@@ -79,17 +83,20 @@ const Authentication = () => {
       .then((response) => {
         if (!response.ok) {
           return response.text().then((errorMessage) => {
-              alert(errorMessage);
+              setErrorPicture(true);
               throw new Error(errorMessage);
           });
         }
         return response.json();
       })
       .then((data) => {
+        setPassError(false);
+        setErrorPicture(false);
         setCurrentUser({email: data.email, cardId: ""});
         location.replace(`${URLs.baseUrl}`);
       })
     } catch (error) {
+      setErrorPicture(true);
       console.error('Error while registering:', error);
     }
   };
@@ -109,10 +116,10 @@ const Authentication = () => {
   const handleRecoverSubmit = (e) => {
     e.preventDefault();
     if(registerData.password!== registerData.confirmPassword) {
-      alert('Passwords do not match');
+      setPassError(true);
       return;
     }
-    alert('Пароль восстановлен');
+    setPassError(false);
     setCurrentUser({email: registerData.email, cardId: ""});
     location.replace(`${URLs.baseUrl}`);
   }
@@ -151,6 +158,7 @@ const Authentication = () => {
                   </PasswordDiv>
 
                   <FormButton type="submit">Войти</FormButton>
+                  {passError && <ErrorSign text="Неверный логин или пароль" />}
 
                   <ColoredText fontSize="24px">
                     Нет аккаунта? <FormLink href={URLs.ui.register}>Давайте создадим!</FormLink>
@@ -204,7 +212,7 @@ const Authentication = () => {
                     inputValue={registerData.confirmPassword} onChange={handleInputChange}/>
                     
                   </PasswordDiv>
-                  
+                  {passError && <ErrorSign text="Пароли должны совпадать" />}
                   <FormButton type="submit" onSubmit={handleRegisterSubmit}>Зарегистрироваться</FormButton>
 
                   <ColoredText fontSize="24px">
@@ -243,16 +251,15 @@ const Authentication = () => {
                     name="confirmPassword"
                     placeholder="Введите пароль"
                     inputValue={registerData.confirmPassword} onChange={handleInputChange}/>
-                    
                   </PasswordDiv>
                   
                   <FormButton type="submit" onSubmit={handleRecoverSubmit}>Установить новый пароль</FormButton>
-
+                  {passError && <ErrorSign text="Пароли должны совпадать" />}
                   <ColoredText fontSize="24px">
                     Уже есть аккаунт? <FormLink href={URLs.ui.login}>Войти</FormLink>
                   </ColoredText>
                 </Form>}
-
+                {errorPicture && <ErrorSign text="Произошла ошибка. Попробуйте позже" />}
               </Wrapper>
           </main>
     </BaseStyles>

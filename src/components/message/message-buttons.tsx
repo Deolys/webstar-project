@@ -8,7 +8,7 @@ export function MessageButtons({id}) {
 
   return (
     <div className="message__buttons">
-      <Link to={URLs.ui.cardDetail.getUrl(id)}>
+      <Link to={URLs.ui.cardDetailEdit.getUrl(id)}>
         <ButtonView>Посмотреть</ButtonView>
       </Link>
       <ButtonAccept>Принять</ButtonAccept>

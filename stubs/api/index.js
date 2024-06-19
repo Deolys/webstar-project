@@ -2,8 +2,18 @@ const router = require('express').Router();
 const authMiddleware = require('../middleware/auth-middleware');
 
 router.get('/cards-data', (request, response) => {
-  response.send(require('../json/cards-data/success.json'))
+  try {
+    const cardsData = require('../json/cards-data/success.json');
+    if (cardsData) {
+      return response.send(cardsData);
+    }
+    
+    return response.status(404).send('Cards data not found');
+  } catch (error) {
+    response.status(500).send('Server error');
+  }
 })
+
 
 router.get('/messages', (request, response) => {
   response.send(require('../json/messages/success.json'))
@@ -19,8 +29,8 @@ router.get('/user', authMiddleware, (request, response) => {
     if (userData) {
       return response.json(userData.favourites);
     } 
-    response.status(404).send('User not found');
-
+    
+    return response.status(404).send('User not found');
   } catch (error) {
     console.error('Error reading file:', error);
     response.status(500).send('Internal server error');
@@ -37,8 +47,8 @@ router.get('/cards-data/:id', (request, response) => {
     if (cardData) {
       return response.json(cardData);
     } 
-    response.status(404).send('Card not found');
 
+    return response.status(404).send('Card not found');
   } catch (error) {
     console.error('Error reading file:', error);
     response.status(500).send('Internal server error');
@@ -55,8 +65,8 @@ router.get('/messages/:id', (request, response) => {
     if (cardData) {
       return response.json(cardData);
     } 
-    response.status(404).send('Card not found');
 
+    return response.status(404).send('Card not found');
   } catch (error) {
     console.error('Error reading file:', error);
     response.status(500).send('Internal server error');
@@ -88,7 +98,7 @@ router.post('/login', (request, response) => {
  }
 })
 
-router.post('/register', async (request, response) => {
+router.post('/register', (request, response) => {
   const { _name, email, password, confirmPassword } = request.body.registerData;
 
   try {
@@ -110,7 +120,7 @@ router.post('/register', async (request, response) => {
   }
 });
 
-router.post('/favourite', async (request, response) => {
+router.post('/favourite', (request, response) => {
   const { cardId, email } = request.body;
 
   try {
@@ -126,7 +136,7 @@ router.post('/favourite', async (request, response) => {
           return response.status(200).send('Card removed from favourites successfully');
       }
       
-      response.status(200).send('Card added to favourites successfully');
+      return response.status(200).send('Card added to favourites successfully');
   } catch (error) {
       console.error('Error adding card to favourites:', error);
       response.status(500).send('Internal server error');
