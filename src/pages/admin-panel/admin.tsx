@@ -40,7 +40,10 @@ const AdminPanel = () => {
           setIsLoad(false);
           setErrorPicture(false);
         setMessagesData(messages);
-     }).catch((error) => setErrorPicture(true));
+     }).catch((error) => {
+      console.error('error: ', error);
+      setErrorPicture(true)
+    });
    
   }, []);
 

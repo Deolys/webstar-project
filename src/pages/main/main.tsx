@@ -75,6 +75,7 @@ export function Main() {
       setErrorPicture(false);
       setCardsData(data.data);
     }).catch((error) => {
+      console.error('error: ', error);
       setErrorPicture(true);
     })
 
