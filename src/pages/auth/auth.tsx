@@ -251,7 +251,6 @@ const Authentication = () => {
                     name="confirmPassword"
                     placeholder="Введите пароль"
                     inputValue={registerData.confirmPassword} onChange={handleInputChange}/>
-                    
                   </PasswordDiv>
                   
                   <FormButton type="submit" onSubmit={handleRecoverSubmit}>Установить новый пароль</FormButton>
@@ -261,7 +260,6 @@ const Authentication = () => {
                   </ColoredText>
                 </Form>}
                 {errorPicture && <ErrorSign text="Произошла ошибка. Попробуйте позже" />}
-
               </Wrapper>
           </main>
     </BaseStyles>
